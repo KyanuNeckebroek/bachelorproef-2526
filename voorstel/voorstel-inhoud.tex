@@ -1,0 +1,246 @@
+%---------- Inleiding ---------------------------------------------------------
+
+% TODO: Is dit voorstel gebaseerd op een paper van Research Methods die je
+% vorig jaar hebt ingediend? Heb je daarbij eventueel samengewerkt met een
+% andere student?
+% Zo ja, haal dan de tekst hieronder uit commentaar en pas aan.
+
+%\paragraph{Opmerking}
+
+% Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
+% kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
+% uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
+% 
+
+\section{Inleiding}%
+\label{sec:inleiding}
+
+De verspreiding van misinformatie vormt een toenemend maatschappelijk probleem met aanzienlijke gevolgen
+voor de publieke opinie, de volksgezondheid en het functioneren van democratische processen \autocite{Vosoughi2018}.
+Grote, gecentraliseerde sociale mediaplatformen zoals X en Facebook trachten dit probleem te beheersen
+via centrale moderatiesystemen en geavanceerde AI-gestuurde detectiemechanismen.
+Deze aanpak is echter moeilijk toepasbaar op decentrale sociale netwerken.
+
+Mastodon is een open-source en federaal opgebouwd sociaal mediaplatform,
+waarbij afzonderlijke servers onafhankelijk functioneren zonder centrale controle.
+Door het ontbreken van centrale regie wordt het detecteren van misinformatie op Mastodon
+aanzienlijk complexer, zowel voor menselijke moderatoren als voor automatische detectiesystemen \autocite{Marx2023}.
+Bovendien zijn de meeste bestaande machine learning-modellen voor misinformatiedetectie
+ontwikkeld en getraind op data afkomstig van grote, gecentraliseerde platformen,
+waardoor hun prestaties in een decentrale context onzeker zijn.
+
+Deze bachelorproef onderzoekt daarom hoe effectief machine learning-modellen,
+met in het bijzonder BERT (Bidirectional Encoder Representations from Transformers),
+zijn in het detecteren van misinformatie op het decentrale sociale mediaplatform Mastodon.
+Het doel van dit onderzoek is het evalueren en vergelijken van de detectienauwkeurigheid
+van deze modellen aan de hand van een aangepaste versie van de LIAR-dataset,
+toegepast op meer dan 500 Mastodon-berichten.
+Daarnaast wordt geanalyseerd welke inhoudelijke factoren, zoals berichtlengte,
+taalgebruik en bronbetrouwbaarheid, invloed uitoefenen op de prestaties van de modellen.
+
+%---------- Stand van zaken ---------------------------------------------------
+
+\section{Literatuurstudie}
+\label{sec:literatuurstudie}
+
+De automatische detectie van misinformatie op sociale media is de voorbije jaren
+uitgegroeid tot een belangrijk onderzoeksdomein binnen artificial intelligence en natural language processing.
+Misinformatie kan zich snel verspreiden en aanzienlijke maatschappelijke schade veroorzaken,
+wat heeft geleid tot een sterke toename van onderzoek naar automatische detectiemethoden \autocite{Shu2017,Vosoughi2018}.
+Het merendeel van deze studies richt zich echter op grote, gecentraliseerde sociale mediaplatformen
+zoals Twitter (X) en Facebook, waar centrale moderatie, uniforme data-structuren
+en grootschalige datasets beschikbaar zijn.
+
+Recente overzichtsstudies tonen aan dat traditionele machine learning-modellen
+zoals Logistic Regression en Support Vector Machines
+lange tijd de standaard vormden voor misinformatiedetectie,
+vaak in combinatie met handmatig geëxtraheerde tekstuele kenmerken \autocite{Shu2017}.
+Met de opkomst van deep learning en transformer-gebaseerde modellen
+heeft vooral BERT (Bidirectional Encoder Representations from Transformers)
+significant betere resultaten laten zien op benchmarkdatasets zoals LIAR en FakeNewsNet \autocite{Devlin2019}.
+Deze verbeteringen zijn voornamelijk toe te schrijven aan het vermogen van BERT
+om context en semantische relaties in tekst beter te modelleren.
+
+\subsection{Decentrale sociale netwerken en Mastodon}
+\label{sec:decentraal_mastodon}
+
+In tegenstelling tot gecentraliseerde platformen is Mastodon een federaal opgebouwd sociaal netwerk,
+waarbij afzonderlijke servers (instances) onafhankelijk opereren
+en eigen moderatie- en beleidsregels hanteren.
+Volgens \textcite{Marx2023} leidt deze decentrale structuur tot een gefragmenteerd informatiesysteem,
+waarin data, gebruikers en moderatiebeslissingen verspreid zijn over meerdere entiteiten.
+Dit bemoeilijkt niet alleen handmatige moderatie,
+maar vormt ook een uitdaging voor automatische detectiesystemen
+die doorgaans steunen op gecentraliseerde dataverzameling en uniforme context.
+
+Daarnaast wijst \textcite{suryacreatx2023} erop dat Mastodon-instances
+vaak beschikken over beperkte technische en financiële middelen,
+waardoor grootschalige AI-oplossingen moeilijk implementeerbaar zijn.
+De afwezigheid van een centrale autoriteit maakt het bovendien onduidelijk
+wie verantwoordelijk is voor het ontwikkelen, trainen en inzetten van detectiemodellen.
+Deze kenmerken maken Mastodon tot een relevante maar onderbelichte casus
+voor onderzoek naar misinformatiedetectie in decentrale omgevingen.
+
+\subsection{Machine learning-modellen voor misinformatiedetectie}
+\label{sec:ml_modellen}
+
+Binnen de bestaande literatuur worden verschillende machine learning-benaderingen onderzocht
+voor het detecteren van misinformatie.
+Shu et al.\ \autocite{Shu2017} onderscheiden grofweg drie categorieën:
+traditionele classifiers, deep learning-modellen en hybride benaderingen
+die tekstuele, sociale en metadata combineren.
+Hoewel transformer-gebaseerde modellen zoals BERT
+state-of-the-art prestaties behalen op gecentraliseerde datasets,
+blijft hun generaliseerbaarheid naar andere platformen en contexten onzeker \autocite{Devlin2019}.
+
+Onderzoek van \textcite{Ruchansky2017} toont aan dat modellen
+die uitsluitend op tekst gebaseerd zijn,
+gevoelig zijn voor contextverlies en platform-specifiek taalgebruik.
+Dit is bijzonder relevant voor Mastodon,
+waar berichten vaak korter zijn, informeler taalgebruik bevatten
+en sterk afhankelijk zijn van instance-specifieke context.
+Daarom pleiten meerdere auteurs voor vergelijkend onderzoek
+tussen verschillende modeltypes binnen nieuwe platformcontexten \autocite{Shu2017}.
+
+\subsection{Beïnvloedende factoren en datasetbias}
+\label{sec:bias_factoren}
+
+Naast het gekozen model spelen ook inhoudelijke en structurele factoren
+een belangrijke rol in de prestaties van misinformatiedetectiesystemen.
+Park et al.\ \autocite{Park2022} tonen aan dat datasets
+vaak politieke, culturele of taalkundige vertekeningen bevatten,
+wat kan leiden tot systematische bias in modelvoorspellingen.
+Dit probleem wordt versterkt wanneer modellen getraind zijn
+op Engelstalige en platform-specifieke data.
+
+Verder wijzen meerdere studies erop dat factoren zoals berichtlengte,
+bronbetrouwbaarheid en taalgebruik
+een significante invloed hebben op detectienauwkeurigheid \autocite{Shu2017,Ruchansky2017}.
+In een decentrale context zoals Mastodon,
+waar berichten en gebruikers sterk heterogeen zijn,
+is het daarom noodzakelijk om niet alleen modellen te evalueren,
+maar ook de invloed van dergelijke factoren expliciet te analyseren.
+
+\subsection{Onderzoekslacune}
+\label{sec:lacune}
+
+Hoewel de literatuur uitgebreide inzichten biedt
+in misinformatiedetectie op gecentraliseerde sociale mediaplatformen,
+blijft onderzoek naar decentrale netwerken zoals Mastodon beperkt.
+Bestaande studies focussen zelden op een systematische vergelijking
+van verschillende machine learning-modellen
+binnen een federated omgeving,
+noch op de rol van beïnvloedende inhoudelijke factoren.
+Deze lacune vormt de aanleiding voor dit onderzoek,
+dat zich richt op misinformatiedetectie op Mastodon
+als concrete decentrale casus.
+
+
+%---------- Methodologie ------------------------------------------------------
+\section{Methodologie}
+\label{sec:methodologie}
+
+Dit onderzoek volgt een systematische, iteratieve aanpak om de prestaties van machine learning-modellen,
+met nadruk op BERT, bij de detectie van misinformatie op Mastodon te evalueren.
+Het type bachelorproef kan gekarakteriseerd worden als een \emph{vergelijkende studie},
+gecombineerd met een \emph{proof-of-concept} implementatie en factoranalyse.
+
+\subsection{Dataverzameling en voorbereiding}
+De dataset bestaat uit:
+\begin{itemize}
+    \item Een aangepaste versie van de LIAR-dataset met gelabelde publieke statements \autocite{Wang2017}.
+    \item Minimaal 500 Mastodon-berichten, verzameld via de Mastodon API van publieke instances.
+\end{itemize}
+Berichten worden gelabeld op basis van betrouwbare factcheck-bronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact},
+waardoor een consistente \emph{ground truth} ontstaat.  
+Voorverwerking omvat:
+\begin{enumerate}
+    \item Normalisatie van tekst (lowercasing, verwijdering van HTML-tags),
+    \item Tokenisatie,
+    \item Verwijdering van duplicaten,
+    \item Eventuele annotatie van bijkomende factoren zoals bronbetrouwbaarheid en berichtlengte.
+\end{enumerate}
+Het resultaat is een kwalitatief consistente dataset geschikt voor training, validatie en test van BERT en andere modellen.
+
+\subsection{Modelselectie en training}
+De volgende modellen worden onderzocht:
+\begin{itemize}
+    \item Transformer-gebaseerd model: \textbf{BERT} (\texttt{bert-base-uncased}) \autocite{Devlin2019}.
+    \item Traditionele machine learning-modellen: \textbf{Logistic Regression} en \textbf{SVM} \autocite{Shu2017}.
+\end{itemize}
+BERT wordt gefinetuned op de samengestelde dataset met behulp van de \texttt{Hugging Face Transformers}-library en \texttt{PyTorch}.  
+Hyperparameters zoals learning rate, batch size en aantal epochs worden geoptimaliseerd via \emph{grid search} en \emph{k-fold cross-validatie}.
+
+\subsection{Iteratieve evaluatie en Agile-aanpak}
+Het onderzoek wordt iteratief uitgevoerd in sprints van 2 weken:
+\begin{itemize}
+    \item Na elke sprint wordt het model geëvalueerd op een validatieset.
+    \item Prestatie-indicatoren zoals accuracy, precision, recall en F1-score worden berekend.
+    \item Inzichten leiden tot optimalisaties: feature-engineering, databalans en hyperparameter-tuning.
+\end{itemize}
+
+\subsection{Analyse van beïnvloedende factoren}
+Na de laatste iteratie wordt het model getest op een onafhankelijke Mastodon-testset.
+Hierbij wordt een inhoudelijke analyse uitgevoerd om de invloed van factoren zoals:
+\begin{enumerate}
+    \item Berichtlengte,
+    \item Bronbetrouwbaarheid,
+    \item Taalkenmerken en echo chambers,
+\end{enumerate}
+te kwantificeren op modelprestaties. Statistische toetsen zoals chi-kwadraat of ANOVA worden gebruikt om significantie te evalueren.
+
+\subsection{Technische omgeving en deliverables}
+\begin{itemize}
+    \item Software: Python 3.11, Hugging Face Transformers, PyTorch, Scikit-learn.
+    \item Hardware: Linux-server met GPU-ondersteuning.
+    \item Versiebeheer: Git-repository met dataset, code en evaluatierapporten.
+    \item Deliverables per fase:
+    \begin{enumerate}
+        \item Dataverzameling en preprocessing: geschoonde, gelabelde dataset.
+        \item Modeltraining en validatie: opgeslagen modelweights en trainingslogboeken.
+        \item Iteratieve evaluatie: prestatieoverzicht per sprint.
+        \item Eindanalyse: rapport met F1-scores, factoranalyse en visualisaties.
+    \end{enumerate}
+\end{itemize}
+
+%---------- Verwachte resultaten ----------------------------------------------
+\section{Verwacht resultaat, conclusie}%
+\label{sec:verwachte-resultaten}
+
+Op basis van literatuur en eerdere studies wordt verwacht dat:
+
+\subsection{Modelprestaties}
+\begin{itemize}
+    \item \textbf{BERT} een hogere nauwkeurigheid en F1-score haalt (circa 80--85\%) dan traditionele modellen zoals SVM en Logistic Regression \autocite{Shu2017,Oshikawa2020}.
+    \item De prestaties liggen iets lager dan op gecentraliseerde platformen
+    vanwege korte berichten, variabel taalgebruik en de federatieve structuur van Mastodon \autocite{Marx2023}.
+\end{itemize}
+
+\subsection{Invloed van factoren}
+Het wordt verwacht dat:
+\begin{enumerate}
+    \item \textbf{Berichtlengte}: Kortere berichten minder context bieden, resulterend in lagere precisie en recall.
+    \item \textbf{Bronbetrouwbaarheid}: Berichten van betrouwbare bronnen beter te classificeren zijn.
+    \item \textbf{Echo chambers / netwerkeffecten}: Homogene clusters kunnen misinformatiepatronen versterken, wat detectie bemoeilijkt.
+\end{enumerate}
+
+\subsection{Meetmethode en analyse}
+\begin{itemize}
+    \item Primaire maatstaf: F1-score, om zowel precisie als recall mee te nemen.
+    \item Analyse uitgesplitst per factor om te bepalen in welke omstandigheden modellen goed of slecht presteren.
+    \item Visualisaties: bar charts per factor, vergelijkingen tussen modeltypes.
+\end{itemize}
+
+\subsection{Verwachte deliverables}
+\begin{itemize}
+    \item Een \textbf{vergelijkende analyse} van BERT versus traditionele modellen.
+    \item Een \textbf{factoranalyse} die inzicht geeft in de invloed van berichtlengte, bronbetrouwbaarheid en netwerkeffecten.
+    \item Een \textbf{visueel overzicht} van prestaties en conclusies, zoals mock-ups van F1-scores per factor.
+\end{itemize}
+
+\subsection{Wetenschappelijke en praktische implicaties}
+De resultaten bieden IT-professionals, instance-moderators en ontwikkelaars van Mastodon concrete, evidence-based inzichten voor het optimaliseren van misinformatiedetectie op decentrale netwerken.  
+Ze dragen bij aan de wetenschappelijke kennis over AI voor federated sociale media en ondersteunen bredere maatschappelijke doelen zoals betrouwbare informatievoorziening en democratische veerkracht.
+
+\subsection{Reflectie bij afwijkende resultaten}
+Indien de resultaten afwijken van de verwachtingen, bijvoorbeeld door complexere taalpatronen of onverwachte netwerkeffecten, zal dit nieuwe richtingen voor modelontwikkeling en trainingsstrategieën opleveren, waardoor toekomstige detectiemodellen robuuster kunnen worden.

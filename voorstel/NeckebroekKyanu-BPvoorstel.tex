@@ -1,0 +1,85 @@
+%==============================================================================
+% Sjabloon onderzoeksvoorstel bachproef
+%==============================================================================
+% Gebaseerd op document class `hogent-article'
+% zie <https://github.com/HoGentTIN/latex-hogent-article>
+
+% Voor een voorstel in het Engels: voeg de documentclass-optie [english] toe.
+% Let op: kan enkel na toestemming van de bachelorproefcoördinator!
+\documentclass{hogent-article}
+
+% Invoegen bibliografiebestand
+\addbibresource{voorstel.bib}
+
+% Informatie over de opleiding, het vak en soort opdracht
+\studyprogramme{Professionele bachelor toegepaste informatica}
+\course{Bachelorproef}
+\assignmenttype{Onderzoeksvoorstel}
+% Voor een voorstel in het Engels, haal de volgende 3 regels uit commentaar
+% \studyprogramme{Bachelor of applied information technology}
+% \course{Bachelor thesis}
+% \assignmenttype{Research proposal}
+
+\academicyear{2025-2026} % TODO: pas het academiejaar aan                                   
+
+% TODO: Werktitel
+\title{Detectie van misinformatie op het decentrale sociale mediaplatform Mastodon: een vergelijking van machine learning modellen en beïnvloedende factoren}
+
+% TODO: Studentnaam en emailadres invullen
+\author{Kyanu Neckebroek}
+\email{kyanu.neckebroek@student.hogent.be}
+
+% TODO: Medestudent
+% Gaat het om een bachelorproef in samenwerking met een student in een andere
+% opleiding? Geef dan de naam en emailadres hier
+% \author{Yasmine Alaoui (naam opleiding)}
+% \email{yasmine.alaoui@student.hogent.be}
+
+% TODO: Geef de co-promotor op
+\supervisor[Co-promotor]{S. Beekman (Synalco, \href{mailto:sigrid.beekman@synalco.be}{sigrid.beekman@synalco.be})}
+
+% Binnen welke specialisatierichting uit 3TI situeert dit onderzoek zich?
+% Kies uit deze lijst:
+%
+% - Mobile \& Enterprise development
+% - AI \& Data Engineering
+% - Functional \& Business Analysis
+% - System \& Network Administrator
+% - Mainframe Expert
+% - Als het onderzoek niet past binnen een van deze domeinen specifieer je deze
+%   zelf
+%
+\specialisation{AI \& Data Engineering}
+\keywords{AI, Misinformatie,  Mastodon, BERT, NLP}
+
+\begin{document}
+
+\begin{abstract}
+Deze bachelorproef onderzoekt welke machine learning modellen geschikt zijn voor het detecteren van misinformatie op Mastodon, 
+een gedecentraliseerd sociaal mediaplatform zonder centrale moderatie. 
+De decentrale structuur en data uit verschillende bronnen maken automatische detectie complexer dan op gecentraliseerde platformen zoals X of Facebook.
+
+Het onderzoek vergelijkt traditionele machine learning-modellen, waaronder Support Vector Machines en Logistic Regression, 
+met een geavanceerd deep learning-model, namelijk BERT (Bidirectional Encoder Representations from Transformers). 
+Naast een modelvergelijking wordt geanalyseerd welke inhoudelijke factoren zoals berichtlengte, bronbetrouwbaarheid en taalgebruik 
+de nauwkeurigheid van deze modellen beïnvloeden.
+
+De experimentele opzet combineert een aangepaste versie van de LIAR-dataset met minimaal 500 gelabelde Mastodon-berichten, 
+verzameld via de publieke Mastodon API en geverifieerd door factcheckbronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact}. 
+De modellen worden getraind en geëvalueerd op basis van F1-score, precisie en recall.
+
+Verwacht wordt dat BERT beter presteert dan traditionele modellen, maar dat de prestaties lager liggen dan op gecentraliseerde platformen 
+door de specifieke eigenschappen van Mastodon-data. 
+De resultaten leveren zowel wetenschappelijke als praktische inzichten op voor misinformatiedetectie in decentrale omgevingen.
+\end{abstract}
+
+
+\tableofcontents
+
+% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
+% kan opgenomen worden in de bijlagen van de bachelorproef zelf.
+\input{voorstel-inhoud}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
