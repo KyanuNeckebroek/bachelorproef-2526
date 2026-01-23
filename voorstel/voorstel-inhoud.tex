@@ -11,6 +11,7 @@
 % kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
 % uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
 % 
+\setlength{\emergencystretch}{3em}
 
 \section{Inleiding}%
 \label{sec:inleiding}
@@ -176,12 +177,19 @@ BERT wordt gefinetuned op de samengestelde dataset met behulp van de \texttt{Hug
 Hyperparameters zoals learning rate, batch size en aantal epochs worden geoptimaliseerd via \emph{grid search} en \emph{k-fold cross-validatie}.
 
 \subsection{Iteratieve evaluatie en Agile-aanpak}
-Het onderzoek wordt iteratief uitgevoerd in sprints van 2 weken:
+Het onderzoek wordt uitgevoerd in sprints van twee weken. De focus ligt hierbij op een cyclisch proces van \textit{error analysis} en modelverbetering, waarbij de evaluatie van de vorige sprint de koers van de volgende sprint bepaalt:
+
 \begin{itemize}
-    \item Na elke sprint wordt het model geëvalueerd op een validatieset.
-    \item Prestatie-indicatoren zoals accuracy, precision, recall en F1-score worden berekend.
-    \item Inzichten leiden tot optimalisaties: feature-engineering, databalans en hyperparameter-tuning.
+    \item \textbf{Evaluatie en foutenanalyse:} Na elke sprint worden de resultaten op de validatieset geanalyseerd. Er wordt specifiek gekeken naar patronen in foutieve voorspellingen (bijv. presteert het model consistent slecht op korte berichten of op specifieke instances?).
+    \item \textbf{Gerichte optimalisatie:} In plaats van telkens een volledig nieuw model te kiezen, wordt het huidige model (of de dataset) verbeterd op basis van de gevonden fouten. Dit omvat:
+    \begin{itemize}
+        \item Het verfijnen van preprocessing (bijv. betere afhandeling van Mastodon-specifieke hashtags of emoticons).
+        \item Data-augmentatie voor categorieën waar het model moeite mee heeft.
+        \item Hyperparameter-tuning (zoals de learning rate of weight decay bij BERT) om gevonden overfitting te reduceren.
+    \end{itemize}
+    \item \textbf{Modelvergelijking:} In de eerste fases ligt de focus op de traditionele classifiers om een baseline te vestigen, waarna in de latere sprints BERT stapsgewijs wordt gefinetuned en geoptimaliseerd.
 \end{itemize}
+Op deze manier is elke sprint een directe reactie op de kwantitatieve resultaten van de voorgaande periode.
 
 \subsection{Analyse van beïnvloedende factoren}
 Na de laatste iteratie wordt het model getest op een onafhankelijke Mastodon-testset.
@@ -207,10 +215,11 @@ te kwantificeren op modelprestaties. Statistische toetsen zoals chi-kwadraat of 
     \end{enumerate}
 \end{itemize}
 
-\begin{figure*}
+\begin{figure*}[H]
     \centering
-    \includegraphics[width=\textwidth]{img/image.png}
-    \caption{\label{fig:gantt}Gantt diagram met de verschillende fasen en milestones van het onderzoek.}
+    % Verander width naar 0.8 of 0.9 om te testen
+    \includegraphics[width=0.85\textwidth]{img/image.png}
+    \caption{\label{fig:gantt}Gantt diagram...}
 \end{figure*}
 
 %---------- Verwachte resultaten ----------------------------------------------
