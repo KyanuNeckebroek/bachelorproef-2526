@@ -1,3 +1,11 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{iflang} % Nodig voor \IfLanguageName
+
+\begin{document}
+
 %%=============================================================================
 %% Voorwoord
 %%=============================================================================
@@ -5,10 +13,19 @@
 \chapter*{\IfLanguageName{dutch}{Woord vooraf}{Preface}}%
 \label{ch:voorwoord}
 
-%% TODO:
-%% Het voorwoord is het enige deel van de bachelorproef waar je vanuit je
-%% eigen standpunt (``ik-vorm'') mag schrijven. Je kan hier bv. motiveren
-%% waarom jij het onderwerp wil bespreken.
-%% Vergeet ook niet te bedanken wie je geholpen/gesteund/... heeft
+Voor u ligt de bachelorproef ``Detectie van misinformatie op het decentrale sociale mediaplatform Mastodon'', geschreven als afronding van de opleiding Toegepaste Informatica aan HOGENT.
 
-\lipsum[1-2]
+De keuze voor dit onderwerp vloeit voort uit mijn persoonlijke fascinatie voor de snelle ontwikkelingen binnen Artificial Intelligence en de impact hiervan op onze samenleving. In een tijd waarin sociale media vaak onder vuur liggen vanwege polarisatie en nepnieuws, trok de opkomst van het `Fediverse' en Mastodon mijn aandacht. Het leek mij een uitdagend technisch en maatschappelijk vraagstuk: hoe houden we een platform schoon zonder centrale autoriteit?
+
+Het schrijven van deze scriptie en het bouwen van de bijbehorende modellen was een leerzaam proces. Het heeft mij niet alleen dieper inzicht gegeven in Natural Language Processing en modellen zoals BERT, maar ook in de complexiteit van dataverzameling op een decentraal netwerk.
+
+Graag wil ik iedereen bedanken die mij tijdens dit traject heeft gesteund. In de eerste plaats wil ik mijn promotor, lector Steven Van Impe, en mijn co-promotor, Kasper Cools, bedanken voor de waardevolle feedback en het sturen van mijn onderzoek in de juiste richting. Ook gaat mijn dank uit naar de docenten van de specialisatie AI \& Data Engineering voor de stevige basis die zij mij de afgelopen jaren hebben meegegeven.
+
+Tot slot wil ik mijn ouders en vrienden bedanken. Hun geduld, aanmoedigingen en de nodige ontspanning tijdens de drukke periodes waren onmisbaar om dit project tot een goed einde te brengen.
+
+\vspace{1cm}
+
+Kyanu Neckebroek \\
+Gent, mei 2026
+
+\end{document}

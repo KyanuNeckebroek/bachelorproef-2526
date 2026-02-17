@@ -1,50 +1,73 @@
-%%=============================================================================
-%% Inleiding
-%%=============================================================================
+\documentclass[a4paper,11pt]{report}
+\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage{parskip}
 
-\chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
+% Dit is een opzet zodat je de tekst hier als PDF kunt bekijken.
+% Voor je eigen thesis: kopieer alles hieronder (vanaf \chapter) naar je eigen bestand.
+
+\begin{document}
+
+\chapter{Inleiding}
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+De verspreiding van misinformatie op sociale media wordt beschouwd als een van de grootste uitdagingen van het digitale tijdperk. Terwijl platformen zoals Facebook (Meta) en X (voorheen Twitter) zwaar investeren in gecentraliseerde moderatie-algoritmen en factchecking-partnerships, vindt er een verschuiving plaats in het sociale medialandschap. Een groeiend aantal gebruikers migreert naar het ``Fediverse'', met Mastodon als de meest prominente speler.
 
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+Mastodon onderscheidt zich door zijn decentrale architectuur: er is geen centrale eigenaar, geen centraal algoritme en—cruciaal voor dit onderzoek—geen centraal moderatieteam. Elke server (instantie) wordt beheerd door vrijwilligers die verantwoordelijk zijn voor hun eigen regels. Dit creëert een unieke uitdaging: hoe kan misinformatie effectief gedetecteerd worden in een omgeving waar data gefragmenteerd is en moderatoren vaak overbelast zijn?
 
-\section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
+Dit onderzoek richt zich op de toepasbaarheid van machine learning (ML) voor het ondersteunen van deze moderatoren. Specifiek wordt onderzocht of geavanceerde taalmodellen zoals BERT een significant voordeel bieden ten opzichte van traditionele classificatiemethoden in de specifieke context van Mastodon-berichten (``toots'').
+
+\section{Probleemstelling}
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+De huidige tools voor automatische detectie van misinformatie zijn voornamelijk ontwikkeld voor en getraind op data van gecentraliseerde platformen zoals X en Reddit. Deze modellen leunen vaak op metadata die specifiek is voor die platformen (zoals globale like-counts of geverifieerde vinkjes) of gaan uit van een uniforme dataset.
 
-\section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
+Op Mastodon is de situatie fundamenteel anders. Berichten kunnen langer zijn (vaak 500 tekens in plaats van 280), de metadata verschilt per instantie, en de verspreiding van berichten verloopt via een federatief protocol (ActivityPub). Een model dat getraind is op korte tweets presteert mogelijk suboptimaal op de rijkere context van Mastodon-posts. Bovendien hebben beheerders van kleinere Mastodon-instanties vaak niet de middelen om dure, commerciële moderatietools in te kopen.
+
+De doelgroep van dit onderzoek bestaat primair uit **beheerders en moderatoren van Mastodon-instanties**. Zij hebben behoefte aan open-source, toegankelijke inzichten over welke detectiemethoden effectief zijn om hun lokale tijdlijnen schoon te houden. Daarnaast is dit onderzoek relevant voor **onderzoekers in data science en media**, die inzicht willen krijgen in hoe desinformatie zich gedraagt op decentrale netwerken.
+
+\section{Onderzoeksvraag}
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+Het doel van deze bachelorproef is om te bepalen welk type machine learning model het meest geschikt is voor de detectie van misinformatie binnen de technische en inhoudelijke context van Mastodon. De hoofdonderzoeksvraag luidt als volgt:
 
-\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
+\begin{quote}
+    \textit{In hoeverre presteert het Transformer-gebaseerde model BERT beter in het detecteren van misinformatie op Mastodon in vergelijking met traditionele machine learning modellen zoals Support Vector Machines en Logistic Regression?}
+\end{quote}
+
+Om deze vraag te beantwoorden, worden de volgende deelvragen gehanteerd:
+\begin{enumerate}
+    \item Wat is de invloed van platform-specifieke kenmerken van Mastodon (zoals berichtlengte en decentrale metadata) op de nauwkeurigheid van de modellen?
+    \item Welke performantie (uitgedrukt in F1-score, precision en recall) behalen de modellen wanneer ze getraind worden op de algemene LIAR-dataset en toegepast worden op Mastodon-specifieke data?
+    \item Is de computationele meerkost van een zwaar model als BERT te verantwoorden voor de behaalde accuratessewinst ten opzichte van lichtere modellen?
+\end{enumerate}
+
+\section{Onderzoeksdoelstelling}
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het beoogde resultaat van deze bachelorproef is een **vergelijkende studie** ondersteund door een **technische proof-of-concept**.
 
-\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
+De criteria voor succes zijn:
+\begin{itemize}
+    \item Het opleveren van een gelabelde dataset van minimaal 500 Mastodon-berichten (gebaseerd op factchecks).
+    \item Een werkende implementatie van drie modellen (Logistic Regression, SVM, BERT) die getraind en getest zijn op deze data.
+    \item Een kwantitatieve evaluatie waarbij de F1-scores van de modellen tegen elkaar worden afgezet.
+    \item Een adviesrapport voor moderatoren over de haalbaarheid van automatische detectie op hun instanties.
+\end{itemize}
+
+Het doel is niet om een volledig productie-klaar moderatieplatform te bouwen, maar om de effectiviteit van de onderliggende detectie-algoritmen te valideren.
+
+\section{Opzet van deze bachelorproef}
 \label{sec:opzet-bachelorproef}
-
-% Het is gebruikelijk aan het einde van de inleiding een overzicht te
-% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
-% die je kan aanvullen/aanpassen in functie van je eigen tekst.
 
 De rest van deze bachelorproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein. Hierbij wordt dieper ingegaan op de werking van het Mastodon-netwerk, de huidige state-of-the-art in fake news detectie en de theoretische achtergrond van de gebruikte algoritmen (SVM, BERT).
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht. Dit omvat het proces van dataverzameling via de Mastodon API, de pre-processing stappen van de LIAR-dataset en de configuratie van de getrainde modellen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+In Hoofdstuk~\ref{ch:resultaten} worden de experimentele resultaten gepresenteerd. De performantie van de verschillende modellen wordt vergeleken aan de hand van verwarringsmatrices en statistische metrieken. Ook wordt een foutenanalyse uitgevoerd op de incorrect geclassificeerde berichten.
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek, zoals de integratie van dergelijke modellen in live moderatie-bots.
+
+\end{document}
