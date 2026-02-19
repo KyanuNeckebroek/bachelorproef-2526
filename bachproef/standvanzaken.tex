@@ -1,3 +1,4 @@
+% !TeX root = NeckebroekKyanuBP.tex
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
@@ -7,45 +8,180 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+Dit hoofdstuk biedt een uitgebreid overzicht van de wetenschappelijke literatuur rond de detectie van misinformatie op sociale media, met een specifieke focus op het gedecentraliseerde platform Mastodon. Omdat Mastodon een relatief nieuw fenomeen is in de academische wereld, zal eerst een breed kader worden geschetst van misinformatie op traditionele sociale media, waarna de specifieke context van het Fediverse wordt diepgravend wordt geanalyseerd.
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+Het hoofdstuk is als volgt opgebouwd:
+\begin{enumerate}
+    \item \textbf{Misinformatie en Desinformatie:} Definities, types, en de psychologie achter waarom mensen het delen.
+    \item \textbf{Het Fediverse en Mastodon:} De technische architectuur (ActivityPub), de specifieke moderatie-uitdagingen en de verschillen met platformen als X (Twitter).
+    \item \textbf{Automatische Detectie:} Een diepgaande vergelijking tussen traditionele feature-based methoden (zoals SVM) en moderne deep learning methoden (zoals BERT).
+    \item \textbf{Datasets en Benchmarking:} Een analyse van bestaande datasets zoals LIAR en de noodzaak voor domeinspecifieke data.
+\end{enumerate}
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+\section{Misinformatie en Desinformatie: Een Conceptueel Kader}
+\label{sec:misinformatie-definitie}
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+In het huidige digitale tijdperk is de verspreiding van onjuiste informatie uitgegroeid tot een van de grootste maatschappelijke uitdagingen. Hoewel de termen ``fake news'', ``misinformatie'' en ``desinformatie'' vaak door elkaar worden gebruikt in het publieke debat, hanteren wetenschappers strikte definities om de nuances van dit probleem te vatten. Het invloedrijke raamwerk van \textcite{wardle2017information}, gepubliceerd door de Council of Europe, maakt onderscheid tussen drie hoofdcategorieën op basis van twee dimensies: de feitelijke onjuistheid en de intentie om schade te berokkenen.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{grail.jpg}
-  \caption[Voorbeeld figuur.]{\label{fig:grail}Voorbeeld van invoegen van een figuur. Zorg altijd voor een uitgebreid bijschrift dat de figuur volledig beschrijft zonder in de tekst te moeten gaan zoeken. Vergeet ook je bronvermelding niet!}
-\end{figure}
+\subsection{Typologie van Informatiestoornissen}
 
-\begin{listing}
-  \begin{minted}{python}
-    import pandas as pd
-    import seaborn as sns
+\paragraph{Misinformatie}
+Misinformatie verwijst naar informatie die onjuist is, maar niet is gecreëerd met de intentie om schade te veroorzaken. Een klassiek voorbeeld is wanneer een nieuwsconsument een oud nieuwsbericht deelt, denkende dat het actueel is, of wanneer iemand een satire-artikel deelt zonder de satirische aard ervan te begrijpen. De essentie is hier de afwezigheid van kwade wil; de verspreider gelooft oprecht dat de informatie correct is. In de context van sociale media wordt misinformatie vaak gedreven door de wens om behulpzaam te zijn of om sociale connectie te zoeken, zonder de bronnen grondig te verifiëren.
 
-    penguins = sns.load_dataset('penguins')
-    sns.relplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
-  \end{minted}
-  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
-\end{listing}
+\paragraph{Desinformatie}
+In tegenstelling tot misinformatie is desinformatie opzettelijk onjuist en gecreëerd met de expliciete bedoeling om te misleiden, verwarring te zaaien, of schade toe te brengen aan een persoon, organisatie of land. Dit omvat georganiseerde propagandacampagnes, deepfakes, en gefabriceerde nieuwsberichten die ontworpen zijn om eruit te zien als legitieme journalistiek. Desinformatie is vaak strategisch van aard en wordt ingezet voor politiek gewin, economisch voordeel (clickbait), of het destabiliseren van maatschappijen.
 
-\lipsum[7-20]
+\paragraph{Malinformatie}
+Een derde, minder bekende categorie is malinformatie. Dit betreft informatie die op feiten is gebaseerd, maar wordt gebruikt buiten de oorspronkelijke context om schade te berokkenen. Voorbeelden zijn het lekken van privé-emails (zoals de Hillary Clinton email-lekken in 2016) of het openbaar maken van iemands seksuele geaardheid zonder toestemming. Hoewel de informatie feitelijk juist is, is de verspreiding ervan ethisch verwerpelijk en schadelijk.
 
-\begin{table}
-  \centering
-  \begin{tabular}{lcr}
+Voor dit onderzoek naar automatische detectie op Mastodon zal de focus voornamelijk liggen op misinformatie en desinformatie. Het onderscheid is voor een machine learning model echter moeilijk te maken, omdat ``intentie'' een menselijk, intern proces is dat niet altijd direct af te leiden is uit de tekst en metadata alleen. Daarom spreken we in technische zin vaak over ``fake news detection'' als een overkoepelende term voor het identificeren van feitelijk onjuiste claims, ongeacht de intentie.
+
+\subsection{De Mechanica van Verspreiding}
+Hoe verspreidt misinformatie zich zo snel? Een baanbrekende studie van MIT-onderzoekers \textcite{vosoughi2018spread}, gepubliceerd in \textit{Science}, analyseerde de verspreiding van ~126.000 nieuwsberichten op Twitter tussen 2006 en 2017. De resultaten logenstraften de populaire aanname dat bots de hoofdschuldigen zijn.
+\begin{quote}
+``Falsehood diffused significantly farther, faster, deeper, and more broadly than the truth in all categories of information.'' \autocite{vosoughi2018spread}
+\end{quote}
+De onderzoekers vonden dat onwaar nieuws 70\% meer kans had om geretweet te worden dan waar nieuws. Dit effect was het sterkst voor politiek nieuws, gevolgd door urban legends en wetenschap.
+
+\paragraph{De Rol van Emotie}
+Een verklaring voor dit fenomeen ligt in de emotionele reactie die fake news oproept. Analyse van de antwoorden op de tweets toonde aan dat valse berichten vaak gevoelens van verrassing, walging en angst opriepen, terwijl ware berichten eerder werden geassocieerd met gevoelens van verdriet, verwachting of vreugde. Mensen zijn evolutionair geprogrammeerd om aandacht te besteden aan nieuwe en bedreigende informatie (novelty bias), wat verklaart waarom sensationele, maar onjuiste claims meer aandacht trekken en sneller worden gedeeld.
+
+\paragraph{Sociale Bots versus Mensen}
+Hoewel \textcite{vosoughi2018spread} concludeerden dat mensen de belangrijkste verspreiders zijn, nuanceren andere studies dit beeld. \textcite{shao2018spread} toonden aan dat sociale bots wel degelijk een cruciale rol spelen in de \textit{vroege} stadia van verspreiding. Bots kunnen een bericht binnen enkele seconden na publicatie duizenden keren delen, waardoor het bericht in de ``trending topics'' algoritmes van sociale media terechtkomt. Zodra het bericht zichtbaar is voor een groot publiek, nemen mensen het over en zorgen zij voor de verdere virale verspreiding. Op Mastodon, waar geen centraal algoritme is dat ``trending'' content promoot op basis van likes, zou deze dynamiek fundamenteel anders kunnen zijn, wat dit platform een interessante case study maakt.
+
+\subsection{Psychologische Drijfveren en Cognitieve Vaardigheden}
+Waarom zijn mensen vatbaar voor fake news? Lange tijd werd gedacht dat \textit{partisan bias} (politieke vooringenomenheid) de belangrijkste factor was: mensen geloven wat ze willen geloven. Recenter onderzoek van \textcite{pennycook2021psychology} suggereert echter dat een gebrek aan \textit{analytisch denken} een grotere rol speelt.
+In experimenten toonden zij aan dat mensen die hoger scoren op de Cognitive Reflection Test (een maatstaf voor analytisch denken) beter in staat zijn om fake news van echt nieuws te onderscheiden, ongeacht of het nieuws overeenkomt met hun politieke voorkeur. Dit fenomeen wordt omschreven als ``lazy thinking'': mensen gebruiken hun cognitieve capaciteiten niet ten volle wanneer ze snel scrollen door hun tijdlijn.
+
+Dit inzicht is hoopgevend voor interventies. Het suggereert dat simpele ``nudges'' (duwtjes in de goede richting), zoals het vragen aan gebruikers om de accuratesse te beoordelen voordat ze delen, effectief kunnen zijn. \textcite{lazer2018science} waarschuwen echter dat de huidige inrichting van sociale media platforms—met de focus op snelle likes en shares—precies het tegenovergestelde gedrag stimuleert.
+
+\section{Het Fediverse: Een Nieuw Paradigma voor Sociale Media}
+\label{sec:fediverse}
+
+Terwijl het overgrote deel van het onderzoek naar misinformatie zich heeft gericht op de ``Big Tech'' platformen (Facebook, Twitter/X, YouTube), is er recentelijk een groeiende interesse in het ``Fediverse''. Dit is een porte-manteau van ``federation'' en ``universe'' en verwijst naar een netwerk van duizenden onafhankelijke sociale media servers die naadloos met elkaar kunnen communiceren. Mastodon is veruit de populairste software binnen dit ecosysteem, maar ook platformen zoals PeerTube (video), PixelFed (foto's) en Lemmy (link aggregatie) maken er deel van uit.
+
+\subsection{Technische Architectuur en ActivityPub}
+Het fundamentele verschil tussen Mastodon en X is protocollair. X is een platform; Mastodon is gebaseerd op een open protocol genaamd \textit{ActivityPub}, dat in 2018 door het W3C als standaard is aangenomen.
+
+In een gecentraliseerd model (zoals X) worden alle data (gebruikersprofielen, posts, likes) opgeslagen in de datacenters van één bedrijf. Dit bedrijf bezit de data, bepaalt de regels (Terms of Service), en beheert het algoritme dat bepaalt wat gebruikers te zien krijgen.
+In het federatieve model van Mastodon kan iedereen een server (een ``instantie'') opzetten. Elke instantie heeft zijn eigen database, zijn eigen regels, en zijn eigen beheerders.
+\begin{itemize}
+    \item \textbf{Decentralisatie:} Er is geen ``CEO van Mastodon''. Niemand kan het hele netwerk platleggen of censureren.
+    \item \textbf{Interoperabiliteit:} Een gebruiker op instantie A kan een gebruiker op instantie B volgen. De servers wisselen de berichten uit via ActivityPub, vergelijkbaar met hoe iemand met een Gmail-adres een email kan sturen naar iemand met een Outlook-adres.
+\end{itemize}
+Volgens \textcite{LaCava2023}, die de topologie van het Mastodon-netwerk in kaart brachten, zorgt deze structuur voor een hogere weerbaarheid. Wanneer één server offline gaat of beleid wijzigt, blijft de rest van het netwerk functioneren.
+
+\subsection{De Vlucht uit Twitter en de Groei van Mastodon}
+De relevantie van Mastodon is exponentieel toegenomen sinds de overname van Twitter door Elon Musk in oktober 2022. De abrupte wijzigingen in het moderatiebeleid, het ontslaan van het Trust \& Safety team, en het herstellen van verbannen accounts leidden tot een massale exodus van gebruikers en academici naar het Fediverse.
+\textcite{Salaverria2024} beschrijven deze migratie als een zoektocht naar ``digitale soevereiniteit''. Gebruikers wilden niet langer afhankelijk zijn van de grillen van één miljardair. Mastodon, met zijn non-profit structuur en focus op community-beheer, werd het belangrijkste alternatief. Deze instroom van nieuwe gebruikers bracht echter ook de problemen van het oude web mee: spam, haatspraak en... misinformatie.
+
+\subsection{Collaboratieve Moderatie en Defederatie}
+Hoe bestrijd je fake news op een netwerk dat niemand bezit? Dit is de kernvraag in de recente studie van \textcite{Zia2025} getiteld \textit{``Collaborative Content Moderation in the Fediverse''}.
+Op traditionele platformen is moderatie \textit{top-down}: het platform huurt duizenden moderatoren (vaak in lageloonlanden) of gebruikt AI om content te verwijderen. Op Mastodon is moderatie \textit{bottom-up} en \textit{distributed}.
+\begin{enumerate}
+    \item \textbf{Lokale Moderatie:} Elke instantie heeft zijn eigen moderatoren (vaak vrijwilligers). Zij kunnen lokale gebruikers bannen of berichten verwijderen.
+    \item \textbf{Defederatie (Server Blocking):} Als een volledige instantie zich misdraagt (bijvoorbeeld door stelselmatig nazi-propaganda of fake news toe te laten), kunnen andere instanties besluiten om die server te blokkeren (.defederate). Berichten van die server zijn dan niet meer zichtbaar voor hun gebruikers.
+\end{enumerate}
+
+\textcite{Zia2025} concluderen dat dit systeem zeer effectief is tegen manifeste toxiciteit (zoals haatspraak), maar minder effectief tegen subtiele desinformatie. Defederatie is een ``botte bijl'': het verbreekt alle connecties. Voor een instantie die 99\% goede content heeft en 1\% fake news, is defederatie een te zware straf. Hierdoor kan misinformatie blijven sluimeren op legitieme instanties, omdat beheerders niet de capaciteit hebben om elk bericht te factchecken. Dit onderstreept de noodzaak voor geautomatiseerde hulpmiddelen (zoals de modellen in deze bachelorproef) om moderatoren te ondersteunen.
+
+\section{Automatische Detectie van Misinformatie: State of the Art}
+\label{sec:detectie-methoden}
+
+De detectie van misinformatie wordt in de computerwetenschappen doorgaans benaderd als een binaire classificatietaak: gegeven een tekst (en eventueel metadata), classificeer deze als ``waar'' of ``onwaar''. De methoden hiervoor zijn in het afgelopen decennium sterk geëvolueerd.
+
+\subsection{Traditionele Machine Learning Benaderingen}
+Vóór de opkomst van deep learning vertrouwden onderzoekers op \textit{feature engineering}. Hierbij worden handmatig kenmerken uit de tekst gehaald die aan een algoritme worden gevoed.
+
+\paragraph{Linguïstische Kenmerken}
+\textcite{shu2017fake} geven een uitgebreid overzicht van deze kenmerken. Fake news vertoont vaak specifieke taalpatronen:
+\begin{itemize}
+    \item \textbf{Syntaxis:} Eenvoudigere zinsstructuren, minder complexe bijzinnen.
+    \item \textbf{Lexicaal:} Meer gebruik van informele taal, scheldwoorden, en overmatig gebruik van leestekens (!!!).
+    \item \textbf{Psycholinguïstisch:} Gebruik van woorden die negatieve emoties (angst, woede) uitdrukken. Tools zoals LIWC (Linguistic Inquiry and Word Count) worden vaak gebruikt om deze kenmerken te kwantificeren.
+\end{itemize}
+
+\paragraph{Klassieke Algoritmen}
+Deze features worden vervolgens gebruikt om modellen te trainen zoals:
+\begin{itemize}
+    \item \textbf{Support Vector Machines (SVM):} Zoekt naar het optimale hypervlak dat de datapunten (waar/onwaar) scheidt in een hoogdimensionale ruimte. SVM staat bekend om zijn robuustheid bij kleinere datasets en tekstclassificatie.
+    \item \textbf{Logistic Regression:} Een statistisch model dat de waarschijnlijkheid berekent dat een bericht tot een bepaalde klasse behoort. Het is eenvoudig, snel en goed interpreteerbaar (men kan zien welke woorden het meest bijdragen aan de beslissing ``fake'').
+    \item \textbf{Naive Bayes:} Gebaseerd op de stelling van Bayes, gaat dit model uit van de (naïeve) aanname dat alle kenmerken onafhankelijk zijn. Ondanks deze aanname presteert het vaak verrassend goed voor tekstspamdetectie.
+\end{itemize}
+Studies zoals die van \textcite{perez2018automatic} tonen aan dat SVM met n-gram features (woordcombinaties) een sterke baseline vormt, met accuratesse rond de 70-75\% op standaard datasets.
+
+\subsection{Deep Learning en de Transformer Revolutie}
+Traditionele modellen hebben een groot nadeel: ze begrijpen de context niet. Ze zien tekst als een ``zak met woorden'' (Bag of Words). De zin ``De man beet de hond'' en ``De hond beet de man'' bevatten exact dezelfde woorden, maar hebben een totaal andere betekenis. Deep learning modellen lossen dit op door woordvolgorde en context mee te nemen.
+
+\paragraph{Van LSTM naar Transformers}
+Aanvankelijk werden Recurrent Neural Networks (RNN) en Long Short-Term Memory (LSTM) netwerken gebruikt. Deze lezen de tekst woord voor woord en onthouden de context van vorige woorden. Hoewel beter dan SVM, hadden ze moeite met lange zinnen en waren ze traag om te trainen.
+
+De publicatie van \textit{``Attention is All You Need''} door \textcite{ashish2017attention} veranderde alles. De introductie van de \textit{Transformer}-architectuur maakte het mogelijk om naar de hele zin tegelijk te kijken en via een ``attention mechanism'' te bepalen welke woorden relevant zijn voor elkaar, ongeacht hun afstand in de zin.
+
+\paragraph{BERT: Bidirectional Encoder Representations from Transformers}
+In 2018 introduceerde Google BERT \autocite{Devlin2019}. BERT was revolutionair omdat het \textit{bidirectioneel} is getraind. Waar eerdere modellen tekst van links naar rechts lazen, kijkt BERT naar de hele context (links én rechts) van een woord tegelijk.
+BERT is ``pre-trained'' op een enorme hoeveelheid tekst (bijna het hele internet) en heeft daardoor al een diep begrip van taal, grammatica en zelfs wereldkennis. Onderzoekers hoeven dit model alleen nog maar te ``fine-tunen'' op hun specifieke taak (zoals fake news detectie).
+
+\paragraph{BERT in de context van Fake News}
+\textcite{kaliyar2021fakebert} ontwikkelden ``FakeBERT'', een model dat specifiek geoptimaliseerd is voor fake news. Door BERT te combineren met parallelle convolutionele lagen (CNN), slaagden zij erin om een accuratesse van bijna 98\% te halen op de bekende ISOT dataset. Ze concludeerden dat BERT veel beter is in het detecteren van ambiguïteit en sarcasme, twee zaken waar traditionele modellen op stuklopen.
+Ook \textcite{Khatri2025}, in een zeer recente vergelijkende studie, bevestigen de superioriteit van BERT-gebaseerde aanpakken ten opzichte van SVM en Random Forest. Ze merken echter op dat de rekenkracht die nodig is voor BERT aanzienlijk hoger is ("training time en inference costs"), wat een nadeel kan zijn voor decentrale, kleinschalige Mastodon-servers.
+
+\paragraph{Zijn simpele modellen nutteloos?}
+Een interessante kanttekening komt van \textcite{pelrine2021surprising}. In hun paper \textit{``The Surprising Performance of Simple Baselines for Misinformation Detection''} tonen ze aan dat geavanceerde Transformers zoals BERT soms slechts marginaal beter presteren dan een goed getunede Logistic Regression op bepaalde datasets. Ze waarschuwen voor ``AI-hype'' en pleiten ervoor om altijd eerst een simpele baseline te testen. Dit inzicht is cruciaal voor deze bachelorproef: het is niet gegarandeerd dat BERT beter zal zijn op de specifieke, vaak kortere en anders gestructureerde Mastodon-berichten.
+
+\subsection{Multimodale Detectie: Tekst en Beeld}
+Hoewel dit onderzoek zich beperkt tot tekstuele analyse, is het belangrijk om te vermelden dat misinformatie zich zelden beperkt tot tekst alleen. \textcite{zhou2020similarity} benadrukken het belang van multimodale detectie. Een afbeelding kan authentiek zijn, maar in een verkeerde context geplaatst worden (een foto van een concert in 2019 die wordt voorgesteld als een protest in 2024).
+Moderne architecturen zoals CLIP (Contrastive Language-Image Pre-Training) trachten tekst en beeld gezamenlijk te analyseren om incongruenties te vinden. Voor het Fediverse, waar afbeeldingen en video's via ActivityPub worden gedeeld, is dit een veelbelovende, zij het rekenintensieve, richting voor toekomstig onderzoek.
+
+\subsection{Explainable AI (XAI): Waarom is het fake?}
+Een groeiend probleem bij deep learning modellen zoals BERT is hun ``black box'' karakter. Ze geven een output (bv. "99\% fake"), maar vertellen niet \textit{waarom}. Voor moderatoren op Mastodon is dit problematisch. Als een bericht automatisch wordt gevlagd, moet de moderator kunnen begrijpen op welke zinnen of woorden het model zich baseert om een weloverwogen beslissing te kunnen nemen.
+Technieken zoals LIME (Local Interpretable Model-agnostic Explanations) en SHAP (SHapley Additive exPlanations) proberen dit op te lossen door te visualiseren welke woorden de grootste bijdrage leverden aan de voorspelling. \textcite{shu2017fake} benadrukken dat explainability essentieel is voor het vertrouwen in AI-gestuurde moderatiesystemen. Zonder uitleg zullen gebruikers en moderatoren het systeem als onrechtvaardig ervaren.
+
+\section{Datasets en Benchmarking: De Brandstof voor AI}
+\label{sec:datasets}
+
+De kwaliteit van elk machine learning model staat of valt met de kwaliteit van de data. In het domein van fake news detectie zijn er verschillende benchmark datasets beschikbaar, elk met hun eigen sterktes en beperkingen. Tabel~\ref{tab:datasets} geeft een overzicht van de meest prominente datasets in het veld.
+
+\begin{table}[ht]
+    \centering
+    \caption{Overzicht van veelgebruikte datasets voor fake news detectie.}
+    \label{tab:datasets}
+    \begin{tabular}{@{}lllll@{}}
     \toprule
-    \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Kolom 3} \\
-    $\alpha$         & $\beta$          & $\gamma$         \\
-    \midrule
-    A                & 10.230           & a                \\
-    B                & 45.678           & b                \\
-    C                & 99.987           & c                \\
-    \bottomrule
-  \end{tabular}
-  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
+    \textbf{Dataset} & \textbf{Bron} & \textbf{Type} & \textbf{Labels} & \textbf{Grootte} \\ \midrule
+    LIAR \autocite{Wang2017} & PolitiFact & Korte claims & 6-punts schaal & 12.8k \\
+    ISOT & Reuters/Onion & Nieuwsartikels & True/Fake & 45k \\
+    BuzzFeedNews & Facebook & Nieuwsartikels & 4-punts schaal & 2.3k \\
+    Fever & Wikipedia & Zinnen & Supported/Refuted & 185k \\
+    CREDBANK & Twitter & Tweets & 30-punts schaal & 60M+ \\ \bottomrule
+    \end{tabular}
 \end{table}
+
+\subsection{De LIAR Dataset}
+Een van de meest gebruikte datasets in academisch onderzoek is LIAR, samengesteld door \textcite{Wang2017}.
+\begin{itemize}
+    \item \textbf{Bron:} 12.836 korte statements van politieke sprekers in de VS, verzameld uit debatten, tv-ads en social media.
+    \item \textbf{Labels:} Elk statement is fact-checked door journalisten van PolitiFact en ingedeeld in 6 klassen: \textit{pants-fire, false, barely-true, half-true, mostly-true, true}.
+    \item \textbf{Relevantie:} Omdat de statements kort zijn, lijken ze qua lengte op social media posts. Echter, de context is sterk Amerikaans en politiek gericht.
+\end{itemize}
+Veel onderzoekers, waaronder ook in deze scriptie, kiezen ervoor om de 6 klassen samen te voegen tot een binaire classificatie (bijvoorbeeld: pants-fire + false = FALSE; de rest = TRUE) om de taak haalbaar te maken voor modellen.
+
+\subsection{Het Probleem van Domain Shift}
+Een groot probleem in machine learning is ``domain shift''. Een model dat getraind is op krantenartikelen (lange teksten, formele taal) zal slecht presteren op tweets (korte teksten, slang, emojis). \textcite{castillo2011information} merkten dit al vroeg op.
+Voor Mastodon is dit een acuut probleem. Er bestaat (nog) geen grootschalige, gelabelde dataset van Mastodon-berichten (Mastodon-specific dataset).
+Mastodon-berichten, of ``toots'', hebben specifieke eigenschappen:
+\begin{itemize}
+    \item \textbf{Lengte:} Maximaal 500 tekens (standaard), wat meer nuance toelaat dan de 280 van Twitter.
+    \item \textbf{Content Warnings (CW):} Mastodon heeft een unieke cultuur van het gebruik van CW's om tekst te verbergen. Dit kan relevant zijn voor detectie (bijvoorbeeld: wordt misinformatie verborgen achter een CW?).
+    \item \textbf{Onderwerpen:} De gebruikerspopulatie van Mastodon is (nog) niet representatief voor de hele samenleving; het is technischer, linkser en privacy-bewuster. Dit beïnvloedt de onderwerpen en de taal van de berichten.
+\end{itemize}
+
+Omdat er geen kant-en-klare data is, is het noodzakelijk voor dit onderzoek om zelf data te verzamelen en te verifiëren, of om modellen te trainen op een proxy-dataset (zoals LIAR) en te testen hoe goed ze generaliseren naar de Mastodon-context (zero-shot transfer learning).
+
+\section{Conclusie}
+
+De literatuurstudie schetst een landschap in volle ontwikkeling. We weten veel over fake news op Twitter en Facebook, en we hebben krachtige tools zoals BERT om tekst te analyseren. Echter, de toepassing van deze kennis op het Fediverse staat nog in de kinderschoenen. De decentrale architectuur van Mastodon biedt kansen (minder manipulatie door algoritmes) maar ook risico's (moeilijkere moderatie).
+De consensus in de literatuur is dat deep learning modellen zoals BERT de nieuwe standaard zijn, maar dat hun superioriteit op nieuwe domeinen zoals Mastodon nog bewezen moet worden. Dit vormt de directe aanleiding voor het experimentele luik van deze bachelorproef, waarin de theorie (BERT vs. SVM) zal worden getoetst aan de praktijk (Mastodon data).
+
+
 
