@@ -49,11 +49,10 @@
 
 %%---------- Document metadata -------------------------------------------------
 % TODO: Replace this with your own information
-\author{Ernst Aarden}
-\supervisor{Dhr. F. Van Houte}
-\cosupervisor{Mevr. S. Beeckman}
-\title[Optionele ondertitel]%
-    {Titel van de bachelorproef}
+\author{Kyanu Neckebroek}
+\supervisor{Dhr. S. Van Impe}
+\cosupervisor{Dhr. K. Cools}
+\title{Welke machine learning modellen zijn het meest geschikt voor het detecteren van misinformatie op Mastodon en welke inhoudelijke factoren beïnvloeden de nauwkeurigheid van deze modellen?}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
 \examperiod{1}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
@@ -122,27 +121,32 @@
 
 %---------- Kern ---------------------------------------------------------------
 
-\mainmatter{}
+\mainmatter
 
-% De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
-% het onderwerp, literatuurstudie en verantwoording methodologie.
-% Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
-% om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
-% te verspreiden!
+% 1. Inleiding
+\IfFileExists{inleiding.tex}{
+    \input{inleiding}
+}{
+    \chapter{Inleiding}
+    \textit{Let op: bestand inleiding.tex niet gevonden.}
+}
 
-\input{inleiding}
-\input{standvanzaken}
-\input{methodologie}
+% 2. Stand van zaken (Nog te doen)
+% \input{standvanzaken} 
 
-% Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
-% vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
-% elke fase in je onderzoek in een apart hoofdstuk bespreken.
+% 3. Methodologie
+\IfFileExists{methodologie.tex}{
+    \input{methodologie}
+}{
+    \chapter{Methodologie}
+    \textit{Let op: bestand methodologie.tex niet gevonden.}
+}
 
-%\input{...}
-%\input{...}
-%...
+% 4. Resultaten (Nog te doen)
+% \input{resultaten} 
 
-\input{conclusie}
+% 5. Conclusie (Nog te doen)
+% \input{conclusie} 
 
 %---------- Bijlagen -----------------------------------------------------------
 

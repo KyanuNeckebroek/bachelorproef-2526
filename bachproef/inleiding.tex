@@ -15,59 +15,57 @@ De verspreiding van misinformatie op sociale media wordt beschouwd als een van d
 
 Mastodon onderscheidt zich door zijn decentrale architectuur: er is geen centrale eigenaar, geen centraal algoritme en—cruciaal voor dit onderzoek—geen centraal moderatieteam. Elke server (instantie) wordt beheerd door vrijwilligers die verantwoordelijk zijn voor hun eigen regels. Dit creëert een unieke uitdaging: hoe kan misinformatie effectief gedetecteerd worden in een omgeving waar data gefragmenteerd is en moderatoren vaak overbelast zijn?
 
-Dit onderzoek richt zich op de toepasbaarheid van machine learning (ML) voor het ondersteunen van deze moderatoren. Specifiek wordt onderzocht of geavanceerde taalmodellen zoals BERT een significant voordeel bieden ten opzichte van traditionele classificatiemethoden in de specifieke context van Mastodon-berichten (``toots'').
+Dit onderzoek richt zich op de toepasbaarheid van machine learning (ML) voor het ondersteunen van deze moderatoren. Specifiek wordt de prestatie van traditionele modellen vergeleken met geavanceerde deep learning-modellen in de specifieke context van Mastodon-berichten.
 
 \section{Probleemstelling}
 \label{sec:probleemstelling}
 
-De huidige tools voor automatische detectie van misinformatie zijn voornamelijk ontwikkeld voor en getraind op data van gecentraliseerde platformen zoals X en Reddit. Deze modellen leunen vaak op metadata die specifiek is voor die platformen (zoals globale like-counts of geverifieerde vinkjes) of gaan uit van een uniforme dataset.
+De huidige tools voor automatische detectie van misinformatie zijn voornamelijk ontwikkeld voor en getraind op data van gecentraliseerde platformen zoals X en Reddit. Deze modellen leunen vaak op metadata die specifiek is voor die platformen of gaan uit van een uniforme dataset.
 
-Op Mastodon is de situatie fundamenteel anders. Berichten kunnen langer zijn (vaak 500 tekens in plaats van 280), de metadata verschilt per instantie, en de verspreiding van berichten verloopt via een federatief protocol (ActivityPub). Een model dat getraind is op korte tweets presteert mogelijk suboptimaal op de rijkere context van Mastodon-posts. Bovendien hebben beheerders van kleinere Mastodon-instanties vaak niet de middelen om dure, commerciële moderatietools in te kopen.
+Op Mastodon is de situatie fundamenteel anders. Berichten kunnen langer zijn (tot 500 tekens), de metadata verschilt per instantie en data is verspreid over verschillende servers. Een model dat getraind is op korte tweets presteert mogelijk suboptimaal op de rijkere context van Mastodon-posts. Daarnaast is er weinig inzicht in welke specifieke kenmerken van een bericht (zoals de lengte of de bron) de meeste invloed hebben op de detectienauwkeurigheid in deze decentrale context.
 
-De doelgroep van dit onderzoek bestaat primair uit **beheerders en moderatoren van Mastodon-instanties**. Zij hebben behoefte aan open-source, toegankelijke inzichten over welke detectiemethoden effectief zijn om hun lokale tijdlijnen schoon te houden. Daarnaast is dit onderzoek relevant voor **onderzoekers in data science en media**, die inzicht willen krijgen in hoe desinformatie zich gedraagt op decentrale netwerken.
+De doelgroep van dit onderzoek bestaat primair uit **beheerders en moderatoren van Mastodon-instanties**. Zij hebben behoefte aan inzicht in welke detectiemethoden effectief zijn om hun lokale tijdlijnen schoon te houden. Daarnaast is dit onderzoek relevant voor de **academische wereld**, om te begrijpen hoe desinformatie-detectie zich vertaalt naar gedecentraliseerde netwerken.
 
 \section{Onderzoeksvraag}
 \label{sec:onderzoeksvraag}
 
-Het doel van deze bachelorproef is om te bepalen welk type machine learning model het meest geschikt is voor de detectie van misinformatie binnen de technische en inhoudelijke context van Mastodon. De hoofdonderzoeksvraag luidt als volgt:
+Het doel van deze bachelorproef is tweeledig: ten eerste het vergelijken van verschillende typen machine learning modellen, en ten tweede het analyseren van welke factoren de detectie beïnvloeden. De hoofdonderzoeksvraag luidt als volgt:
 
 \begin{quote}
-    \textit{In hoeverre presteert het Transformer-gebaseerde model BERT beter in het detecteren van misinformatie op Mastodon in vergelijking met traditionele machine learning modellen zoals Support Vector Machines en Logistic Regression?}
+    \textit{Welke machine learning modellen zijn het meest geschikt voor het detecteren van misinformatie op Mastodon en welke inhoudelijke factoren beïnvloeden de nauwkeurigheid van deze modellen?}
 \end{quote}
 
 Om deze vraag te beantwoorden, worden de volgende deelvragen gehanteerd:
 \begin{enumerate}
-    \item Wat is de invloed van platform-specifieke kenmerken van Mastodon (zoals berichtlengte en decentrale metadata) op de nauwkeurigheid van de modellen?
-    \item Welke performantie (uitgedrukt in F1-score, precision en recall) behalen de modellen wanneer ze getraind worden op de algemene LIAR-dataset en toegepast worden op Mastodon-specifieke data?
-    \item Is de computationele meerkost van een zwaar model als BERT te verantwoorden voor de behaalde accuratessewinst ten opzichte van lichtere modellen?
+    \item In hoeverre presteert het Transformer-gebaseerde model BERT beter dan traditionele modellen (Support Vector Machines en Logistic Regression) bij de classificatie van Mastodon-berichten?
+    \item Wat is de invloed van specifieke inhoudelijke factoren, namelijk berichtlengte, bronbetrouwbaarheid en taalgebruik, op de nauwkeurigheid (F1-score) van de getrainde modellen?
+    \item Hoe verhoudt de performantie van de modellen op Mastodon-data zich tot de prestaties op data van gecentraliseerde platformen, gezien de specifieke eigenschappen van Mastodon-data?
 \end{enumerate}
 
 \section{Onderzoeksdoelstelling}
 \label{sec:onderzoeksdoelstelling}
 
-Het beoogde resultaat van deze bachelorproef is een **vergelijkende studie** ondersteund door een **technische proof-of-concept**.
+Het beoogde resultaat van deze bachelorproef is een **vergelijkende studie** op basis van een experimentele opzet.
 
 De criteria voor succes zijn:
 \begin{itemize}
-    \item Het opleveren van een gelabelde dataset van minimaal 500 Mastodon-berichten (gebaseerd op factchecks).
-    \item Een werkende implementatie van drie modellen (Logistic Regression, SVM, BERT) die getraind en getest zijn op deze data.
-    \item Een kwantitatieve evaluatie waarbij de F1-scores van de modellen tegen elkaar worden afgezet.
-    \item Een adviesrapport voor moderatoren over de haalbaarheid van automatische detectie op hun instanties.
+    \item Het samenstellen van een dataset die bestaat uit een aangepaste versie van de LIAR-dataset, aangevuld met minimaal 500 gelabelde Mastodon-berichten (geverifieerd via bronnen als \textit{VRT NWS Factcheck} en \textit{PolitiFact}).
+    \item Het trainen en evalueren van drie modellen: Logistic Regression, SVM en BERT.
+    \item Een analyse van de invloed van berichtlengte, bron en taalgebruik op de resultaten.
+    \item Een conclusie over de haalbaarheid van automatische detectie in een decentrale omgeving.
 \end{itemize}
-
-Het doel is niet om een volledig productie-klaar moderatieplatform te bouwen, maar om de effectiviteit van de onderliggende detectie-algoritmen te valideren.
 
 \section{Opzet van deze bachelorproef}
 \label{sec:opzet-bachelorproef}
 
 De rest van deze bachelorproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein. Hierbij wordt dieper ingegaan op de werking van het Mastodon-netwerk, de huidige state-of-the-art in fake news detectie en de theoretische achtergrond van de gebruikte algoritmen (SVM, BERT).
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein. Hierbij wordt ingegaan op de werking van Mastodon, de huidige literatuur over fake news detectie en de theorie achter SVM, Logistic Regression en BERT.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht. Dit omvat het proces van dataverzameling via de Mastodon API, de pre-processing stappen van de LIAR-dataset en de configuratie van de getrainde modellen.
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht. Dit omvat de dataverzameling via de Mastodon API, de integratie met de LIAR-dataset en de configuratie van de experimenten.
 
-In Hoofdstuk~\ref{ch:resultaten} worden de experimentele resultaten gepresenteerd. De performantie van de verschillende modellen wordt vergeleken aan de hand van verwarringsmatrices en statistische metrieken. Ook wordt een foutenanalyse uitgevoerd op de incorrect geclassificeerde berichten.
+In Hoofdstuk~\ref{ch:resultaten} worden de experimentele resultaten gepresenteerd. De modellen worden vergeleken op basis van F1-score, precisie en recall, gevolgd door een analyse van de beïnvloedende factoren.
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek, zoals de integratie van dergelijke modellen in live moderatie-bots.
+In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
 
 \end{document}

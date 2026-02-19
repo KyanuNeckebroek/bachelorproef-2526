@@ -1,3 +1,11 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{iflang}
+
+\begin{document}
+
 %%=============================================================================
 %% Methodologie
 %%=============================================================================
@@ -5,26 +13,51 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
 \label{ch:methodologie}
 
-%% TODO: In dit hoofstuk geef je een korte toelichting over hoe je te werk bent
-%% gegaan. Verdeel je onderzoek in grote fasen, en licht in elke fase toe wat
-%% de doelstelling was, welke deliverables daar uit gekomen zijn, en welke
-%% onderzoeksmethoden je daarbij toegepast hebt. Verantwoord waarom je
-%% op deze manier te werk gegaan bent.
-%% 
-%% Voorbeelden van zulke fasen zijn: literatuurstudie, opstellen van een
-%% requirements-analyse, opstellen long-list (bij vergelijkende studie),
-%% selectie van geschikte tools (bij vergelijkende studie, "short-list"),
-%% opzetten testopstelling/PoC, uitvoeren testen en verzamelen
-%% van resultaten, analyse van resultaten, ...
-%%
-%% !!!!! LET OP !!!!!
-%%
-%% Het is uitdrukkelijk NIET de bedoeling dat je het grootste deel van de corpus
-%% van je bachelorproef in dit hoofstuk verwerkt! Dit hoofdstuk is eerder een
-%% kort overzicht van je plan van aanpak.
-%%
-%% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
-%% en geef het een gepaste titel.
+In dit hoofdstuk wordt de algemene aanpak van het onderzoek toegelicht. Om een antwoord te formuleren op de onderzoeksvraag \textit{``Welke machine learning modellen zijn het meest geschikt voor het detecteren van misinformatie op Mastodon?''} is gekozen voor een kwantitatieve, experimentele onderzoeksmethode. Het onderzoek is opgedeeld in vier opeenvolgende fasen, die hieronder worden beschreven.
 
-\lipsum[21-25]
+\section{Fase 1: Literatuurstudie}
+De eerste fase bestond uit een grondige literatuurstudie om de theoretische basis van het onderzoek te leggen.
+\begin{itemize}
+    \item \textbf{Doelstelling:} Inzicht verwerven in de technische architectuur van Mastodon (ActivityPub-protocol), de huidige state-of-the-art in automatische detectie van misinformatie, en de werking van de geselecteerde algoritmen (SVM, Logistic Regression en BERT).
+    \item \textbf{Methode:} Desk research via wetenschappelijke databanken zoals Google Scholar, IEEE Xplore en arXiv. Er is specifiek gezocht naar recente publicaties over content moderatie in het Fediverse.
+    \item \textbf{Deliverable:} De bevindingen uit deze fase vormen de basis voor Hoofdstuk 2 (Stand van zaken).
+\end{itemize}
 
+\section{Fase 2: Dataverzameling en Pre-processing}
+Omdat er geen kant-en-klare dataset bestaat voor misinformatie op Mastodon, stond het samenstellen van een geschikte dataset centraal in deze fase.
+\begin{itemize}
+    \item \textbf{Doelstelling:} Het verkrijgen van voldoende gelabelde data om machine learning modellen te trainen en te testen in een Mastodon-context.
+    \item \textbf{Methode:}
+    \begin{enumerate}
+        \item \textbf{Trainingdata:} Gebruik van de LIAR-dataset, een benchmark voor fake news detectie. De labels zijn vereenvoudigd naar een binaire classificatie (waar/onwaar) om compatibiliteit te garanderen.
+        \item \textbf{Testdata (Mastodon):} Ontwikkeling van een Python-script dat via de publieke Mastodon API berichten verzamelt. Er zijn minimaal 500 berichten verzameld, specifiek gezocht op hashtags gerelateerd aan actualiteit.
+        \item \textbf{Verificatie:} De Mastodon-berichten zijn gelabeld aan de hand van betrouwbare factcheck-bronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact}.
+    \end{enumerate}
+    \item \textbf{Deliverable:} Een gecombineerde, opgeschoonde dataset klaar voor modeltraining.
+\end{itemize}
+
+\section{Fase 3: Modelontwikkeling}
+In deze fase zijn de daadwerkelijke detectiemodellen gebouwd en getraind.
+\begin{itemize}
+    \item \textbf{Doelstelling:} Het implementeren van drie vergelijkbare classificatiemodellen.
+    \item \textbf{Methode:}
+    \begin{itemize}
+        \item \textbf{Traditionele modellen:} Implementatie van Support Vector Machines (SVM) en Logistic Regression met behulp van de \textit{scikit-learn} library. Tekst is omgezet naar vectoren met TF-IDF.
+        \item \textbf{Deep Learning model:} Fine-tuning van een pre-trained BERT-model (Bidirectional Encoder Representations from Transformers) met behulp van de \textit{Hugging Face} library. Dit model kan context en woordvolgorde beter begrijpen dan de traditionele methoden.
+    \end{itemize}
+    \item \textbf{Deliverable:} Drie getrainde en functionele modellen.
+\end{itemize}
+
+\section{Fase 4: Evaluatie en Analyse}
+De laatste fase richtte zich op het beantwoorden van de deelvragen door de resultaten van de modellen te analyseren.
+\begin{itemize}
+    \item \textbf{Doelstelling:} Bepalen welk model het beste presteert en welke factoren hier invloed op hebben.
+    \item \textbf{Methode:}
+    \begin{itemize}
+        \item \textbf{Kwantitatieve evaluatie:} De modellen zijn vergeleken op basis van standaard metrieken: F1-score, Precision en Recall.
+        \item \textbf{Factoranalyse:} Er is specifiek gekeken naar de invloed van berichtlengte (kort vs. lang), de aanwezigheid van bronvermeldingen en het taalgebruik op de classificatiefouten.
+    \end{itemize}
+    \item \textbf{Deliverable:} De resultaten en conclusies zoals beschreven in Hoofdstuk 4 en 5 van deze scriptie.
+\end{itemize}
+
+\end{document}
