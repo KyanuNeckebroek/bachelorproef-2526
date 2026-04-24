@@ -53,7 +53,7 @@ Hoewel \textcite{vosoughi2018spread} concludeerden dat mensen de belangrijkste v
 Waarom zijn mensen vatbaar voor fake news? Lange tijd werd gedacht dat \textit{partisan bias} (politieke vooringenomenheid) de belangrijkste factor was: mensen geloven wat ze willen geloven. Recenter onderzoek van \textcite{pennycook2021psychology} suggereert echter dat een gebrek aan \textit{analytisch denken} een grotere rol speelt.
 In experimenten toonden zij aan dat mensen die hoger scoren op de Cognitive Reflection Test (een maatstaf voor analytisch denken) beter in staat zijn om fake news van echt nieuws te onderscheiden, ongeacht of het nieuws overeenkomt met hun politieke voorkeur. Dit fenomeen wordt omschreven als ``lazy thinking'': mensen gebruiken hun cognitieve capaciteiten niet ten volle wanneer ze snel scrollen door hun tijdlijn.
 
-Dit inzicht is hoopgevend voor interventies. Het suggereert dat simpele ``nudges'' (duwtjes in de goede richting), zoals het vragen aan gebruikers om de accuratesse te beoordelen voordat ze delen, effectief kunnen zijn. \textcite{lazer2018science} waarschuwen echter dat de huidige inrichting van sociale media platforms,met de focus op snelle likes en shares,precies het tegenovergestelde gedrag stimuleert.
+Dit inzicht is hoopgevend voor interventies. Het suggereert dat simpele ``nudges'' (duwtjes in de goede richting), zoals het vragen aan gebruikers om de nauwkeurigheid te beoordelen voordat ze delen, effectief kunnen zijn. \textcite{lazer2018science} waarschuwen echter dat de huidige inrichting van sociale media platforms,met de focus op snelle likes en shares,precies het tegenovergestelde gedrag stimuleert.
 
 \section{Het Fediverse: Een Nieuw Paradigma voor Sociale Media}
 \label{sec:fediverse}
@@ -108,7 +108,7 @@ Deze features worden vervolgens gebruikt om modellen te trainen zoals:
     \item \textbf{Logistic Regression:} Een statistisch model dat de waarschijnlijkheid berekent dat een bericht tot een bepaalde klasse behoort. Het is eenvoudig, snel en goed interpreteerbaar (men kan zien welke woorden het meest bijdragen aan de beslissing ``fake'').
     \item \textbf{Naive Bayes:} Gebaseerd op de stelling van Bayes, gaat dit model uit van de (naïeve) aanname dat alle kenmerken onafhankelijk zijn. Ondanks deze aanname presteert het vaak verrassend goed voor tekstspamdetectie.
 \end{itemize}
-Studies zoals die van \textcite{perez2018automatic} tonen aan dat SVM met n-gram features (woordcombinaties) een sterke baseline vormt, met accuratesse rond de 70-75\% op standaard datasets.
+Studies zoals die van \textcite{perez2018automatic} tonen aan dat SVM met n-gram features (woordcombinaties) een sterke baseline vormt, met nauwkeurigheid rond de 70-75\% op standaard datasets.
 
 \subsection{Deep Learning en de Transformer Revolutie}
 Traditionele modellen hebben een groot nadeel: ze begrijpen de context niet. Ze zien tekst als een ``zak met woorden'' (Bag of Words). De zin ``De man beet de hond'' en ``De hond beet de man'' bevatten exact dezelfde woorden, maar hebben een totaal andere betekenis. Deep learning modellen lossen dit op door woordvolgorde en context mee te nemen.
@@ -123,7 +123,7 @@ In 2018 introduceerde Google BERT \autocite{Devlin2019}. BERT was revolutionair 
 BERT is ``pre-trained'' op een enorme hoeveelheid tekst (bijna het hele internet) en heeft daardoor al een diep begrip van taal, grammatica en zelfs wereldkennis. Onderzoekers hoeven dit model alleen nog maar te ``fine-tunen'' op hun specifieke taak (zoals fake news detectie).
 
 \paragraph{BERT in de context van Fake News}
-\textcite{kaliyar2021fakebert} ontwikkelden ``FakeBERT'', een model dat specifiek geoptimaliseerd is voor fake news. Door BERT te combineren met parallelle convolutionele lagen (CNN), slaagden zij erin om een accuratesse van bijna 98\% te halen op de bekende ISOT dataset. Ze concludeerden dat BERT veel beter is in het detecteren van ambiguïteit en sarcasme, twee zaken waar traditionele modellen op stuklopen.
+\textcite{kaliyar2021fakebert} ontwikkelden ``FakeBERT'', een model dat specifiek geoptimaliseerd is voor fake news. Door BERT te combineren met parallelle convolutionele lagen (CNN), slaagden zij erin om een nauwkeurigheid van bijna 98\% te halen op de bekende ISOT dataset. Ze concludeerden dat BERT veel beter is in het detecteren van ambiguïteit en sarcasme, twee zaken waar traditionele modellen op stuklopen.
 Ook \textcite{Khatri2025}, in een zeer recente vergelijkende studie, bevestigen de superioriteit van BERT-gebaseerde aanpakken ten opzichte van SVM en Random Forest. Ze merken echter op dat de rekenkracht die nodig is voor BERT aanzienlijk hoger is ("training time en inference costs"), wat een nadeel kan zijn voor decentrale, kleinschalige Mastodon-servers.
 
 \paragraph{Zijn simpele modellen nutteloos?}
