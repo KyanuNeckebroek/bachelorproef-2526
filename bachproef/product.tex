@@ -1,0 +1,598 @@
+\documentclass[12pt,a4paper]{report}
+
+% ── Packages ──────────────────────────────────────────────────────
+\usepackage[dutch]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{parskip}
+
+% ── Kleuren ───────────────────────────────────────────────────────
+\definecolor{codeblue}{RGB}{33,150,243}
+\definecolor{codegray}{RGB}{245,245,245}
+\definecolor{codecomment}{RGB}{100,100,100}
+\definecolor{codestring}{RGB}{76,175,80}
+\definecolor{darkblue}{RGB}{25,100,180}
+\definecolor{lightgray}{RGB}{240,240,240}
+
+% ── Code stijl ────────────────────────────────────────────────────
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{codegray},
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{codeblue}\bfseries,
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{gray!40},
+    language=Python
+}
+\lstset{style=pythonstyle}
+
+% ── Hyperlinks ────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    citecolor=darkblue,
+    urlcolor=codeblue,
+    pdftitle={Misinformatie Detectie op Mastodon -- Technische Documentatie},
+    pdfauthor={},
+}
+
+% ── Koptekst / voettekst ──────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Misinformatie Detectie op Mastodon}}
+\fancyhead[R]{\small\textit{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Titelpagina ───────────────────────────────────────────────────
+\title{
+    \vspace{2cm}
+    {\Huge\bfseries Misinformatie Detectie op Mastodon}\\[1cm]
+    {\large Technische Implementatie en Uitvoering}\\[0.5cm]
+    {\normalsize Projectstructuur, installatie en operationalisering}\\[2cm]
+    \includegraphics[width=0.20\textwidth]{../graphics/HOGENT_Logo_Pos_rgb.png}\\[1cm]
+}
+\author{}
+\date{\today}
+
+% ══════════════════════════════════════════════════════════════════
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════
+\chapter{Projectoverzicht}
+% ══════════════════════════════════════════════════════════════════
+
+\section{Projectstructuur}
+
+\begin{verbatim}
+misinformatie_detectie/
+├── config.yaml                   # Centrale configuratie
+├── requirements.txt
+├── run_pipeline.py               # Volledige pipeline
+├── setup.py
+├── data/
+│   ├── raw/                      # LIAR-dataset (.tsv)
+│   ├── processed/                # Train/Val/Test splits
+│   └── mastodon/                 # Verzamelde berichten
+├── src/
+│   ├── utils.py
+│   ├── preprocessing/
+│   │   ├── mastodon_collector.py
+│   │   ├── liar_preprocessor.py
+│   │   └── data_merger.py
+│   ├── models/
+│   │   ├── train_svm.py
+│   │   ├── train_logistic_regression.py
+│   │   └── train_bert.py
+│   └── evaluation/
+│       ├── metrics.py
+│       ├── evaluate_all.py
+│       └── factor_analysis.py
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   └── 02_analyse_rapport.ipynb
+├── results/
+│   ├── svm/, lr/, bert/
+│   └── figures/
+└── tests/
+\end{verbatim}
+
+\section{Technologieën}
+
+Python 3.11 + Scikit-learn 1.4.0 (SVM, LR) + PyTorch 2.2.0 + Hugging Face
+Transformers 4.38.0 (BERT) + Mastodon.py 1.8.1 + NLTK/BeautifulSoup4 +
+SciPy 1.12.0 (statistiek) + Matplotlib/Seaborn (visualisatie).
+
+% ══════════════════════════════════════════════════════════════════
+\chapter{Data en Preprocessing (verwijs naar Methodologie)}
+% ══════════════════════════════════════════════════════════════════
+
+De gedetailleerde beschrijving van dataverzameling, LIAR-dataset verwerking,
+Mastodon API-integratie, tekstopschoning en preprocessinglogica vindt u in
+Hoofdstuk~\ref{ch:methodologie}. In dit hoofdstuk beperken we ons tot de
+praktische implementatie in code.
+
+\section{Dataverwerking Pipeline}
+
+De volledige preprocessing pipeline wordt orchestreerd via het script
+\texttt{run\_pipeline.py}. De stappen zijn:
+
+\begin{enumerate}
+    \item LIAR-dataset downloaden en converteren naar binaire labels
+    \item Mastodon-berichten verzamelen via API (optioneel)
+    \item Beide datasets samenvoegen en shufflen
+    \item Train/Val/Test splits aanmaken
+\end{enumerate}
+
+Alle dataverwerking vindt plaats in \texttt{src/preprocessing/}.
+
+% ══════════════════════════════════════════════════════════════════
+\chapter{Modellen implementeren}
+% ══════════════════════════════════════════════════════════════════
+
+Dit hoofdstuk beschrijft de praktische implementatie van drie modellen.
+Theoretische achtergrondinformatie (TF-IDF-wiskunde, SVM-optimalisatie,
+transformer-architectuur) vindt u in Hoofdstuk~\ref{ch:methodologie}.
+
+\section{SVM: Support Vector Machine}
+
+\textbf{Bestand}: \texttt{src/models/train\_svm.py}
+
+\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
+from sklearn.svm import LinearSVC
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+pipeline = Pipeline([
+    ('tfidf', TfidfVectorizer(
+        max_features=50000, ngram_range=(1, 2),
+        min_df=2, max_df=0.95, sublinear_tf=True
+    )),
+    ('svm', CalibratedClassifierCV(
+        LinearSVC(C=1.0, class_weight='balanced', max_iter=10000)
+    ))
+])
+
+pipeline.fit(X_train, y_train)
+y_pred = pipeline.predict(X_test)
+y_proba = pipeline.predict_proba(X_test)[:, 1]
+\end{lstlisting}
+
+\textbf{Key choices}:
+\begin{itemize}
+    \item LinearSVC i.p.v. SVC: sneller voor grote datasets
+    \item CalibratedClassifierCV: voegt waarschijnlijkheden toe voor AUC berekening
+    \item \texttt{class\_weight='balanced'}: compenseert klassenongelijkheid
+\end{itemize}
+
+\section{Logistic Regression}
+
+\textbf{Bestand}: \texttt{src/models/train\_logistic\_regression.py}
+
+\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+pipeline = Pipeline([
+    ('tfidf', TfidfVectorizer(
+        max_features=50000, ngram_range=(1, 2),
+        min_df=2, max_df=0.95, sublinear_tf=True
+    )),
+    ('lr', LogisticRegression(
+        C=1.0, max_iter=1000,
+        class_weight='balanced', solver='lbfgs'
+    ))
+])
+
+pipeline.fit(X_train, y_train)
+y_pred = pipeline.predict(X_test)
+y_proba = pipeline.predict_proba(X_test)[:, 1]
+\end{lstlisting}
+
+\textbf{Voordeel}: Directe interpretatie van coëfficiënten. Na training
+worden top-50 features per klasse opgeslagen:
+
+\begin{verbatim}
+results/lr/lr_top_waar_features.csv
+results/lr/lr_top_onwaar_features.csv
+\end{verbatim}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/taalgebruik_lr.png}
+\caption{Top kenmerken voor Logistic Regression (naar/onwaar)}
+\label{fig:lr_features}
+\end{figure}
+
+\section{BERT: Transformers}
+
+\textbf{Bestand}: \texttt{src/models/train\_bert.py}
+
+Model: \texttt{bert-base-uncased} (12 lagen, 768 hidden, 110M parameters)
+
+\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import Trainer, TrainingArguments
+
+tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+model = AutoModelForSequenceClassification.from_pretrained(
+    'bert-base-uncased', num_labels=2)
+
+# Tokenisatie
+def tokenize_function(examples):
+    return tokenizer(examples['text'],
+        padding='max_length', truncation=True, max_length=128)
+
+train_dataset = train_dataset.map(tokenize_function, batched=True)
+val_dataset = val_dataset.map(tokenize_function, batched=True)
+
+# Training
+training_args = TrainingArguments(
+    output_dir='./results/bert/best_model',
+    num_train_epochs=4,
+    per_device_train_batch_size=16,
+    learning_rate=2e-5,
+    warmup_ratio=0.1,
+    weight_decay=0.01,
+    metric_for_best_model='f1',
+    load_best_model_at_end=True,
+    eval_strategy='steps',
+    save_steps=100,
+    eval_steps=100,
+)
+
+trainer = Trainer(model=model, args=training_args,
+    train_dataset=train_dataset, eval_dataset=val_dataset)
+trainer.train()
+\end{lstlisting}
+
+\textbf{GPU-optimalisatie}: Halver \texttt{per\_device\_train\_batch\_size}
+of verhoog gradient accumulation steps bij onvoldoende VRAM.
+
+\section{Hyperparameter-tuning}
+
+Voor SVM en Logistic Regression:
+
+\begin{verbatim}
+python src/models/train_svm.py --grid-search
+python src/models/train_logistic_regression.py --grid-search
+\end{verbatim}
+
+Voor BERT: experimenteer met learning rate en batch size in config.yaml.
+
+% ══════════════════════════════════════════════════════════════════
+% ══════════════════════════════════════════════════════════════════
+\chapter{Evaluatie en analyse}
+% ══════════════════════════════════════════════════════════════════
+
+\section{Evaluatiemetrieken}
+
+Alle modellen worden beoordeeld op een onafhankelijke testset. Gebruikte
+metrieken (berekend in \texttt{src/evaluation/metrics.py}):
+
+\begin{table}[H]
+\centering
+\caption{Evaluatiemetrieken}
+\begin{tabular}{ll}
+\toprule
+\textbf{Metriek} & \textbf{Beschrijving} \\
+\midrule
+Accuracy & \% correct geclassificeerde berichten \\
+F1 (macro) & Harmonisch gemiddelde per klasse (aangewezen bij onbalans) \\
+F1 (binary) & F1 voor klasse ``waar'' alleen \\
+Precision & Van voorspelde ``waar'': \% echt waar \\
+Recall & Van werkelijke ``waar'': \% correct geïdentificeerd \\
+AUC-ROC & Discriminerend vermogen \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Modelevaluatie}
+
+Via \texttt{src/evaluation/evaluate\_all.py} worden gegenereerd:
+
+\begin{verbatim}
+python src/evaluation/evaluate_all.py
+\end{verbatim}
+
+\subsection{Metriekvergelijking}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../results/figures/metrics_comparison.png}
+\caption{Vergelijking van F1, Precision, Recall en Accuracy per model (SVM, LR, BERT)}
+\label{fig:metrics}
+\end{figure}
+
+\subsection{Verwarringsmatrices}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../results/figures/confusion_matrices.png}
+\caption{Confusion matrices voor alle drie modellen op testset}
+\label{fig:confusion}
+\end{figure}
+
+\subsection{ROC-curves}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/roc_curves.png}
+\caption{ROC-curves met AUC-scores per model}
+\label{fig:roc}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../results/figures/radar_vergelijking.png}
+\caption{Radardiagram van modelprestaties}
+\label{fig:radar}
+\end{figure}
+
+\section{Factoranalyse}
+
+Via \texttt{src/evaluation/factor\_analysis.py}:
+
+\begin{verbatim}
+python src/evaluation/factor_analysis.py
+\end{verbatim}
+
+\subsection{Factor 1: Berichtlengte}
+
+Chi-square test (per lengtecategorie). Resultaten in \texttt{factor\_length\_analysis.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/analyse_berichtlengte.png}
+\caption{Invloed van berichtlengte op classificatiefout per model}
+\label{fig:length}
+\end{figure}
+
+\subsection{Factor 2: Bronbetrouwbaarheid}
+
+ANOVA (laag/middel/hoog). Resultaten in \texttt{factor\_trust\_analysis.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/analyse_bronbetrouwbaarheid.png}
+\caption{Invloed van bronbetrouwbaarheid op modelprestaties}
+\label{fig:trust}
+\end{figure}
+
+\subsection{Factor 3: Taalgebruik}
+
+Mann-Whitney U toets voor exclamatie's, vragen, CAPS, URLs.
+Resultaten in \texttt{factor\_taalgebruik\_statistieken.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../results/figures/heatmap_taalkenmerken.png}
+\caption{Heatmap van p-waarden voor taalgebruikskenmerken (SVM en LR)}
+\label{fig:linguistic}
+\end{figure}
+
+\section{Analyse Jupyter Notebook}
+
+Volledige visualisatie in \texttt{notebooks/02\_analyse\_rapport.ipynb}.
+Enkele belangrijke figuren:
+
+\subsection{BERT trainingsverloop}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/bert_trainingsverloop.png}
+\caption{Trainings- en validatieverlies + F1-macro per epoch}
+\label{fig:bert}
+\end{figure}
+
+\subsection{F1-score per berichtlengte}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/f1_per_lengte.png}
+\caption{Modelprestaties uitgesplitst naar berichtlengte}
+\label{fig:f1length}
+\end{figure}
+
+\subsection{Exploratieve data-analyse}
+
+Zie ook \texttt{notebooks/01\_eda.ipynb} voor labelbalans, wordclouds en correlatiematrices:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/eda_labelbalans.png}
+\caption{Balans van waar/onwaar berichten in dataset}
+\label{fig:balance}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════════
+\chapter{Uitvoering van de pipeline}
+% ══════════════════════════════════════════════════════════════════
+
+\section{Installatie}
+
+\begin{verbatim}
+# 1. Kloon de repository
+git clone <repository-url>
+cd misinformatie_detectie
+
+# 2. Maak een virtuele omgeving aan
+python -m venv venv
+venv\Scripts\activate          # Windows
+# source venv/bin/activate     # Linux/Mac
+
+# 3. Installeer afhankelijkheden
+pip install -r requirements.txt
+pip install -e .
+
+# 4. Kopieer .env.example en vul je token in
+copy .env.example .env
+\end{verbatim}
+
+\section{Volledige pipeline uitvoeren}
+
+\begin{verbatim}
+# Volledige pipeline (inclusief Mastodon-verzameling)
+python run_pipeline.py
+
+# Zonder Mastodon (gelabeld bestand al aanwezig)
+python run_pipeline.py --skip-mastodon
+
+# Zonder BERT (sneller, alleen SVM + LR)
+python run_pipeline.py --skip-mastodon --skip-bert
+
+# Met grid search voor hyperparameter-optimalisatie
+python run_pipeline.py --skip-mastodon --grid-search
+
+# Alleen evaluatie (modellen al getraind)
+python run_pipeline.py --eval-only
+\end{verbatim}
+
+\section{Individuele stappen uitvoeren}
+
+\begin{verbatim}
+# Stap 1a: LIAR verwerken
+python src/preprocessing/liar_preprocessor.py
+
+# Stap 1b: Mastodon-berichten verzamelen
+python src/preprocessing/mastodon_collector.py
+
+# Stap 1c: Datasets samenvoegen
+python src/preprocessing/data_merger.py
+
+# Stap 2a: SVM trainen
+python src/models/train_svm.py
+
+# Stap 2b: Logistic Regression trainen
+python src/models/train_logistic_regression.py
+
+# Stap 2c: BERT fine-tunen
+python src/models/train_bert.py
+
+# Stap 3: Eindevaluatie
+python src/evaluation/evaluate_all.py
+
+# Stap 4: Factoranalyse
+python src/evaluation/factor_analysis.py
+\end{verbatim}
+
+\section{Gegenereerde uitvoerbestanden}
+
+Na een volledige pipeline-run zijn de volgende bestanden beschikbaar:
+
+\begin{table}[H]
+\centering
+\caption{Gegenereerde bestanden na pipeline-uitvoering}
+\begin{tabular}{ll}
+\toprule
+\textbf{Bestand} & \textbf{Inhoud} \\
+\midrule
+\texttt{results/model\_comparison\_test.csv} & F1/precision/recall per model \\
+\texttt{results/svm/svm\_model.joblib} & Getraind SVM-model \\
+\texttt{results/svm/svm\_top\_features.csv} & Top-50 discriminerende kenmerken \\
+\texttt{results/lr/lr\_model.joblib} & Getraind LR-model \\
+\texttt{results/lr/lr\_top\_waar\_features.csv} & Top kenmerken voor klasse ``waar'' \\
+\texttt{results/bert/best\_model/} & Beste BERT-checkpoint \\
+\texttt{results/bert/bert\_training\_history.csv} & Verlies/F1 per epoch \\
+\texttt{results/factor\_taalgebruik\_statistieken.csv} & Mann-Whitney U resultaten \\
+\texttt{results/figures/*.png} & Alle grafieken en visualisaties \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ══════════════════════════════════════════════════════════════════
+\chapter{Reproduceerbaarheid en versiebeheer}
+% ══════════════════════════════════════════════════════════════════
+
+\section{Random seed}
+
+Alle willekeurige processen (datasplitsing, modelinitialisatie, dataschudding)
+gebruiken een vaste seed van \textbf{42}, ingesteld via de functie
+\texttt{set\_seed()} in \texttt{src/utils.py}. Dit garandeert dat resultaten
+volledig reproduceerbaar zijn.
+
+\section{Git-versiebeheer}
+
+De repository bevat een \texttt{.gitignore} die voorkomt dat gevoelige
+bestanden (API-tokens in \texttt{.env}) of grote bestanden
+(modelgewichten, ruwe dataset) worden gecommit.
+
+Aanbevolen commitstrategie:
+
+\begin{verbatim}
+git add src/ notebooks/ config.yaml requirements.txt
+git commit -m "feat: SVM baseline getraind (val F1=0.XX)"
+\end{verbatim}
+
+\section{Configuratiebeheer}
+
+Alle hyperparameters en paden zijn gecentraliseerd in \texttt{config.yaml}.
+Dit betekent dat experimenten kunnen worden herhaald of aangepast zonder
+de broncode te wijzigen.
+
+% ══════════════════════════════════════════════════════════════════
+\appendix
+\chapter{Bijlage: Volledige bestandslijst}
+% ══════════════════════════════════════════════════════════════════
+
+\begin{longtable}{lp{8cm}}
+\toprule
+\textbf{Bestand} & \textbf{Functie} \\
+\midrule
+\endhead
+\texttt{run\_pipeline.py} & Hoofdscript; orkestreert de volledige pipeline \\
+\texttt{config.yaml} & Centrale configuratie voor alle parameters en paden \\
+\texttt{requirements.txt} & Python-pakketafhankelijkheden \\
+\texttt{setup.py} & Installatiebestand voor lokale pakketimport \\
+\texttt{.env.example} & Template voor API-tokens (nooit committen) \\
+\texttt{.gitignore} & Uitsluitingen voor Git \\
+\texttt{src/utils.py} & Hulpfuncties: config laden, logging, seed, apparaat \\
+\texttt{src/preprocessing/mastodon\_collector.py} & Mastodon API-verzameling \\
+\texttt{src/preprocessing/liar\_preprocessor.py} & LIAR-dataset verwerking \\
+\texttt{src/preprocessing/data\_merger.py} & Samenvoegen LIAR + Mastodon \\
+\texttt{src/models/train\_svm.py} & SVM training en grid search \\
+\texttt{src/models/train\_logistic\_regression.py} & LR training en grid search \\
+\texttt{src/models/train\_bert.py} & BERT fine-tuning \\
+\texttt{src/evaluation/metrics.py} & F1, precision, recall, AUC-ROC \\
+\texttt{src/evaluation/evaluate\_all.py} & Eindevaluatie op testset \\
+\texttt{src/evaluation/factor\_analysis.py} & Chi-kwadraat, ANOVA, Mann-Whitney U \\
+\texttt{tests/test\_preprocessing.py} & 20+ unittests \\
+\texttt{notebooks/01\_eda.ipynb} & Exploratieve data-analyse \\
+\texttt{notebooks/02\_analyse\_rapport.ipynb} & Volledige scriptie-analyse \\
+\bottomrule
+\end{longtable}
+
+\end{document}

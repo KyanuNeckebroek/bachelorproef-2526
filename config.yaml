@@ -1,0 +1,112 @@
+# config.yaml - Projectconfiguratie
+
+project:
+  name: "Misinformatie Detectie Mastodon"
+  version: "1.0.0"
+  random_seed: 42
+
+# Mastodon API instellingen
+mastodon:
+  instance_url: "https://mastodon.social"
+  # Sla je access_token op in .env als MASTODON_ACCESS_TOKEN
+  hashtags:
+    - "factcheck"
+    - "fakenews"
+    - "misinformation"
+    - "klimaat"
+    - "vaccin"
+    - "politiek"
+    - "nieuws"
+  max_posts: 500
+  min_post_length: 20
+  output_file: "data/mastodon/mastodon_posts.csv"
+
+# LIAR dataset instellingen
+liar:
+  train_file: "data/raw/train.tsv"
+  valid_file: "data/raw/valid.tsv"
+  test_file:  "data/raw/test.tsv"
+  # Labels die als WAAR worden geclassificeerd
+  true_labels:
+    - "true"
+    - "mostly-true"
+    - "half-true"
+  # Labels die als ONWAAR worden geclassificeerd
+  false_labels:
+    - "false"
+    - "barely-true"
+    - "pants-fire"
+
+# Data processing
+preprocessing:
+  test_size: 0.15
+  val_size: 0.15
+  min_text_length: 10
+  max_text_length: 512
+  processed_dir: "data/processed/"
+
+# TF-IDF instellingen
+tfidf:
+  max_features: 50000
+  ngram_range: [1, 2]
+  min_df: 2
+  max_df: 0.95
+  sublinear_tf: true
+
+# SVM instellingen
+svm:
+  kernel: "linear"
+  C: 1.0
+  class_weight: "balanced"
+  max_iter: 10000
+  output_dir: "results/svm/"
+  model_path: "results/svm/svm_model.joblib"
+  # Grid search parameters
+  grid_search:
+    C: [0.01, 0.1, 1.0, 10.0, 100.0]
+    kernel: ["linear", "rbf"]
+
+# Logistic Regression instellingen
+logistic_regression:
+  C: 1.0
+  max_iter: 1000
+  class_weight: "balanced"
+  solver: "lbfgs"
+  output_dir: "results/lr/"
+  model_path: "results/lr/lr_model.joblib"
+  # Grid search parameters
+  grid_search:
+    C: [0.001, 0.01, 0.1, 1.0, 10.0]
+    solver: ["lbfgs", "liblinear"]
+
+# BERT instellingen
+bert:
+  model_name: "bert-base-uncased"
+  max_length: 128
+  batch_size: 16
+  num_epochs: 4
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  gradient_accumulation_steps: 2
+  output_dir: "results/bert/"
+  model_path: "results/bert/best_model/"
+  fp16: true  # Mixed precision training (vereist GPU)
+
+# Evaluatie instellingen
+evaluation:
+  results_dir: "results/"
+  figures_dir: "results/figures/"
+  # Drempelwaarden voor berichtlengte analyse
+  length_bins:
+    short: 50
+    medium: 150
+    long: 300
+  # Bronbetrouwbaarheid score drempel (1-10 schaal)
+  source_trust_threshold: 5.0
+
+# Logging
+logging:
+  level: "INFO"
+  log_dir: "logs/"
+  log_file: "logs/training.log"
