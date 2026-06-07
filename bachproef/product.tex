@@ -189,7 +189,7 @@ results/lr/lr_top_onwaar_features.csv
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/taalgebruik_lr.png}
+\includegraphics[width=0.75\textwidth]{figures/taalgebruik_lr.png}
 \caption{Top kenmerken voor Logistic Regression (waar/onwaar)}
 \label{fig:lr_features}
 \end{figure}
@@ -475,7 +475,7 @@ python src/evaluation/evaluate_all.py
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../results/figures/metrics_comparison.png}
+\includegraphics[width=0.8\textwidth]{figures/metrics_comparison.png}
 \caption{Vergelijking van F1, Precision, Recall en Accuracy per model (SVM, LR, BERT)}
 \label{fig:metrics}
 \end{figure}
@@ -484,7 +484,7 @@ python src/evaluation/evaluate_all.py
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{../results/figures/confusion_matrices.png}
+\includegraphics[width=0.85\textwidth]{figures/confusion_matrices.png}
 \caption{Verwarringsmatrices voor alle drie modellen op testset. Opmerking: metrieke labels in figuur verwijzen naar F1-macro (niet F2-macro).}
 \label{fig:confusion}
 \end{figure}
@@ -493,14 +493,14 @@ python src/evaluation/evaluate_all.py
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/roc_curves.png}
+\includegraphics[width=0.75\textwidth]{figures/roc_curves.png}
 \caption{ROC-curves met AUC-scores per model}
 \label{fig:roc}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{../results/figures/radar_vergelijking.png}
+\includegraphics[width=0.7\textwidth]{figures/radar_vergelijking.png}
 \caption{Radardiagram van modelprestaties}
 \label{fig:radar}
 \end{figure}
@@ -519,7 +519,7 @@ Chi-square test (per lengtecategorie). Resultaten in \texttt{factor\_length\_ana
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/analyse_berichtlengte.png}
+\includegraphics[width=0.75\textwidth]{figures/analyse_berichtlengte.png}
 \caption{Invloed van berichtlengte op classificatiefout per model}
 \label{fig:length}
 \end{figure}
@@ -530,7 +530,7 @@ ANOVA (laag/middel/hoog). Resultaten in \texttt{factor\_trust\_analysis.csv}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/analyse_bronbetrouwbaarheid.png}
+\includegraphics[width=0.75\textwidth]{figures/analyse_bronbetrouwbaarheid.png}
 \caption{Invloed van bronbetrouwbaarheid op modelprestaties}
 \label{fig:trust}
 \end{figure}
@@ -542,7 +542,7 @@ Resultaten in \path{factor_taalgebruik_statistieken.csv}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{../results/figures/heatmap_taalkenmerken.png}
+\includegraphics[width=0.8\textwidth]{figures/heatmap_taalkenmerken.png}
 \caption{Heatmap van p-waarden voor taalgebruikskenmerken (SVM en LR)}
 \label{fig:linguistic}
 \end{figure}
@@ -556,7 +556,7 @@ Enkele belangrijke figuren:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/bert_trainingsverloop.png}
+\includegraphics[width=0.75\textwidth]{figures/bert_trainingsverloop.png}
 \caption{Trainings- en validatieverlies + F1-macro per epoch}
 \label{fig:bert}
 \end{figure}
@@ -565,7 +565,7 @@ Enkele belangrijke figuren:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/f1_per_lengte.png}
+\includegraphics[width=0.75\textwidth]{figures/f1_per_lengte.png}
 \caption{Modelprestaties uitgesplitst naar berichtlengte}
 \label{fig:f1length}
 \end{figure}
@@ -576,7 +576,7 @@ Zie ook \texttt{notebooks/01\_eda.ipynb} voor labelbalans, wordclouds en correla
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{../results/figures/eda_labelbalans.png}
+\includegraphics[width=0.75\textwidth]{figures/eda_labelbalans.png}
 \caption{Balans van waar/onwaar berichten in dataset}
 \label{fig:balance}
 \end{figure}
