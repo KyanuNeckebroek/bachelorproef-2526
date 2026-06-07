@@ -1,0 +1,60 @@
+% Hoofdstuk 6: Algemeen besluit en discussie
+\chapter{Algemeen Besluit en Discussie}
+\label{cha:algemeen_besluit}
+
+\section{Conclusie en Beantwoording van de Onderzoeksvragen}
+Dit onderzoek had als centrale vraag: "Welke machine learning modellen zijn het meest geschikt voor het detecteren van misinformatie op Mastodon en welke inhoudelijke factoren beïnvloeden de nauwkeurigheid?"
+
+Het antwoord op deze vraag is genuanceerd. Zoals de resultaten aantonen, leveren transformer‑gebaseerde modellen zoals BERT de beste automatische detectieprestaties op tekstuele Mastodon‑berichten. Tegelijkertijd bewijst een eenvoudigere lineaire benadering zoals Logistic Regression een verrassend sterke en praktisch bruikbare baseline te vormen. Dit sluit direct aan bij de bevindingen van \textcite{pelrine2021surprising}, die in hun werk eveneens de onverwacht sterke prestaties van zulke compacte baselines aantonen. Daarnaast blijkt uit de statistische analyses dat zowel de tekstuele inhoud, de stilistische kenmerken als de bronmetadata de classificatienauwkeurigheid substantieel beïnvloeden. Dit bevestigt tevens de theoretische risico's die naar voren worden gebracht in het werk van \textcite{Zia2025} omtrent de complexiteit en de limieten van geautomatiseerde moderatie binnen het heterogene Fediverse.
+
+Samenvatting van modelprestaties:
+\begin{itemize}
+  \item \textbf{BERT}: overall het meest geschikt; $\text{accuracy} = 0{,}652$, macro $F_1 = 0{,}638$, binaire $F_1 = 0{,}709$ en $\text{AUC‑ROC} = 0{,}682$. Deze resultaten ondersteunen dat het bidirectionele semantische begrip van BERT beter generaliseert naar nieuwe, onbekende berichten en subtiele contextuele signalen oppikt, een mechanisme dat diepgaand is beschreven door \textcite{Devlin2019}.
+  \item \textbf{Logistic Regression}: een compacte en transparante baseline met sterke prestaties ($\text{accuracy} = 0{,}639$, macro $F_1 = 0{,}633$). Het succes van deze aanpak onderstreept de argumentatie van \textcite{pelrine2021surprising} dat traditionele statistische modellen in veel NLP-taken een competitief en computationeel efficiënt alternatief blijven voor deep learning.
+  \item \textbf{SVM}: presteerde lager ($\text{accuracy} = 0{,}622$, macro $F_1 = 0{,}576$), hoewel het een hoge recall voor de klasse "waar" rapporteerde ($\text{recall} = 0{,}830$). Dit wijst op een bias richting de correcte identificatie van waarheidsgetrouwe berichten, ten koste van de balans tussen de klassen.
+\end{itemize}
+
+Beantwoording van deelvragen:
+\begin{itemize}
+  \item \textbf{Welk model is het meest geschikt?} BERT geniet de voorkeur voor optimale detectieprestaties; Logistic Regression dient als een realistisch en computationeel efficiënt alternatief voor resource‑beperkte omgevingen, zoals eveneens geëvalueerd door \textcite{Khatri2025}.
+  \item \textbf{Welke inhoudelijke factoren beïnvloeden de nauwkeurigheid?} Berichtlengte, bronbetrouwbaarheid en specifieke taalgebruikskenmerken (zoals vraagtekens en het totale woordaantal) beïnvloeden de nauwkeurigheid significant.
+  \item \textbf{Hoe goed generaliseert transfer learning?} Zero‑shot transfer van de Amerikaanse, politiek getinte LIAR‑dataset, oorspronkelijk gedocumenteerd door \textcite{Wang2017}, leverde bruikbare signalen op voor Mastodon, maar de beperkte handgelabelde testset van 300 Mastodon‑berichten (gevalideerd via VRT NWS Factcheck og PolitiFact) beperkt de statistische zekerheid van een bredere generalisatie.
+\end{itemize}
+
+\subsection{Invloed van inhoudelijke factoren}
+Op basis van de uitgevoerde statistische toetsen concluderen we het volgende:
+\begin{itemize}
+  \item \textbf{Berichtlengte (Chi‑square test)}: langere berichten leiden vaker tot classificatiefouten, wat wijst op moeilijkheden bij het ontleden van complexe of gelaagde claims in vergelijking met kortere segmenten.
+  \item \textbf{Bronbetrouwbaarheid (ANOVA)}: berichten met een lage bronbetrouwbaarheid werden significant moeilijker correct geclassificeerd, wat de noodzaak onderstreept om externe reputatie-indicatoren te integreren.
+  \item \textbf{Taalgebruikskenmerken (Mann‑Whitney U)}: vraagtekens waren een statistisch significante indicator ($p = 0{,}015$ voor BERT); het woordaantal was eveneens significant voor zowel BERT ($p = 0{,}030$) als SVM ($p = 0{,}006$). Uitroeptekens en de hoofdletterverhouding bleken daarentegen niet‑significant. Conclusie: zowel tekstinhoud als stijlkenmerken bevatten belangrijke detectiesignalen, maar niet alle oppervlakkige stilistische kenmerken zijn standvastig.
+\end{itemize}
+
+\section{Discussie en Beperkingen van het Onderzoek}
+Er zijn meerdere beperkingen en overwegingen die de interpretation van de resultaten nuanceren.
+
+\subsection{Datagrootte and domain shift}
+De toepassing van zero‑shot transfer learning van de Amerikaanse, politiek getinte LIAR‑dataset naar het Mastodon‑domein bleek succesvol in het genereren van bruikbare modellen. Tegelijkertijd is de handmatig gelabelde testset van 300 Mastodon‑berichten (gevalideerd via VRT NWS Factcheck en PolitiFact) relatief klein, waardoor betrouwbaarheidsmarges en generaliseerbaarheid beperkt blijven. Toekomstig werk moet grotere, representatievere Mastodon‑datasets verzamelen om de invloed van platform-specifiek taalgebruik beter te ondervangen, een probleem dat ook door \textcite{castillo2011information} en \textcite{perez2018automatic} vroegtijdig werd opgemerkt.
+
+\subsection{De intentie‑paradox}
+Zoals \textcite{wardle2017information} accuraat uiteenzetten, is het onderscheid tussen misinformatie (onbedoeld onjuist) en desinformatie (opzettelijk misleidend) in essentie een kwestie van intentie — iets wat text‑only modellen niet rechtstreeks kunnen afleiden. Onze modellen detecteren tekstuele onjuistheden of veronderstelde misleidende patronen, maar kunnen geen interne intentie van de auteur meten.
+
+\subsection{Rekenintensiteit versus decentralisatie}
+Hoewel BERT de beste prestaties biedt, brengt het aanzienlijke training‑ en inferencekosten met zich mee, een nadeel dat ook door \textcite{Khatri2025} wordt onderstreept. In het Fediverse, waar veel Mastodon‑instances beperkte financiële en technische middelen hebben, kan dit een belemmering vormen. Logistic Regression biedt hierdoor een praktisch uitvoerbaar en goedkoper alternatief met een betere transparantie voor decentrale architecturen.
+
+\section{Praktische Implicaties en Succesreflectie}
+Het project is geslaagd in het aantonen dat automatische misinformatiedetectie in een decentrale omgeving haalbaar is zonder centrale autoriteit. Belangrijke praktische consequenties:
+\begin{itemize}
+  \item Geautomatiseerde pre‑screening kan moderators ondersteunen door prioriteiten te stellen en signalen te markeren, waardoor vrijwillige moderators minder overbelast raken binnen de gedistribueerde structuren die \textcite{Zia2025} omschrijven.
+  \item Een hybride aanpak is aan te raden: zware modellen (BERT) kunnen op dedicated nodes of gecentraliseerde diensten draaien, terwijl lichtere modellen (Logistic Regression) lokaal op kleine instances kunnen draaien om snelle, interpreteerbare signalen te leveren.
+\end{itemize}
+
+\section{Aanbevelingen voor Verder Onderzoek}
+Drie concrete, technisch onderbouwde richtingen:
+\begin{enumerate}
+  \item \textbf{Multimodale Detectie:} breid het systeem uit naar beeld‑ en videoanalyse, bijvoorbeeld door CLIP‑achtige architecturen te integreren, aangezien misinformatie vaak multimodaal is, zoals \textcite{zhou2020similarity} benadrukken.
+  \item \textbf{Explainable AI (XAI):} integreer technieken zoals LIME of SHAP om het "black box"‑karakter van deep learning te verminderen en moderatoren exact te tonen welke woorden of frasen bijdroegen aan een "onwaar"‑label.
+  \item \textbf{Contextuele en Netwerkkenmerken:} verrijk tekstuele modellen met metadata en netwerkinformatie (zoals de defederatie‑historiek en serverreputatie) om claims in hun breder sociale context te plaatsen, in lijn met de moderatiestructuur van het Fediverse.
+\end{enumerate}
+
+\section{Slotopmerking}
+De resultaten tonen dat technische hulpmiddelen een waardevolle rol kunnen spelen in het ondersteunen van gedistribueerde moderatie op Mastodon. BERT levert de hoogste prestaties, Logistic Regression is praktisch en interpreteerbaar, en inhoudelijke plus netwerkcontext zijn essentieel voor robuuste detectie. Verdere schaalvergroting van de dataset en de integratie van multimodale en explainable technieken vergroten de praktische toepasbaarheid van zulke systemen aanzienlijk.

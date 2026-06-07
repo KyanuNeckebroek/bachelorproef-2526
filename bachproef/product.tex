@@ -1,110 +1,26 @@
-\documentclass[12pt,a4paper]{report}
+﻿% Includable product documentation for the main thesis document.
+% This file is intended to be included from NeckebroekKyanuBP.tex.
+% Do not compile standalone.
 
-% ── Packages ──────────────────────────────────────────────────────
-\usepackage[dutch]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\geometry{margin=2.5cm}
+\chapter{Uitwerking}
+\label{ch:uitwerking}
 
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{amsmath}
-\usepackage{microtype}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{parskip}
-
-% ── Kleuren ───────────────────────────────────────────────────────
-\definecolor{codeblue}{RGB}{33,150,243}
-\definecolor{codegray}{RGB}{245,245,245}
-\definecolor{codecomment}{RGB}{100,100,100}
-\definecolor{codestring}{RGB}{76,175,80}
-\definecolor{darkblue}{RGB}{25,100,180}
-\definecolor{lightgray}{RGB}{240,240,240}
-
-% ── Code stijl ────────────────────────────────────────────────────
-\lstdefinestyle{pythonstyle}{
-    backgroundcolor=\color{codegray},
-    commentstyle=\color{codecomment}\itshape,
-    keywordstyle=\color{codeblue}\bfseries,
-    stringstyle=\color{codestring},
-    basicstyle=\ttfamily\small,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=4,
-    frame=single,
-    rulecolor=\color{gray!40},
-    language=Python
-}
-\lstset{style=pythonstyle}
-
-% ── Hyperlinks ────────────────────────────────────────────────────
-\hypersetup{
-    colorlinks=true,
-    linkcolor=darkblue,
-    citecolor=darkblue,
-    urlcolor=codeblue,
-    pdftitle={Misinformatie Detectie op Mastodon -- Technische Documentatie},
-    pdfauthor={},
-}
-
-% ── Koptekst / voettekst ──────────────────────────────────────────
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textit{Misinformatie Detectie op Mastodon}}
-\fancyhead[R]{\small\textit{\leftmark}}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-
-% ── Titelpagina ───────────────────────────────────────────────────
-\title{
-    \vspace{2cm}
-    {\Huge\bfseries Misinformatie Detectie op Mastodon}\\[1cm]
-    {\large Technische Implementatie en Uitvoering}\\[0.5cm]
-    {\normalsize Projectstructuur, installatie en operationalisering}\\[2cm]
-    \includegraphics[width=0.20\textwidth]{../graphics/HOGENT_Logo_Pos_rgb.png}\\[1cm]
-}
-\author{}
-\date{\today}
-
-% ══════════════════════════════════════════════════════════════════
-\begin{document}
-
-\maketitle
-\tableofcontents
-\newpage
-
-% ══════════════════════════════════════════════════════════════════
-\chapter{Projectoverzicht}
-% ══════════════════════════════════════════════════════════════════
+Dit hoofdstuk bundelt het projectoverzicht, de dataverwerking, de modelimplementatie en de uitvoering van de pipeline.
 
 \section{Projectstructuur}
+
+In de onderstaande figuur wordt de mappenstructuur van het project weergegeven. Ik ga hierin te werk door eerst de centrale configuratie en de pipeline te bespreken, daarna de data-architectuur en ten slotte de code-indeling in preprocessing, modeltraining en evaluatie.
 
 \begin{verbatim}
 misinformatie_detectie/
 ├── config.yaml                   # Centrale configuratie
-├── requirements.txt
+├── requirements.txt              # Python dependencies
 ├── run_pipeline.py               # Volledige pipeline
-├── setup.py
+├── setup.py                      # Package-installatie
 ├── data/
-│   ├── raw/                      # LIAR-dataset (.tsv)
-│   ├── processed/                # Train/Val/Test splits
-│   └── mastodon/                 # Verzamelde berichten
+│   ├── raw/                      # Onverwerkte brondata, inclusief LIAR
+│   ├── processed/                # Geschoonde train/val/test splits
+│   └── mastodon/                 # Verzamelde Mastodon-berichten
 ├── src/
 │   ├── utils.py
 │   ├── preprocessing/
@@ -128,19 +44,30 @@ misinformatie_detectie/
 └── tests/
 \end{verbatim}
 
+De kern van het project bevindt zich in \texttt{run\_pipeline.py}. Dit script start de volledige workflow: data ophalen, preprocessen, modellen trainen en resultaten evalueren. De configuratie in \texttt{config.yaml} maakt het mogelijk om dezelfde pipeline reproduceerbaar uit te voeren met verschillende model- en datainstellingen. De \texttt{requirements.txt} bevat alle Python-pakketten die noodzakelijk zijn voor de uitvoering.
+
+In \texttt{data/raw/} worden de originele gegevens bewaard, inclusief de LIAR-tekstbestanden en de ruwe Mastodon-berichten. Na preprocessing komen de geschoonde en gebalanceerde datasets in \texttt{data/processed/}. De Mastodon-berichten zijn apart opgeslagen in \texttt{data/mastodon/}, omdat deze data rechtstreeks uit de API komt en daarna handmatig is gelabeld.
+
+De programmeercode is opgesplitst in drie domeinen. In \texttt{src/preprocessing/} bevinden zich de scripts voor data-inwinning, tekstopschoning en het samenvoegen van LIAR met Mastodon. In \texttt{src/models/} staat de implementatie van de trainingspipelines voor Support Vector Machine, Logistic Regression en BERT. In \texttt{src/evaluation/} worden de modelprestaties berekend, vergeleken en geanalyseerd.
+
 \section{Technologieën}
 
-Python 3.11 + Scikit-learn 1.4.0 (SVM, LR) + PyTorch 2.2.0 + Hugging Face
-Transformers 4.38.0 (BERT) + Mastodon.py 1.8.1 + NLTK/BeautifulSoup4 +
-SciPy 1.12.0 (statistiek) + Matplotlib/Seaborn (visualisatie).
+Voor dit project is gekozen voor een Python-gebaseerde stack omdat deze zowel traditioneel machine learning als transformer-gebaseerde NLP naadloos ondersteunt. Python 3.11 vormt de basis, omdat deze versie compatibel is met moderne bibliotheken en onderhoudbaarheid bevordert.
+
+Scikit-learn wordt gebruikt voor de traditionele modellen (SVM en Logistic Regression). Deze bibliotheek is geschikt vanwege zijn heldere API, eenvoudige implementatie en bewezen betrouwbaarheid bij tekstclassificatie. Voor het BERT-model is gekozen voor PyTorch in combinatie met Hugging Face Transformers, omdat die combinatie het mogelijk maakt om een voorgetraind transformer-model effectief te fine-tunen op de specifieke Mastodon- en LIAR-data.
+
+Mastodon.py is de gekozen tool voor de Mastodon API-integratie. Deze bibliotheek sluit goed aan op het federatieve karakter van Mastodon en maakt het eenvoudiger om berichten gecontroleerd en reproduceerbaar te verzamelen. NLTK wordt ingezet voor tekstpreprocessing vanwege zijn volwassen tokenizers, stopwoordlijsten en taalhulpmiddelen, terwijl BeautifulSoup4 helpt bij het verwijderen van HTML-achtige tags en andere tekstvervuiling.
+
+SciPy ondersteunt de statistische evaluatie van de resultaten, bijvoorbeeld bij het vergelijken van modelprestaties en het onderbouwen van conclusies met kwantitatieve metrieken. Matplotlib en Seaborn worden gebruikt om de resultaten visueel weer te geven, zoals performance-curves, confusiematrices en factoranalyses.
 
 % ══════════════════════════════════════════════════════════════════
-\chapter{Data en Preprocessing (verwijs naar Methodologie)}
+\section{Data en Preprocessing}
+\label{sec:data-preprocessing}
 % ══════════════════════════════════════════════════════════════════
 
 De gedetailleerde beschrijving van dataverzameling, LIAR-dataset verwerking,
 Mastodon API-integratie, tekstopschoning en preprocessinglogica vindt u in
-Hoofdstuk~\ref{ch:methodologie}. In dit hoofdstuk beperken we ons tot de
+Hoofdstuk~\ref{ch:methodologie}. In deze sectie beperken we ons tot de
 praktische implementatie in code.
 
 \section{Dataverwerking Pipeline}
@@ -150,7 +77,7 @@ De volledige preprocessing pipeline wordt orchestreerd via het script
 
 \begin{enumerate}
     \item LIAR-dataset downloaden en converteren naar binaire labels
-    \item Mastodon-berichten verzamelen via API (optioneel)
+    \item Mastodon-berichten verzamelen via API (optioneel). Ik heb de Mastodon-testdata met een Python-script uit de publieke API verzameld.
     \item Beide datasets samenvoegen en shufflen
     \item Train/Val/Test splits aanmaken
 \end{enumerate}
@@ -158,50 +85,59 @@ De volledige preprocessing pipeline wordt orchestreerd via het script
 Alle dataverwerking vindt plaats in \texttt{src/preprocessing/}.
 
 % ══════════════════════════════════════════════════════════════════
-\chapter{Modellen implementeren}
+\section{Modellen implementeren}
+\label{sec:modellen}
 % ══════════════════════════════════════════════════════════════════
 
-Dit hoofdstuk beschrijft de praktische implementatie van drie modellen.
+Deze sectie beschrijft de praktische implementatie van drie modellen.
 Theoretische achtergrondinformatie (TF-IDF-wiskunde, SVM-optimalisatie,
 transformer-architectuur) vindt u in Hoofdstuk~\ref{ch:methodologie}.
 
-\section{SVM: Support Vector Machine}
+De keuze voor de drie modellen is bewust gemaakt op basis van de specifieke
+Mastodon-usecase. Mastodon-berichten zijn tekstueel vaak kort en informeel,
+met bijzondere kenmerken zoals Content Warnings en gedecentraliseerde bronherkenning.
+Daarom selecteer ik zowel sterke lineaire baselines als een contextueel
+transformer-model:
 
-\textbf{Bestand}: \texttt{src/models/train\_svm.py}
-
-\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
-from sklearn.svm import LinearSVC
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-pipeline = Pipeline([
-    ('tfidf', TfidfVectorizer(
-        max_features=50000, ngram_range=(1, 2),
-        min_df=2, max_df=0.95, sublinear_tf=True
-    )),
-    ('svm', CalibratedClassifierCV(
-        LinearSVC(C=1.0, class_weight='balanced', max_iter=10000)
-    ))
-])
-
-pipeline.fit(X_train, y_train)
-y_pred = pipeline.predict(X_test)
-y_proba = pipeline.predict_proba(X_test)[:, 1]
-\end{lstlisting}
-
-\textbf{Key choices}:
 \begin{itemize}
-    \item LinearSVC i.p.v. SVC: sneller voor grote datasets
-    \item CalibratedClassifierCV: voegt waarschijnlijkheden toe voor AUC berekening
-    \item \texttt{class\_weight='balanced'}: compenseert klassenongelijkheid
+    \item \textbf{Logistic Regression}: een eenvoudige, interpreteerbare baseline
+          die in veel tekstclassificatieproblemen verrassend goed presteert.
+    \item \textbf{Support Vector Machine}: een robuust, margin-gebaseerd model dat
+          goed omgaat met hoge-dimensionale, sparse TF-IDF features.
+    \item \textbf{BERT}: een transformer-gebaseerd model dat de semantische
+          context van hele zinnen kan vastleggen en daarmee beter kan omgaan met
+          de variatie in Mastodon-berichten.
+\end{itemize}
+
+Deze combinatie van modellen sluit aan bij de literatuur uit
+Hoofdstuk~\ref{ch:stand-van-zaken}, waar zowel traditionele lineaire
+classifiers als transformer-gebaseerde modellen als relevante benchmarks
+worden genoemd. Andere mogelijkheden zoals Naive Bayes, Random Forest of
+RNN/CNN zijn overwogen, maar minder geschikt voor deze dataset:
+
+\begin{itemize}
+    \item \textbf{Naive Bayes}: te simplistisch voor de complexere,
+          contextuele taalpatronen die in misinformatie voorkomen.
+    \item \textbf{Random Forest / Decision Trees}: slecht schaalbaar naar
+          hoge-dimensionale TF-IDF features en minder gangbaar in recente
+          NLP-literatuur voor tekstclassificatie.
+    \item \textbf{RNN/CNN}: meer complex om te trainen en niet zo goed
+          ondersteund als de transformer-gebaseerde benadering voor korte
+          tekstsegmenten wanneer pre-trained modellen beschikbaar zijn.
 \end{itemize}
 
 \section{Logistic Regression}
 
 \textbf{Bestand}: \texttt{src/models/train\_logistic\_regression.py}
 
-\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
+Logistic Regression is gekozen als baseline omdat het een eenvoudige,
+lineaire classifier is die goed werkt op sparse tekstrepresentaties. In de
+context van Mastodon geeft dit model een referentiepunt voor de vraag of
+complexere modellen zoals BERT echt een meerwaarde bieden.
+
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\scriptsize,
+  caption={Logistic Regression training pipeline},
+  literate={_}{\_}1]
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -222,8 +158,29 @@ y_pred = pipeline.predict(X_test)
 y_proba = pipeline.predict_proba(X_test)[:, 1]
 \end{lstlisting}
 
+In deze pipeline wordt eerst een \texttt{TfidfVectorizer} toegepast. Dit
+transformeert tekst naar numerieke vectoren op basis van woordfrequenties,
+waarbij veel voorkomende woorden worden gedempt en zeldzame maar kenmerkende
+woorden relatief hoger scoren. De parameters zijn gekozen om:
+
+\begin{itemize}
+    \item \texttt{max\_features=50000}: genoeg representatiecapaciteit,
+          zonder te veel ruis toe te laten.
+    \item \texttt{ngram\_range=(1, 2)}: zowel losse woorden als woordcombinaties
+          (bijv. "mijn de") worden meegenomen.
+    \item \texttt{min\_df=2} en \texttt{max\_df=0.95}: extreem zeldzame of
+          te algemene termen worden gefilterd.
+    \item \texttt{sublinear\_tf=True}: termfrequenties worden genormaliseerd,
+          waardoor het model minder gevoelig is voor zeer lange berichten.
+\end{itemize}
+
+Daarna volgt de \texttt{LogisticRegression}-stap. \texttt{class\_weight='balanced'}
+helpt om de onbalans tussen waar/onwaar labels te compenseren, wat belangrijk is
+voor misinformatieclassificatie. Het model geeft bovendien goed inzicht in
+belangrijke features, zowel voor de positieve als de negatieve klasse.
+
 \textbf{Voordeel}: Directe interpretatie van coëfficiënten. Na training
-worden top-50 features per klasse opgeslagen:
+worden top-50 features per klasse opgeslagen in:
 
 \begin{verbatim}
 results/lr/lr_top_waar_features.csv
@@ -233,9 +190,55 @@ results/lr/lr_top_onwaar_features.csv
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{../results/figures/taalgebruik_lr.png}
-\caption{Top kenmerken voor Logistic Regression (naar/onwaar)}
+\caption{Top kenmerken voor Logistic Regression (waar/onwaar)}
 \label{fig:lr_features}
 \end{figure}
+
+\section{SVM: Support Vector Machine}
+
+\textbf{Bestand}: \texttt{src/models/train\_svm.py}
+
+SVM is geselecteerd omdat het sterke theoretische garanties biedt voor
+hoge-dimensionale, sparse feature-ruimtes zoals TF-IDF. Dit model is in de
+literatuur een gebruikelijke keuze voor tekstclassificatie en vormt een goed
+contrast met de lineaire LR-baseline en het semantische BERT-model.
+
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\scriptsize,
+  caption={SVM training pipeline with probabilistic calibration},
+  literate={_}{\_}1]
+from sklearn.svm import LinearSVC
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+pipeline = Pipeline([
+    ('tfidf', TfidfVectorizer(
+        max_features=50000, ngram_range=(1, 2),
+        min_df=2, max_df=0.95, sublinear_tf=True
+    )),
+    ('svm', CalibratedClassifierCV(
+        LinearSVC(C=1.0, class_weight='balanced', max_iter=10000)
+    ))
+])
+
+pipeline.fit(X_train, y_train)
+y_pred = pipeline.predict(X_test)
+y_proba = pipeline.predict_proba(X_test)[:, 1]
+\end{lstlisting}
+
+De \texttt{Pipeline} combineert opnieuw TF-IDF met een classifier. \texttt{LinearSVC}
+wordt gebruikt in plaats van de standaard \texttt{SVC} omdat het veel sneller is
+voor grote, sparse datasets. \texttt{LinearSVC} werkt goed met de hoge-dimensionale
+word-vectoren die uit TF-IDF voortkomen.
+
+\texttt{CalibratedClassifierCV} wikkelt de SVM in een calibratiemodel. Een
+klassieke SVM kan wel een klasse-label voorspellen (waar/onwaar), maar geeft
+niet altijd betrouwbare kansschattingen. Door calibratie te gebruiken
+kunnen we \texttt{predict\_proba} oproepen en AUC-ROC berekenen, wat belangrijk is
+voor de evaluatie van mispredicties in plaats van alleen accuracy.
+
+\texttt{class\_weight='balanced'} compenseert de ongelijke verdeling tussen de
+labels en zorgt ervoor dat het model niet alleen focust op de meerderheidsklasse.
 
 \section{BERT: Transformers}
 
@@ -243,7 +246,9 @@ results/lr/lr_top_onwaar_features.csv
 
 Model: \texttt{bert-base-uncased} (12 lagen, 768 hidden, 110M parameters)
 
-\begin{lstlisting}[language=Python,basicstyle=\ttfamily\scriptsize]
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\scriptsize,
+  caption={BERT model fine-tuning script},
+  literate={_}{\_}1]
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from transformers import Trainer, TrainingArguments
 
@@ -279,8 +284,23 @@ trainer = Trainer(model=model, args=training_args,
 trainer.train()
 \end{lstlisting}
 
-\textbf{GPU-optimalisatie}: Halver \texttt{per\_device\_train\_batch\_size}
-of verhoog gradient accumulation steps bij onvoldoende VRAM.
+BERT is gekozen omdat het de volledige woordvolgorde en context van een bericht
+kan modelleren. Mastodon-berichten kunnen subtiele semantische signalen en
+contextuele nuance bevatten die niet goed door eenvoudige bag-of-words
+representaties worden vastgelegd.
+
+De tokenisatie stap zet de ruwe tekst om in tokens die door het voorgetrainde
+BERT-model begrepen worden. \texttt{padding='max\_length'} en
+\texttt{truncation=True} zorgen ervoor dat alle inputs dezelfde lengte krijgen,
+waardoor batches efficiënt verwerkt kunnen worden.
+
+De trainingsinstellingen zijn gekozen om BERT met een relatief lage
+learning rate en een korte finetuning te trainen. \texttt{load\_best\_model\_at\_end=True}
+zorgt ervoor dat het beste model op basis van de F1-score wordt bewaard.
+
+\textbf{GPU-optimalisatie}: halveer de
+\texttt{per\_device\_train\_batch\_size} of verhoog gradient accumulation
+steps wanneer er onvoldoende VRAM beschikbaar is.
 
 \section{Hyperparameter-tuning}
 
@@ -294,152 +314,7 @@ python src/models/train_logistic_regression.py --grid-search
 Voor BERT: experimenteer met learning rate en batch size in config.yaml.
 
 % ══════════════════════════════════════════════════════════════════
-% ══════════════════════════════════════════════════════════════════
-\chapter{Evaluatie en analyse}
-% ══════════════════════════════════════════════════════════════════
-
-\section{Evaluatiemetrieken}
-
-Alle modellen worden beoordeeld op een onafhankelijke testset. Gebruikte
-metrieken (berekend in \texttt{src/evaluation/metrics.py}):
-
-\begin{table}[H]
-\centering
-\caption{Evaluatiemetrieken}
-\begin{tabular}{ll}
-\toprule
-\textbf{Metriek} & \textbf{Beschrijving} \\
-\midrule
-Accuracy & \% correct geclassificeerde berichten \\
-F1 (macro) & Harmonisch gemiddelde per klasse (aangewezen bij onbalans) \\
-F1 (binary) & F1 voor klasse ``waar'' alleen \\
-Precision & Van voorspelde ``waar'': \% echt waar \\
-Recall & Van werkelijke ``waar'': \% correct geïdentificeerd \\
-AUC-ROC & Discriminerend vermogen \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Modelevaluatie}
-
-Via \texttt{src/evaluation/evaluate\_all.py} worden gegenereerd:
-
-\begin{verbatim}
-python src/evaluation/evaluate_all.py
-\end{verbatim}
-
-\subsection{Metriekvergelijking}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{../results/figures/metrics_comparison.png}
-\caption{Vergelijking van F1, Precision, Recall en Accuracy per model (SVM, LR, BERT)}
-\label{fig:metrics}
-\end{figure}
-
-\subsection{Verwarringsmatrices}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{../results/figures/confusion_matrices.png}
-\caption{Confusion matrices voor alle drie modellen op testset}
-\label{fig:confusion}
-\end{figure}
-
-\subsection{ROC-curves}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/roc_curves.png}
-\caption{ROC-curves met AUC-scores per model}
-\label{fig:roc}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{../results/figures/radar_vergelijking.png}
-\caption{Radardiagram van modelprestaties}
-\label{fig:radar}
-\end{figure}
-
-\section{Factoranalyse}
-
-Via \texttt{src/evaluation/factor\_analysis.py}:
-
-\begin{verbatim}
-python src/evaluation/factor_analysis.py
-\end{verbatim}
-
-\subsection{Factor 1: Berichtlengte}
-
-Chi-square test (per lengtecategorie). Resultaten in \texttt{factor\_length\_analysis.csv}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/analyse_berichtlengte.png}
-\caption{Invloed van berichtlengte op classificatiefout per model}
-\label{fig:length}
-\end{figure}
-
-\subsection{Factor 2: Bronbetrouwbaarheid}
-
-ANOVA (laag/middel/hoog). Resultaten in \texttt{factor\_trust\_analysis.csv}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/analyse_bronbetrouwbaarheid.png}
-\caption{Invloed van bronbetrouwbaarheid op modelprestaties}
-\label{fig:trust}
-\end{figure}
-
-\subsection{Factor 3: Taalgebruik}
-
-Mann-Whitney U toets voor exclamatie's, vragen, CAPS, URLs.
-Resultaten in \texttt{factor\_taalgebruik\_statistieken.csv}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{../results/figures/heatmap_taalkenmerken.png}
-\caption{Heatmap van p-waarden voor taalgebruikskenmerken (SVM en LR)}
-\label{fig:linguistic}
-\end{figure}
-
-\section{Analyse Jupyter Notebook}
-
-Volledige visualisatie in \texttt{notebooks/02\_analyse\_rapport.ipynb}.
-Enkele belangrijke figuren:
-
-\subsection{BERT trainingsverloop}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/bert_trainingsverloop.png}
-\caption{Trainings- en validatieverlies + F1-macro per epoch}
-\label{fig:bert}
-\end{figure}
-
-\subsection{F1-score per berichtlengte}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/f1_per_lengte.png}
-\caption{Modelprestaties uitgesplitst naar berichtlengte}
-\label{fig:f1length}
-\end{figure}
-
-\subsection{Exploratieve data-analyse}
-
-Zie ook \texttt{notebooks/01\_eda.ipynb} voor labelbalans, wordclouds en correlatiematrices:
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{../results/figures/eda_labelbalans.png}
-\caption{Balans van waar/onwaar berichten in dataset}
-\label{fig:balance}
-\end{figure}
-
-% ══════════════════════════════════════════════════════════════════
-\chapter{Uitvoering van de pipeline}
+\section{Uitvoering van de pipeline}\label{sec:uitvoering}
 % ══════════════════════════════════════════════════════════════════
 
 \section{Installatie}
@@ -533,18 +408,18 @@ Na een volledige pipeline-run zijn de volgende bestanden beschikbaar:
 \end{tabular}
 \end{table}
 
-% ══════════════════════════════════════════════════════════════════
-\chapter{Reproduceerbaarheid en versiebeheer}
+\section{Reproduceerbaarheid en versiebeheer}
+\label{sec:reproduceerbaarheid}
 % ══════════════════════════════════════════════════════════════════
 
-\section{Random seed}
+\subsection{Random seed}
 
 Alle willekeurige processen (datasplitsing, modelinitialisatie, dataschudding)
 gebruiken een vaste seed van \textbf{42}, ingesteld via de functie
 \texttt{set\_seed()} in \texttt{src/utils.py}. Dit garandeert dat resultaten
 volledig reproduceerbaar zijn.
 
-\section{Git-versiebeheer}
+\subsection{Git-versiebeheer}
 
 De repository bevat een \texttt{.gitignore} die voorkomt dat gevoelige
 bestanden (API-tokens in \texttt{.env}) of grote bestanden
@@ -557,42 +432,152 @@ git add src/ notebooks/ config.yaml requirements.txt
 git commit -m "feat: SVM baseline getraind (val F1=0.XX)"
 \end{verbatim}
 
-\section{Configuratiebeheer}
+\subsection{Configuratiebeheer}
 
 Alle hyperparameters en paden zijn gecentraliseerd in \texttt{config.yaml}.
 Dit betekent dat experimenten kunnen worden herhaald of aangepast zonder
 de broncode te wijzigen.
 
 % ══════════════════════════════════════════════════════════════════
-\appendix
-\chapter{Bijlage: Volledige bestandslijst}
-% ══════════════════════════════════════════════════════════════════
+\chapter{Evaluatie en analyse}\label{ch:evaluatie}
 
-\begin{longtable}{lp{8cm}}
+\section{Evaluatiemetrieken}
+
+Alle modellen worden beoordeeld op een onafhankelijke testset. Gebruikte
+metrieken (berekend in \texttt{src/evaluation/metrics.py}):
+
+\begin{table}[H]
+\centering
+\caption{Evaluatiemetrieken}
+\begin{tabular}{ll}
 \toprule
-\textbf{Bestand} & \textbf{Functie} \\
+\textbf{Metriek} & \textbf{Beschrijving} \\
 \midrule
-\endhead
-\texttt{run\_pipeline.py} & Hoofdscript; orkestreert de volledige pipeline \\
-\texttt{config.yaml} & Centrale configuratie voor alle parameters en paden \\
-\texttt{requirements.txt} & Python-pakketafhankelijkheden \\
-\texttt{setup.py} & Installatiebestand voor lokale pakketimport \\
-\texttt{.env.example} & Template voor API-tokens (nooit committen) \\
-\texttt{.gitignore} & Uitsluitingen voor Git \\
-\texttt{src/utils.py} & Hulpfuncties: config laden, logging, seed, apparaat \\
-\texttt{src/preprocessing/mastodon\_collector.py} & Mastodon API-verzameling \\
-\texttt{src/preprocessing/liar\_preprocessor.py} & LIAR-dataset verwerking \\
-\texttt{src/preprocessing/data\_merger.py} & Samenvoegen LIAR + Mastodon \\
-\texttt{src/models/train\_svm.py} & SVM training en grid search \\
-\texttt{src/models/train\_logistic\_regression.py} & LR training en grid search \\
-\texttt{src/models/train\_bert.py} & BERT fine-tuning \\
-\texttt{src/evaluation/metrics.py} & F1, precision, recall, AUC-ROC \\
-\texttt{src/evaluation/evaluate\_all.py} & Eindevaluatie op testset \\
-\texttt{src/evaluation/factor\_analysis.py} & Chi-kwadraat, ANOVA, Mann-Whitney U \\
-\texttt{tests/test\_preprocessing.py} & 20+ unittests \\
-\texttt{notebooks/01\_eda.ipynb} & Exploratieve data-analyse \\
-\texttt{notebooks/02\_analyse\_rapport.ipynb} & Volledige scriptie-analyse \\
+Accuracy & \% correct geclassificeerde berichten \\
+F1 (macro) & Harmonisch gemiddelde per klasse (aangewezen bij onbalans) \\
+F1 (binary) & F1 voor klasse ``waar'' alleen \\
+Precision & Van voorspelde ``waar'': \% echt waar \\
+Recall & Van werkelijke ``waar'': \% correct geïdentificeerd \\
+AUC-ROC & Discriminerend vermogen \\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
-\end{document}
+\section{Modelevaluatie}
+
+Via \texttt{src/evaluation/evaluate\_all.py} worden gegenereerd:
+
+\begin{verbatim}
+python src/evaluation/evaluate_all.py
+\end{verbatim}
+
+\subsection{Metriekvergelijking}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../results/figures/metrics_comparison.png}
+\caption{Vergelijking van F1, Precision, Recall en Accuracy per model (SVM, LR, BERT)}
+\label{fig:metrics}
+\end{figure}
+
+\subsection{Verwarringsmatrices}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{../results/figures/confusion_matrices.png}
+\caption{Verwarringsmatrices voor alle drie modellen op testset. Opmerking: metrieke labels in figuur verwijzen naar F1-macro (niet F2-macro).}
+\label{fig:confusion}
+\end{figure}
+
+\subsection{ROC-curves}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/roc_curves.png}
+\caption{ROC-curves met AUC-scores per model}
+\label{fig:roc}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../results/figures/radar_vergelijking.png}
+\caption{Radardiagram van modelprestaties}
+\label{fig:radar}
+\end{figure}
+
+\section{Factoranalyse}
+
+Via \texttt{src/evaluation/factor\_analysis.py} worden:
+
+\begin{verbatim}
+python src/evaluation/factor_analysis.py
+\end{verbatim}
+
+\subsection{Factor 1: Berichtlengte}
+
+Chi-square test (per lengtecategorie). Resultaten in \texttt{factor\_length\_analysis.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/analyse_berichtlengte.png}
+\caption{Invloed van berichtlengte op classificatiefout per model}
+\label{fig:length}
+\end{figure}
+
+\subsection{Factor 2: Bronbetrouwbaarheid}
+
+ANOVA (laag/middel/hoog). Resultaten in \texttt{factor\_trust\_analysis.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/analyse_bronbetrouwbaarheid.png}
+\caption{Invloed van bronbetrouwbaarheid op modelprestaties}
+\label{fig:trust}
+\end{figure}
+
+\subsection{Factor 3: Taalgebruik}
+
+Mann-Whitney U toets voor exclamatie's, vragen, CAPS, URLs.
+Resultaten in \path{factor_taalgebruik_statistieken.csv}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../results/figures/heatmap_taalkenmerken.png}
+\caption{Heatmap van p-waarden voor taalgebruikskenmerken (SVM en LR)}
+\label{fig:linguistic}
+\end{figure}
+
+\section{Analyse Jupyter Notebook}
+
+Volledige visualisatie in \texttt{notebooks/02\_analyse\_rapport.ipynb}.
+Enkele belangrijke figuren:
+
+\subsection{BERT trainingsverloop}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/bert_trainingsverloop.png}
+\caption{Trainings- en validatieverlies + F1-macro per epoch}
+\label{fig:bert}
+\end{figure}
+
+\subsection{F1-score per berichtlengte}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/f1_per_lengte.png}
+\caption{Modelprestaties uitgesplitst naar berichtlengte}
+\label{fig:f1length}
+\end{figure}
+
+\subsection{Exploratieve data-analyse}
+
+Zie ook \texttt{notebooks/01\_eda.ipynb} voor labelbalans, wordclouds en correlatiematrices:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{../results/figures/eda_labelbalans.png}
+\caption{Balans van waar/onwaar berichten in dataset}
+\label{fig:balance}
+\end{figure}
+

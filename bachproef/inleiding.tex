@@ -49,7 +49,7 @@ Het beoogde resultaat van deze bachelorproef is een vergelijkende studie op basi
 
 De criteria voor succes zijn:
 \begin{itemize}
-    \item Het samenstellen van een dataset die bestaat uit een aangepaste versie van de LIAR-dataset, aangevuld met minimaal 500 gelabelde Mastodon-berichten (geverifieerd via bronnen als \textit{VRT NWS Factcheck} en \textit{PolitiFact}).
+    \item Ik heb een dataset samengesteld die bestaat uit een aangepaste versie van de LIAR-dataset, aangevuld met in totaal 300 gelabelde Mastodon-berichten (geverifieerd via bronnen als \textit{VRT NWS Factcheck} en \textit{PolitiFact}). 
     \item Het trainen en evalueren van drie modellen: Logistic Regression, SVM en BERT.
     \item Een analyse van de invloed van berichtlengte, bron en taalgebruik op de resultaten.
     \item Een conclusie over de haalbaarheid van automatische detectie in een decentrale omgeving.
@@ -60,12 +60,21 @@ De criteria voor succes zijn:
 
 De rest van deze bachelorproef is als volgt opgebouwd:
 
+In Hoofdstuk~\ref{ch:inleiding} wordt het onderzoek ingeleid, de context geschetst en de centrale vraag geformuleerd.
+
 In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein. Hierbij wordt ingegaan op de werking van Mastodon, de huidige literatuur over fake news detectie en de theorie achter SVM, Logistic Regression en BERT.
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht. Dit omvat de dataverzameling via de Mastodon API, de integratie met de LIAR-dataset en de configuratie van de experimenten.
 
-In Hoofdstuk~\ref{ch:resultaten} worden de experimentele resultaten gepresenteerd. De modellen worden vergeleken op basis van F1-score, precisie en recall, gevolgd door een analyse van de beïnvloedende factoren.
+In Hoofdstuk~\ref{ch:uitwerking} worden het projectoverzicht, de praktische data- en preprocessing-implementatie en de modelimplementatie gepresenteerd. Dit hoofdstuk omvat ook de uitvoering van de pipeline en de reproduceerbaarheid van het experiment, inclusief installatie, het draaien van scripts, random seeds, Git-strategie en configuratiebeheer.
 
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:evaluatie} worden de experimentele resultaten gepresenteerd. De modellen worden vergeleken op basis van F1-score, precisie en recall, gevolgd door een analyse van de beïnvloedende factoren zoals berichtlengte, bronbetrouwbaarheid en taalgebruik.
+
+In de bijlagen worden extra ondersteunende materialen verstrekt, waaronder:
+
+
+In Hoofdstuk~\ref{cha:algemeen_besluit} wordt het algemeen besluit en een discussie over de implicaties en beperkingen gepresenteerd.
+
+De bibliografie volgt in de backmatter, waarin alle geraadpleegde bronnen worden opgenomen.
 
 \end{document}

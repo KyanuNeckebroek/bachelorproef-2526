@@ -12,6 +12,7 @@
 %   explicit approval!), remove the option "dutch," or replace with "english".
 
 \usepackage{lipsum} % For blind text, can be removed after adding actual content
+\usepackage{url}
 
 %% Pictures to include in the text can be put in the graphics/ folder
 \graphicspath{{../graphics/}}
@@ -58,6 +59,52 @@
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
 \partialthesis{false} %% To display 'in partial fulfilment'
 %\institution{Internshipcompany BVBA.}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Colors and listings style for product documentation
+\definecolor{codeblue}{RGB}{33,150,243}
+\definecolor{codegray}{RGB}{245,245,245}
+\definecolor{codecomment}{RGB}{100,100,100}
+\definecolor{codestring}{RGB}{76,175,80}
+\definecolor{darkblue}{RGB}{25,100,180}
+\definecolor{lightgray}{RGB}{240,240,240}
+
+\lstdefinestyle{pythonstyle}{%
+    backgroundcolor=\color{codegray},
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{codeblue}\bfseries,
+    stringstyle=\color{codestring},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{gray!40},
+    language=Python
+}
+\lstset{style=pythonstyle}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    citecolor=darkblue,
+    urlcolor=codeblue,
+    pdftitle={Misinformatie Detectie op Mastodon -- Technische Documentatie},
+    pdfauthor={}
+}
 
 %% Add global exceptions to the hyphenation here
 \hyphenation{back-slash}
@@ -142,17 +189,62 @@
     \textit{Let op: bestand methodologie.tex niet gevonden.}
 }
 
+% Productdocumentatie
+\IfFileExists{product.tex}{
+    \input{product}
+}{
+    \chapter{Productdocumentatie}
+    \textit{Let op: bestand product.tex niet gevonden.}
+}
+
 % 4. Resultaten (Nog te doen)
 % \input{resultaten} 
 
 % 5. Conclusie (Nog te doen)
 % \input{conclusie} 
 
+% 6. Algemeen Besluit en Discussie
+\IfFileExists{06_algemeen_besluit.tex}{
+    \input{06_algemeen_besluit}
+}{
+    % Let op: bestand 06_algemeen_besluit.tex niet gevonden.
+}
+
 %---------- Bijlagen -----------------------------------------------------------
 
 \appendix
 
+\chapter{Bijlage: Volledige bestandslijst}
+\label{ch:bijlage-bestandslijst}
+\begin{longtable}{lp{8cm}}
+\toprule
+\textbf{Bestand} & \textbf{Functie} \\
+\midrule
+\endhead
+\texttt{run\_pipeline.py} & Hoofdscript; orkestreert de volledige pipeline \\
+\texttt{config.yaml} & Centrale configuratie voor alle parameters en paden \\
+\texttt{requirements.txt} & Python-pakketafhankelijkheden \\
+\texttt{setup.py} & Installatiebestand voor lokale pakketimport \\
+\texttt{.env.example} & Template voor API-tokens (nooit committen) \\
+\texttt{.gitignore} & Uitsluitingen voor Git \\
+\texttt{src/utils.py} & Hulpfuncties: config laden, logging, seed, apparaat \\
+\texttt{src/preprocessing/mastodon\_collector.py} & Mastodon API-verzameling \\
+\texttt{src/preprocessing/liar\_preprocessor.py} & LIAR-dataset verwerking \\
+\texttt{src/preprocessing/data\_merger.py} & Samenvoegen LIAR + Mastodon \\
+\texttt{src/models/train\_svm.py} & SVM training en grid search \\
+\texttt{src/models/train\_logistic\_regression.py} & LR training en grid search \\
+\texttt{src/models/train\_bert.py} & BERT fine-tuning \\
+\texttt{src/evaluation/metrics.py} & F1, precision, recall, AUC-ROC \\
+\texttt{src/evaluation/evaluate\_all.py} & Eindevaluatie op testset \\
+\texttt{src/evaluation/factor\_analysis.py} & Chi-kwadraat, ANOVA, Mann-Whitney U \\
+\texttt{tests/test\_preprocessing.py} & 20+ unittests \\
+\texttt{notebooks/01\_eda.ipynb} & Exploratieve data-analyse \\
+\texttt{notebooks/02\_analyse\_rapport.ipynb} & Volledige scriptie-analyse \\
+\bottomrule
+\end{longtable}
+
 \chapter{Onderzoeksvoorstel}
+\label{ch:onderzoeksvoorstel}
 
 Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 

@@ -1,0 +1,2655 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{ashish2017attention}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a819a1f853a77655e02db5622e71feb9}{%
+           family={Ashish},
+           familyi={A\bibinitperiod},
+           given={Vaswani},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{fullhash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{fullhashraw}{a819a1f853a77655e02db5622e71feb9}
+      \strng{bibnamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorbibnamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authornamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorfullhash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorfullhashraw}{a819a1f853a77655e02db5622e71feb9}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{I}
+      \range{pages}{1}
+    \endentry
+    \entry{castillo2011information}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9945b3859caed4e19a23f700fa1b79db}{%
+           family={Castillo},
+           familyi={C\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0143fa1a90df904c459c299727d50cae}{%
+           family={Mendoza},
+           familyi={M\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f9532fb79cf4fa83438558137a98969c}{%
+           family={Poblete},
+           familyi={P\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{793232b63f8b0194190b942b6f86e41d}
+      \strng{fullhash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{fullhashraw}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{bibnamehash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authorbibnamehash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authornamehash}{793232b63f8b0194190b942b6f86e41d}
+      \strng{authorfullhash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authorfullhashraw}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 20th international conference on World wide web}
+      \field{title}{Information credibility on twitter}
+      \field{year}{2011}
+      \field{pages}{675\bibrangedash 684}
+      \range{pages}{10}
+    \endentry
+    \entry{Devlin2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=13202969e372bc82318f9629cbdd199b}{%
+           family={Devlin},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a45784fe7163b45f11d166564f5d24b6}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Ming-Wei},
+           giveni={M\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dde73b4194f5bc4230c4808f3fc1534}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Kenton},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b92aa283415413bb8d2a1548716d0c7d}{%
+           family={Toutanova},
+           familyi={T\bibinitperiod},
+           given={Kristina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Minneapolis, Minnesota}%
+      }
+      \strng{namehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{fullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{fullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{bibnamehash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authorbibnamehash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authornamehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{authorfullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authorfullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies}
+      \field{title}{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}
+      \field{year}{2019}
+      \field{pages}{4171\bibrangedash 4186}
+      \range{pages}{16}
+    \endentry
+    \entry{Fediverse2025}{misc}{}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/wiki/Fediverse}}
+      \field{note}{Information on decentralized social networking and moderation responsibilities}
+      \field{title}{Fediverse}
+      \field{year}{2025}
+    \endentry
+    \entry{kaliyar2021fakebert}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4ce636406d878c4a85696ae65f3241d8}{%
+           family={Kaliyar},
+           familyi={K\bibinitperiod},
+           given={Rohit\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=10c41064be0365571b1b5e74fff21bed}{%
+           family={Goswami},
+           familyi={G\bibinitperiod},
+           given={Anurag},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=290d5bf6ae15fd4aba5a4438d9dbb5ac}{%
+           family={Narang},
+           familyi={N\bibinitperiod},
+           given={Pratik},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d6b4efb45627dee8f7c9fe0dcdb435d2}
+      \strng{fullhash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{fullhashraw}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{bibnamehash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authorbibnamehash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authornamehash}{d6b4efb45627dee8f7c9fe0dcdb435d2}
+      \strng{authorfullhash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authorfullhashraw}{3706fa1e40c8f929227e45ae3e660eda}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Multimedia tools and applications}
+      \field{number}{8}
+      \field{title}{FakeBERT: Fake news detection in social media with a BERT-based deep learning approach}
+      \field{volume}{80}
+      \field{year}{2021}
+      \field{pages}{11765\bibrangedash 11788}
+      \range{pages}{24}
+    \endentry
+    \entry{Khatri2025}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7bca69b2cdaca205cf78cc4945b094eb}{%
+           family={Khatri},
+           familyi={K\bibinitperiod},
+           given={Gauravkumar\bibnamedelima Kalpeshkumar},
+           giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{fullhash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{fullhashraw}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{bibnamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorbibnamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authornamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorfullhash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorfullhashraw}{7bca69b2cdaca205cf78cc4945b094eb}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal for Research in Applied Science and Engineering Technology (IJRASET)}
+      \field{note}{Vergelijkende studie die relevant is voor jouw methodologie.}
+      \field{number}{1}
+      \field{title}{Fake News Detection Using Machine Learning and BERT: A Comparative Study}
+      \field{volume}{13}
+      \field{year}{2025}
+    \endentry
+    \entry{LaCava2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f7599adea0166a1cf119265129ab0ea2}{%
+           family={La\bibnamedelima Cava},
+           familyi={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48ffe468555485f8af1c66148e7bb07a}{%
+           family={Greco},
+           familyi={G\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1fda5824ba9154f51e67754cc1c92f46}{%
+           family={Tagarelli},
+           familyi={T\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d1201c7b2fbd42ddbbc8ca50fa6bff0e}
+      \strng{fullhash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{fullhashraw}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{bibnamehash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authorbibnamehash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authornamehash}{d1201c7b2fbd42ddbbc8ca50fa6bff0e}
+      \strng{authorfullhash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authorfullhashraw}{31603dd8c36640ee5b34fb743b43743f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Network Science}
+      \field{number}{1}
+      \field{title}{Understanding the growth of the Fediverse through the lens of Mastodon}
+      \field{volume}{8}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 32}
+      \range{pages}{32}
+    \endentry
+    \entry{lazer2018science}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=237effc4004e7d9f3e5a0b19f1e1ae44}{%
+           family={Lazer},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima MJ},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32bc35c5444a6e2bdd5b9320e1e94ce8}{%
+           family={Baum},
+           familyi={B\bibinitperiod},
+           given={Matthew\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ccd91bfaf6de87d2510a58724009b53}{%
+           family={Benkler},
+           familyi={B\bibinitperiod},
+           given={Yochai},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abff43c547820881e66248439eaa0b33}{%
+           family={Berinsky},
+           familyi={B\bibinitperiod},
+           given={Adam\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9788b14e126637a67fdef1e85841646f}{%
+           family={Greenhill},
+           familyi={G\bibinitperiod},
+           given={Kelly\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e3991fca812b39b0448729fca507968}{%
+           family={Menczer},
+           familyi={M\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29d8b38481cf361be83022d450e37f50}{%
+           family={Metzger},
+           familyi={M\bibinitperiod},
+           given={Miriam\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ef5bca6f403168706ad93d11351ed60}{%
+           family={Nyhan},
+           familyi={N\bibinitperiod},
+           given={Brendan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14ca11670fbe0c75690f2537879ddb4d}{%
+           family={Pennycook},
+           familyi={P\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=795d5f288e25d76e93208ba0af5b04e7}{%
+           family={Rothschild},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{1f19a4b355ddb0a22f3ab54d01e44ca6}
+      \strng{fullhash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{fullhashraw}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{bibnamehash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authorbibnamehash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authornamehash}{1f19a4b355ddb0a22f3ab54d01e44ca6}
+      \strng{authorfullhash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authorfullhashraw}{d4ad731e30052254d4ce1876d6b1b471}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6380}
+      \field{title}{The science of fake news}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1094\bibrangedash 1096}
+      \range{pages}{3}
+    \endentry
+    \entry{Park2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=949c0530f92a3986e2770ee92945b9e9}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jisun},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=105649cc0c82e7b3e07bade779f36466}{%
+           family={Shin},
+           familyi={S\bibinitperiod},
+           given={Jaejin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea1e0efe4f3dcaf0a50c1119d83f7ca8}{%
+           family={Fung},
+           familyi={F\bibinitperiod},
+           given={Pascale},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{667d2fd96ec17025b7c935a3aedfc3df}
+      \strng{fullhash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{fullhashraw}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{bibnamehash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authorbibnamehash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authornamehash}{667d2fd96ec17025b7c935a3aedfc3df}
+      \strng{authorfullhash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authorfullhashraw}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing}
+      \field{title}{Reducing Bias in Toxic Language Detection Models with Counterfactual Data Augmentation}
+      \field{year}{2022}
+      \field{pages}{335\bibrangedash 349}
+      \range{pages}{15}
+    \endentry
+    \entry{pelrine2021surprising}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=80d84bdef6191268e1c621a09da2615d}{%
+           family={Pelrine},
+           familyi={P\bibinitperiod},
+           given={Kellin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f880b3bb910d214cbc47de8f3b2efe17}{%
+           family={Danovitch},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a470338ed48fcc706bb7809d56c61ac}{%
+           family={Rabbany},
+           familyi={R\bibinitperiod},
+           given={Reihaneh},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{80a57009ae288aec61c5bad4b8dd3712}
+      \strng{fullhash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{fullhashraw}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{bibnamehash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authorbibnamehash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authornamehash}{80a57009ae288aec61c5bad4b8dd3712}
+      \strng{authorfullhash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authorfullhashraw}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the web conference 2021}
+      \field{title}{The surprising performance of simple baselines for misinformation detection}
+      \field{year}{2021}
+      \field{pages}{3432\bibrangedash 3441}
+      \range{pages}{10}
+    \endentry
+    \entry{pennycook2021psychology}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=14ca11670fbe0c75690f2537879ddb4d}{%
+           family={Pennycook},
+           familyi={P\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=187c24b68c32371cc8f611424ad4a73d}{%
+           family={Rand},
+           familyi={R\bibinitperiod},
+           given={David\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{fullhash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{fullhashraw}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{bibnamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorbibnamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authornamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorfullhash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorfullhashraw}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Trends in cognitive sciences}
+      \field{number}{5}
+      \field{title}{The psychology of fake news}
+      \field{volume}{25}
+      \field{year}{2021}
+      \field{pages}{388\bibrangedash 402}
+      \range{pages}{15}
+    \endentry
+    \entry{perez2018automatic}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=8cacb96fe84d7d1fd3763473e34d477a}{%
+           family={Pérez-Rosas},
+           familyi={P\bibinithyphendelim R\bibinitperiod},
+           given={V},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bf7786515de89dc809bb0249da7d7cf}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7769ba1131e93046a2fcf10d7e71b210}{%
+           family={Lefevre},
+           familyi={L\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38b8fdc19ea13dbb245c82362d2bfbca}{%
+           family={Mihalcea},
+           familyi={M\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{87a76f0c7af0dffca50628949ab1d962}
+      \strng{fullhash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{fullhashraw}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{bibnamehash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authorbibnamehash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authornamehash}{87a76f0c7af0dffca50628949ab1d962}
+      \strng{authorfullhash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authorfullhashraw}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 27th International Conference on Computational Linguistics. Association for Computational Linguistics, Santa Fe}
+      \field{title}{Automatic fake news detection}
+      \field{year}{2018}
+    \endentry
+    \entry{Ren2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=62341ebcc57e03720c55a39d93f0b17d}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d41347f273c226091f12a17225bb356a}{%
+           family={Rogers},
+           familyi={R\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{fullhash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{fullhashraw}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{bibnamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorbibnamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authornamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorfullhash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorfullhashraw}{91d2e32cb18a39763dae7ec48313e49e}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 13th ACM Web Science Conference}
+      \field{title}{The Fragmented Web of Moderation: Challenges in Federated and Decentralized Social Networks}
+      \field{year}{2021}
+      \field{pages}{69\bibrangedash 78}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3472721.3472764
+      \endverb
+    \endentry
+    \entry{Ruchansky2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4dbafa360d063805ea0c22794b8a1b08}{%
+           family={Ruchansky},
+           familyi={R\bibinitperiod},
+           given={Natali},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3d0f25e37de4fd28d7f2a4fbd627dd2}{%
+           family={Seo},
+           familyi={S\bibinitperiod},
+           given={Sungyong},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92f7474e36f4f2b59a14e85c0e738e40}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{25ae833686eb7a9140e5e038d4cd77c8}
+      \strng{fullhash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{fullhashraw}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{bibnamehash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authorbibnamehash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authornamehash}{25ae833686eb7a9140e5e038d4cd77c8}
+      \strng{authorfullhash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authorfullhashraw}{409a829e41a6a169c397bb088bf3ce82}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2017 ACM on Conference on Information and Knowledge Management (CIKM '17)}
+      \field{title}{CSI: A Hybrid Deep Model for Fake News Detection}
+      \field{year}{2017}
+      \field{pages}{797\bibrangedash 806}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3132847.3132877
+      \endverb
+    \endentry
+    \entry{Salaverria2024}{inbook}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e7537d4500d0ee7c6d1559609d241987}{%
+           family={Salaverría},
+           familyi={S\bibinitperiod},
+           given={Ramón},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccc8d821f3bfcfd565f758ec6a83f6fd}{%
+           family={Martínez-Costa},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={María-del-Pilar},
+           giveni={M\bibinithyphendelim d\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08ff5d52b5c966aeeb530dad883a4c30}{%
+           family={González-Tosat},
+           familyi={G\bibinithyphendelim T\bibinitperiod},
+           given={Clara},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Palgrave Macmillan}%
+      }
+      \strng{namehash}{3dfccbd2f9a59a9f6a70a4c369986d7e}
+      \strng{fullhash}{664f642413afef61c3c8c627adfece5d}
+      \strng{fullhashraw}{664f642413afef61c3c8c627adfece5d}
+      \strng{bibnamehash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authorbibnamehash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authornamehash}{3dfccbd2f9a59a9f6a70a4c369986d7e}
+      \strng{authorfullhash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authorfullhashraw}{664f642413afef61c3c8c627adfece5d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Journalism, Digital Media and the Fourth Industrial Revolution}
+      \field{title}{Decentralised Networks as a Tool for Fighting Disinformation and Censorship: The Fediverse and Free, Collaborative and Open Networks}
+      \field{year}{2024}
+      \field{pages}{15\bibrangedash 25}
+      \range{pages}{11}
+    \endentry
+    \entry{shao2018spread}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=f0d3375abef0c285e50cad6342adfd1b}{%
+           family={Shao},
+           familyi={S\bibinitperiod},
+           given={Chengcheng},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c18e207edcbf3ffb829cdacc77d4f828}{%
+           family={Ciampaglia},
+           familyi={C\bibinitperiod},
+           given={Giovanni\bibnamedelima Luca},
+           giveni={G\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a87d0c70e43b7e935e92f1f97c48d2e}{%
+           family={Varol},
+           familyi={V\bibinitperiod},
+           given={Onur},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41dfba5c4d3b36f03ec338b7204ecaa0}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Kai-Cheng},
+           giveni={K\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2596bc60fbbe46dccfc09ae3fd2522d0}{%
+           family={Flammini},
+           familyi={F\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e3991fca812b39b0448729fca507968}{%
+           family={Menczer},
+           familyi={M\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{fa270c6c2839711be1206c9ffeb7eab6}
+      \strng{fullhash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{fullhashraw}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{bibnamehash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authorbibnamehash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authornamehash}{fa270c6c2839711be1206c9ffeb7eab6}
+      \strng{authorfullhash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authorfullhashraw}{ae4c79188aa7fc11180aa74b512d08a6}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature communications}
+      \field{number}{1}
+      \field{title}{The spread of low-credibility content by social bots}
+      \field{volume}{9}
+      \field{year}{2018}
+      \field{pages}{4787}
+      \range{pages}{1}
+    \endentry
+    \entry{Shu2017}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b7e59a821f2474127e14134fb2309373}{%
+           family={Shu},
+           familyi={S\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=77c4e54b966442a2859a568c5f242606}{%
+           family={Sliva},
+           familyi={S\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d51786a0dffbd8ee68a63e5263f05e7f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Suhang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=854278958e1021c53ca312cc8316e2a6}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jiliang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a83f8cd28a9f36e43dd5d017cd7fc8f4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{fullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{fullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \strng{bibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorbibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authornamehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{authorfullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorfullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM SIGKDD Explorations Newsletter}
+      \field{number}{1}
+      \field{title}{Fake News Detection on Social Media: A Data Mining Perspective}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{22\bibrangedash 36}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1145/3137597.3137600
+      \endverb
+    \endentry
+    \entry{shu2017fake}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b7e59a821f2474127e14134fb2309373}{%
+           family={Shu},
+           familyi={S\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=77c4e54b966442a2859a568c5f242606}{%
+           family={Sliva},
+           familyi={S\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d51786a0dffbd8ee68a63e5263f05e7f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Suhang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=854278958e1021c53ca312cc8316e2a6}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jiliang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a83f8cd28a9f36e43dd5d017cd7fc8f4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{fullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{fullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \strng{bibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorbibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authornamehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{authorfullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorfullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM SIGKDD explorations newsletter}
+      \field{number}{1}
+      \field{title}{Fake news detection on social media: A data mining perspective}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{22\bibrangedash 36}
+      \range{pages}{15}
+    \endentry
+    \entry{SpencerSmith2025}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dfe257f684ee470fc49fafd6aef14954}{%
+           family={Spencer-Smith},
+           familyi={S\bibinithyphendelim S\bibinitperiod},
+           given={Charlotte},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4665f76b384adf0f72f12fbf3bdaa32b}{%
+           family={Tomaz},
+           familyi={T\bibinitperiod},
+           given={Tales},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{dbcae050affe03e8b743117279918efa}
+      \strng{fullhash}{dbcae050affe03e8b743117279918efa}
+      \strng{fullhashraw}{dbcae050affe03e8b743117279918efa}
+      \strng{bibnamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorbibnamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authornamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorfullhash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorfullhashraw}{dbcae050affe03e8b743117279918efa}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Internet Policy Review}
+      \field{number}{1}
+      \field{title}{Labour pains: Content moderation challenges in Mastodon growth}
+      \field{volume}{14}
+      \field{year}{2025}
+      \field{pages}{1831}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.14763/2025.1.1831
+      \endverb
+    \endentry
+    \entry{SuryaCreatX2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b0d1a6f0d104803e5e1726363dc3862}{%
+           family={{Surya CreatX}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{fullhash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{fullhashraw}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{bibnamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorbibnamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authornamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorfullhash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorfullhashraw}{1b0d1a6f0d104803e5e1726363dc3862}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decentralized Social Media and the Limits of Automated Moderation}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://suryacreatx.medium.com
+      \endverb
+      \verb{url}
+      \verb https://suryacreatx.medium.com
+      \endverb
+    \endentry
+    \entry{TechPolicy2025}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0671ee3aa5ccd662b43e9e4f31bb96c0}{%
+           family={TechPolicy.Press},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{fullhash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{fullhashraw}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{bibnamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorbibnamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authornamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorfullhash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorfullhashraw}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{TechPolicy.Press}
+      \field{title}{Online Safety and the ``Great Decentralization'' – The Perils and Promises of Federated Social Media}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.techpolicy.press/online-safety-and-the-great-decentralization-the-perils-and-promises-of-federated-social-media
+      \endverb
+      \verb{url}
+      \verb https://www.techpolicy.press/online-safety-and-the-great-decentralization-the-perils-and-promises-of-federated-social-media
+      \endverb
+    \endentry
+    \entry{vosoughi2018spread}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebb347d48a8f2885b4a3e7fe036e6754}{%
+           family={Vosoughi},
+           familyi={V\bibinitperiod},
+           given={Soroush},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32efe6714e7367da453770fd1608e785}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Deb},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f3caa8da6f7b466d61b4df9bcbc94de}{%
+           family={Aral},
+           familyi={A\bibinitperiod},
+           given={Sinan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{fullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{fullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{bibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorbibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authornamehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{authorfullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorfullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \field{extraname}{1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{science}
+      \field{number}{6380}
+      \field{title}{The spread of true and false news online}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1146\bibrangedash 1151}
+      \range{pages}{6}
+    \endentry
+    \entry{Vosoughi2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebb347d48a8f2885b4a3e7fe036e6754}{%
+           family={Vosoughi},
+           familyi={V\bibinitperiod},
+           given={Soroush},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32efe6714e7367da453770fd1608e785}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Deb},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f3caa8da6f7b466d61b4df9bcbc94de}{%
+           family={Aral},
+           familyi={A\bibinitperiod},
+           given={Sinan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{fullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{fullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{bibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorbibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authornamehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{authorfullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorfullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \field{extraname}{2}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6380}
+      \field{title}{The spread of true and false news online}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1146\bibrangedash 1151}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1126/science.aap9559
+      \endverb
+    \endentry
+    \entry{LIAR2016}{dataset}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b9b2f81da3e41fbc72b81f1b7f2e722}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={William\bibnamedelima Yang},
+           giveni={W\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACL}%
+      }
+      \strng{namehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{bibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorbibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authornamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LIAR: A Benchmark Dataset for Fake News Detection}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://www.cs.ucsb.edu/~william/data/liar_dataset.zip
+      \endverb
+      \verb{url}
+      \verb https://www.cs.ucsb.edu/~william/data/liar_dataset.zip
+      \endverb
+    \endentry
+    \entry{Wang2017}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b9b2f81da3e41fbc72b81f1b7f2e722}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={William\bibnamedelima Yang},
+           giveni={W\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Vancouver, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{bibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorbibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authornamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)}
+      \field{title}{``Liar, Liar Pants on Fire'': A New Benchmark Dataset for Fake News Detection}
+      \field{year}{2017}
+      \field{pages}{422\bibrangedash 426}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://aclanthology.org/P17-2067
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/P17-2067
+      \endverb
+    \endentry
+    \entry{wardle2017information}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2772755217609db4a47924a79c7a93bc}{%
+           family={Wardle},
+           familyi={W\bibinitperiod},
+           given={Claire},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5bbc4b8efdca816deed96cde297f27e6}{%
+           family={Derakhshan},
+           familyi={D\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Council of Europe Strasbourg}%
+      }
+      \strng{namehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{fullhash}{a59c87d08253f050125d77ee949102c8}
+      \strng{fullhashraw}{a59c87d08253f050125d77ee949102c8}
+      \strng{bibnamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorbibnamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authornamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorfullhash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorfullhashraw}{a59c87d08253f050125d77ee949102c8}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Information disorder: Toward an interdisciplinary framework for research and policymaking}
+      \field{volume}{27}
+      \field{year}{2017}
+    \endentry
+    \entry{zhou2020similarity}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ddd6ceff96e70d0c817fc28c95d6b2c4}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Xinyi},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2468bcbd176480ecc966ee69bdc45ab7}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jindi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f27318b8327f5c3832e82f2e020a1d1f}{%
+           family={Zafarani},
+           familyi={Z\bibinitperiod},
+           given={Reza},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{84ce5cce537ed22c490af3ee9291a70b}
+      \strng{fullhash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{fullhashraw}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{bibnamehash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authorbibnamehash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authornamehash}{84ce5cce537ed22c490af3ee9291a70b}
+      \strng{authorfullhash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authorfullhashraw}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pacific-Asia Conference on knowledge discovery and data mining}
+      \field{title}{: Similarity-aware multi-modal fake news detection}
+      \field{year}{2020}
+      \field{pages}{354\bibrangedash 367}
+      \range{pages}{14}
+    \endentry
+    \entry{Zia2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=006a2bf87385916132d0f169d3a5af02}{%
+           family={Zia},
+           familyi={Z\bibinitperiod},
+           given={Haris\bibnamedelima Bin},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23868224b5334fcbb628335b872eca4f}{%
+           family={Raman},
+           familyi={R\bibinitperiod},
+           given={Aravindh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e38151b7a3dc7193a143c6ad630f3c6e}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Ignacio},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a658b812e3374b348ad6585d05af4d6}{%
+           family={Tyson},
+           familyi={T\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bce5cf1f64758c2964e30aa5097c8fb8}
+      \strng{fullhash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{fullhashraw}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{bibnamehash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authorbibnamehash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authornamehash}{bce5cf1f64758c2964e30aa5097c8fb8}
+      \strng{authorfullhash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authorfullhashraw}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2501.05871}
+      \field{note}{Recent onderzoek naar de uitdagingen van moderatie op decentrale netwerken.}
+      \field{title}{Collaborative Content Moderation in the Fediverse}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2501.05871
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2501.05871
+      \endverb
+    \endentry
+    \entry{Zignani2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=c2f50d05d92880f383ef37d481f32175}{%
+           family={Zignani},
+           familyi={Z\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02df3b40f3c332bbc2831f3178e163f6}{%
+           family={Quadri},
+           familyi={Q\bibinitperiod},
+           given={Claudia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4472e5cb1659e4b958d81b8d838f96f}{%
+           family={Gaito},
+           familyi={G\bibinitperiod},
+           given={Sabrina},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f91268bcfdf3f3b1974e98248ed13734}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={Gian\bibnamedelima Paolo},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fc088b58706f6377b8c9dbeae5e0033f}
+      \strng{fullhash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{fullhashraw}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{bibnamehash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authorbibnamehash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authornamehash}{fc088b58706f6377b8c9dbeae5e0033f}
+      \strng{authorfullhash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authorfullhashraw}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2019 IEEE International Conference on Communications Workshops (ICC Workshops)}
+      \field{title}{Mastodon Content and User Analysis}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICCW.2019.8757060
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{ashish2017attention}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a819a1f853a77655e02db5622e71feb9}{%
+           family={Ashish},
+           familyi={A\bibinitperiod},
+           given={Vaswani},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{fullhash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{fullhashraw}{a819a1f853a77655e02db5622e71feb9}
+      \strng{bibnamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorbibnamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authornamehash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorfullhash}{a819a1f853a77655e02db5622e71feb9}
+      \strng{authorfullhashraw}{a819a1f853a77655e02db5622e71feb9}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{I}
+      \range{pages}{1}
+    \endentry
+    \entry{castillo2011information}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9945b3859caed4e19a23f700fa1b79db}{%
+           family={Castillo},
+           familyi={C\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0143fa1a90df904c459c299727d50cae}{%
+           family={Mendoza},
+           familyi={M\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f9532fb79cf4fa83438558137a98969c}{%
+           family={Poblete},
+           familyi={P\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{793232b63f8b0194190b942b6f86e41d}
+      \strng{fullhash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{fullhashraw}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{bibnamehash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authorbibnamehash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authornamehash}{793232b63f8b0194190b942b6f86e41d}
+      \strng{authorfullhash}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \strng{authorfullhashraw}{d8912191dfb1af95af37cc6cc0bd5ed4}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 20th international conference on World wide web}
+      \field{title}{Information credibility on twitter}
+      \field{year}{2011}
+      \field{pages}{675\bibrangedash 684}
+      \range{pages}{10}
+    \endentry
+    \entry{Devlin2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=13202969e372bc82318f9629cbdd199b}{%
+           family={Devlin},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a45784fe7163b45f11d166564f5d24b6}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Ming-Wei},
+           giveni={M\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dde73b4194f5bc4230c4808f3fc1534}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Kenton},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b92aa283415413bb8d2a1548716d0c7d}{%
+           family={Toutanova},
+           familyi={T\bibinitperiod},
+           given={Kristina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Minneapolis, Minnesota}%
+      }
+      \strng{namehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{fullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{fullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{bibnamehash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authorbibnamehash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authornamehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{authorfullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authorfullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies}
+      \field{title}{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}
+      \field{year}{2019}
+      \field{pages}{4171\bibrangedash 4186}
+      \range{pages}{16}
+    \endentry
+    \entry{Fediverse2025}{misc}{}{}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/wiki/Fediverse}}
+      \field{note}{Information on decentralized social networking and moderation responsibilities}
+      \field{title}{Fediverse}
+      \field{year}{2025}
+    \endentry
+    \entry{kaliyar2021fakebert}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4ce636406d878c4a85696ae65f3241d8}{%
+           family={Kaliyar},
+           familyi={K\bibinitperiod},
+           given={Rohit\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=10c41064be0365571b1b5e74fff21bed}{%
+           family={Goswami},
+           familyi={G\bibinitperiod},
+           given={Anurag},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=290d5bf6ae15fd4aba5a4438d9dbb5ac}{%
+           family={Narang},
+           familyi={N\bibinitperiod},
+           given={Pratik},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d6b4efb45627dee8f7c9fe0dcdb435d2}
+      \strng{fullhash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{fullhashraw}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{bibnamehash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authorbibnamehash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authornamehash}{d6b4efb45627dee8f7c9fe0dcdb435d2}
+      \strng{authorfullhash}{3706fa1e40c8f929227e45ae3e660eda}
+      \strng{authorfullhashraw}{3706fa1e40c8f929227e45ae3e660eda}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Multimedia tools and applications}
+      \field{number}{8}
+      \field{title}{FakeBERT: Fake news detection in social media with a BERT-based deep learning approach}
+      \field{volume}{80}
+      \field{year}{2021}
+      \field{pages}{11765\bibrangedash 11788}
+      \range{pages}{24}
+    \endentry
+    \entry{Khatri2025}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7bca69b2cdaca205cf78cc4945b094eb}{%
+           family={Khatri},
+           familyi={K\bibinitperiod},
+           given={Gauravkumar\bibnamedelima Kalpeshkumar},
+           giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{fullhash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{fullhashraw}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{bibnamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorbibnamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authornamehash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorfullhash}{7bca69b2cdaca205cf78cc4945b094eb}
+      \strng{authorfullhashraw}{7bca69b2cdaca205cf78cc4945b094eb}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal for Research in Applied Science and Engineering Technology (IJRASET)}
+      \field{note}{Vergelijkende studie die relevant is voor jouw methodologie.}
+      \field{number}{1}
+      \field{title}{Fake News Detection Using Machine Learning and BERT: A Comparative Study}
+      \field{volume}{13}
+      \field{year}{2025}
+    \endentry
+    \entry{LaCava2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f7599adea0166a1cf119265129ab0ea2}{%
+           family={La\bibnamedelima Cava},
+           familyi={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48ffe468555485f8af1c66148e7bb07a}{%
+           family={Greco},
+           familyi={G\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1fda5824ba9154f51e67754cc1c92f46}{%
+           family={Tagarelli},
+           familyi={T\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d1201c7b2fbd42ddbbc8ca50fa6bff0e}
+      \strng{fullhash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{fullhashraw}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{bibnamehash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authorbibnamehash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authornamehash}{d1201c7b2fbd42ddbbc8ca50fa6bff0e}
+      \strng{authorfullhash}{31603dd8c36640ee5b34fb743b43743f}
+      \strng{authorfullhashraw}{31603dd8c36640ee5b34fb743b43743f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Network Science}
+      \field{number}{1}
+      \field{title}{Understanding the growth of the Fediverse through the lens of Mastodon}
+      \field{volume}{8}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 32}
+      \range{pages}{32}
+    \endentry
+    \entry{lazer2018science}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{un=0,uniquepart=base,hash=237effc4004e7d9f3e5a0b19f1e1ae44}{%
+           family={Lazer},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima MJ},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32bc35c5444a6e2bdd5b9320e1e94ce8}{%
+           family={Baum},
+           familyi={B\bibinitperiod},
+           given={Matthew\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ccd91bfaf6de87d2510a58724009b53}{%
+           family={Benkler},
+           familyi={B\bibinitperiod},
+           given={Yochai},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abff43c547820881e66248439eaa0b33}{%
+           family={Berinsky},
+           familyi={B\bibinitperiod},
+           given={Adam\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9788b14e126637a67fdef1e85841646f}{%
+           family={Greenhill},
+           familyi={G\bibinitperiod},
+           given={Kelly\bibnamedelima M},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e3991fca812b39b0448729fca507968}{%
+           family={Menczer},
+           familyi={M\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29d8b38481cf361be83022d450e37f50}{%
+           family={Metzger},
+           familyi={M\bibinitperiod},
+           given={Miriam\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ef5bca6f403168706ad93d11351ed60}{%
+           family={Nyhan},
+           familyi={N\bibinitperiod},
+           given={Brendan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14ca11670fbe0c75690f2537879ddb4d}{%
+           family={Pennycook},
+           familyi={P\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=795d5f288e25d76e93208ba0af5b04e7}{%
+           family={Rothschild},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{1f19a4b355ddb0a22f3ab54d01e44ca6}
+      \strng{fullhash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{fullhashraw}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{bibnamehash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authorbibnamehash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authornamehash}{1f19a4b355ddb0a22f3ab54d01e44ca6}
+      \strng{authorfullhash}{d4ad731e30052254d4ce1876d6b1b471}
+      \strng{authorfullhashraw}{d4ad731e30052254d4ce1876d6b1b471}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6380}
+      \field{title}{The science of fake news}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1094\bibrangedash 1096}
+      \range{pages}{3}
+    \endentry
+    \entry{Park2022}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=949c0530f92a3986e2770ee92945b9e9}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jisun},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=105649cc0c82e7b3e07bade779f36466}{%
+           family={Shin},
+           familyi={S\bibinitperiod},
+           given={Jaejin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea1e0efe4f3dcaf0a50c1119d83f7ca8}{%
+           family={Fung},
+           familyi={F\bibinitperiod},
+           given={Pascale},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{667d2fd96ec17025b7c935a3aedfc3df}
+      \strng{fullhash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{fullhashraw}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{bibnamehash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authorbibnamehash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authornamehash}{667d2fd96ec17025b7c935a3aedfc3df}
+      \strng{authorfullhash}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \strng{authorfullhashraw}{d4b2a723e0abdd20d36f3db10fe6bb48}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing}
+      \field{title}{Reducing Bias in Toxic Language Detection Models with Counterfactual Data Augmentation}
+      \field{year}{2022}
+      \field{pages}{335\bibrangedash 349}
+      \range{pages}{15}
+    \endentry
+    \entry{pelrine2021surprising}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=80d84bdef6191268e1c621a09da2615d}{%
+           family={Pelrine},
+           familyi={P\bibinitperiod},
+           given={Kellin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f880b3bb910d214cbc47de8f3b2efe17}{%
+           family={Danovitch},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a470338ed48fcc706bb7809d56c61ac}{%
+           family={Rabbany},
+           familyi={R\bibinitperiod},
+           given={Reihaneh},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{80a57009ae288aec61c5bad4b8dd3712}
+      \strng{fullhash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{fullhashraw}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{bibnamehash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authorbibnamehash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authornamehash}{80a57009ae288aec61c5bad4b8dd3712}
+      \strng{authorfullhash}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \strng{authorfullhashraw}{4271185e0bf5380cdeff4fc9ee3bf3ca}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the web conference 2021}
+      \field{title}{The surprising performance of simple baselines for misinformation detection}
+      \field{year}{2021}
+      \field{pages}{3432\bibrangedash 3441}
+      \range{pages}{10}
+    \endentry
+    \entry{pennycook2021psychology}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=14ca11670fbe0c75690f2537879ddb4d}{%
+           family={Pennycook},
+           familyi={P\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=187c24b68c32371cc8f611424ad4a73d}{%
+           family={Rand},
+           familyi={R\bibinitperiod},
+           given={David\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{fullhash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{fullhashraw}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{bibnamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorbibnamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authornamehash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorfullhash}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \strng{authorfullhashraw}{6e6aa04e7b19701eb7df94c14aabdb66}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Trends in cognitive sciences}
+      \field{number}{5}
+      \field{title}{The psychology of fake news}
+      \field{volume}{25}
+      \field{year}{2021}
+      \field{pages}{388\bibrangedash 402}
+      \range{pages}{15}
+    \endentry
+    \entry{perez2018automatic}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=8cacb96fe84d7d1fd3763473e34d477a}{%
+           family={Pérez-Rosas},
+           familyi={P\bibinithyphendelim R\bibinitperiod},
+           given={V},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bf7786515de89dc809bb0249da7d7cf}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7769ba1131e93046a2fcf10d7e71b210}{%
+           family={Lefevre},
+           familyi={L\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38b8fdc19ea13dbb245c82362d2bfbca}{%
+           family={Mihalcea},
+           familyi={M\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{87a76f0c7af0dffca50628949ab1d962}
+      \strng{fullhash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{fullhashraw}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{bibnamehash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authorbibnamehash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authornamehash}{87a76f0c7af0dffca50628949ab1d962}
+      \strng{authorfullhash}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \strng{authorfullhashraw}{0719084b3fdd22c2ea6f1c1aee8ae0f4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 27th International Conference on Computational Linguistics. Association for Computational Linguistics, Santa Fe}
+      \field{title}{Automatic fake news detection}
+      \field{year}{2018}
+    \endentry
+    \entry{Ren2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=62341ebcc57e03720c55a39d93f0b17d}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d41347f273c226091f12a17225bb356a}{%
+           family={Rogers},
+           familyi={R\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{fullhash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{fullhashraw}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{bibnamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorbibnamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authornamehash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorfullhash}{91d2e32cb18a39763dae7ec48313e49e}
+      \strng{authorfullhashraw}{91d2e32cb18a39763dae7ec48313e49e}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 13th ACM Web Science Conference}
+      \field{title}{The Fragmented Web of Moderation: Challenges in Federated and Decentralized Social Networks}
+      \field{year}{2021}
+      \field{pages}{69\bibrangedash 78}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3472721.3472764
+      \endverb
+    \endentry
+    \entry{Ruchansky2017}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4dbafa360d063805ea0c22794b8a1b08}{%
+           family={Ruchansky},
+           familyi={R\bibinitperiod},
+           given={Natali},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3d0f25e37de4fd28d7f2a4fbd627dd2}{%
+           family={Seo},
+           familyi={S\bibinitperiod},
+           given={Sungyong},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92f7474e36f4f2b59a14e85c0e738e40}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{25ae833686eb7a9140e5e038d4cd77c8}
+      \strng{fullhash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{fullhashraw}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{bibnamehash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authorbibnamehash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authornamehash}{25ae833686eb7a9140e5e038d4cd77c8}
+      \strng{authorfullhash}{409a829e41a6a169c397bb088bf3ce82}
+      \strng{authorfullhashraw}{409a829e41a6a169c397bb088bf3ce82}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2017 ACM on Conference on Information and Knowledge Management (CIKM '17)}
+      \field{title}{CSI: A Hybrid Deep Model for Fake News Detection}
+      \field{year}{2017}
+      \field{pages}{797\bibrangedash 806}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/3132847.3132877
+      \endverb
+    \endentry
+    \entry{Salaverria2024}{inbook}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e7537d4500d0ee7c6d1559609d241987}{%
+           family={Salaverría},
+           familyi={S\bibinitperiod},
+           given={Ramón},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccc8d821f3bfcfd565f758ec6a83f6fd}{%
+           family={Martínez-Costa},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={María-del-Pilar},
+           giveni={M\bibinithyphendelim d\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08ff5d52b5c966aeeb530dad883a4c30}{%
+           family={González-Tosat},
+           familyi={G\bibinithyphendelim T\bibinitperiod},
+           given={Clara},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Palgrave Macmillan}%
+      }
+      \strng{namehash}{3dfccbd2f9a59a9f6a70a4c369986d7e}
+      \strng{fullhash}{664f642413afef61c3c8c627adfece5d}
+      \strng{fullhashraw}{664f642413afef61c3c8c627adfece5d}
+      \strng{bibnamehash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authorbibnamehash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authornamehash}{3dfccbd2f9a59a9f6a70a4c369986d7e}
+      \strng{authorfullhash}{664f642413afef61c3c8c627adfece5d}
+      \strng{authorfullhashraw}{664f642413afef61c3c8c627adfece5d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Journalism, Digital Media and the Fourth Industrial Revolution}
+      \field{title}{Decentralised Networks as a Tool for Fighting Disinformation and Censorship: The Fediverse and Free, Collaborative and Open Networks}
+      \field{year}{2024}
+      \field{pages}{15\bibrangedash 25}
+      \range{pages}{11}
+    \endentry
+    \entry{shao2018spread}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=f0d3375abef0c285e50cad6342adfd1b}{%
+           family={Shao},
+           familyi={S\bibinitperiod},
+           given={Chengcheng},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c18e207edcbf3ffb829cdacc77d4f828}{%
+           family={Ciampaglia},
+           familyi={C\bibinitperiod},
+           given={Giovanni\bibnamedelima Luca},
+           giveni={G\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0a87d0c70e43b7e935e92f1f97c48d2e}{%
+           family={Varol},
+           familyi={V\bibinitperiod},
+           given={Onur},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41dfba5c4d3b36f03ec338b7204ecaa0}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Kai-Cheng},
+           giveni={K\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2596bc60fbbe46dccfc09ae3fd2522d0}{%
+           family={Flammini},
+           familyi={F\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e3991fca812b39b0448729fca507968}{%
+           family={Menczer},
+           familyi={M\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group UK London}%
+      }
+      \strng{namehash}{fa270c6c2839711be1206c9ffeb7eab6}
+      \strng{fullhash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{fullhashraw}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{bibnamehash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authorbibnamehash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authornamehash}{fa270c6c2839711be1206c9ffeb7eab6}
+      \strng{authorfullhash}{ae4c79188aa7fc11180aa74b512d08a6}
+      \strng{authorfullhashraw}{ae4c79188aa7fc11180aa74b512d08a6}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature communications}
+      \field{number}{1}
+      \field{title}{The spread of low-credibility content by social bots}
+      \field{volume}{9}
+      \field{year}{2018}
+      \field{pages}{4787}
+      \range{pages}{1}
+    \endentry
+    \entry{Shu2017}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b7e59a821f2474127e14134fb2309373}{%
+           family={Shu},
+           familyi={S\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=77c4e54b966442a2859a568c5f242606}{%
+           family={Sliva},
+           familyi={S\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d51786a0dffbd8ee68a63e5263f05e7f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Suhang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=854278958e1021c53ca312cc8316e2a6}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jiliang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a83f8cd28a9f36e43dd5d017cd7fc8f4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{fullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{fullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \strng{bibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorbibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authornamehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{authorfullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorfullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM SIGKDD Explorations Newsletter}
+      \field{number}{1}
+      \field{title}{Fake News Detection on Social Media: A Data Mining Perspective}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{22\bibrangedash 36}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1145/3137597.3137600
+      \endverb
+    \endentry
+    \entry{shu2017fake}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b7e59a821f2474127e14134fb2309373}{%
+           family={Shu},
+           familyi={S\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=77c4e54b966442a2859a568c5f242606}{%
+           family={Sliva},
+           familyi={S\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d51786a0dffbd8ee68a63e5263f05e7f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Suhang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=854278958e1021c53ca312cc8316e2a6}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jiliang},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a83f8cd28a9f36e43dd5d017cd7fc8f4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{fullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{fullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \strng{bibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorbibnamehash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authornamehash}{d1915d896361e92bd418daaf1e0364ff}
+      \strng{authorfullhash}{7dbdf39f436866a636999f9d856a5534}
+      \strng{authorfullhashraw}{7dbdf39f436866a636999f9d856a5534}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM SIGKDD explorations newsletter}
+      \field{number}{1}
+      \field{title}{Fake news detection on social media: A data mining perspective}
+      \field{volume}{19}
+      \field{year}{2017}
+      \field{pages}{22\bibrangedash 36}
+      \range{pages}{15}
+    \endentry
+    \entry{SpencerSmith2025}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dfe257f684ee470fc49fafd6aef14954}{%
+           family={Spencer-Smith},
+           familyi={S\bibinithyphendelim S\bibinitperiod},
+           given={Charlotte},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4665f76b384adf0f72f12fbf3bdaa32b}{%
+           family={Tomaz},
+           familyi={T\bibinitperiod},
+           given={Tales},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{dbcae050affe03e8b743117279918efa}
+      \strng{fullhash}{dbcae050affe03e8b743117279918efa}
+      \strng{fullhashraw}{dbcae050affe03e8b743117279918efa}
+      \strng{bibnamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorbibnamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authornamehash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorfullhash}{dbcae050affe03e8b743117279918efa}
+      \strng{authorfullhashraw}{dbcae050affe03e8b743117279918efa}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Internet Policy Review}
+      \field{number}{1}
+      \field{title}{Labour pains: Content moderation challenges in Mastodon growth}
+      \field{volume}{14}
+      \field{year}{2025}
+      \field{pages}{1831}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.14763/2025.1.1831
+      \endverb
+    \endentry
+    \entry{SuryaCreatX2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1b0d1a6f0d104803e5e1726363dc3862}{%
+           family={{Surya CreatX}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{fullhash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{fullhashraw}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{bibnamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorbibnamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authornamehash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorfullhash}{1b0d1a6f0d104803e5e1726363dc3862}
+      \strng{authorfullhashraw}{1b0d1a6f0d104803e5e1726363dc3862}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decentralized Social Media and the Limits of Automated Moderation}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://suryacreatx.medium.com
+      \endverb
+      \verb{url}
+      \verb https://suryacreatx.medium.com
+      \endverb
+    \endentry
+    \entry{TechPolicy2025}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0671ee3aa5ccd662b43e9e4f31bb96c0}{%
+           family={TechPolicy.Press},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{fullhash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{fullhashraw}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{bibnamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorbibnamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authornamehash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorfullhash}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \strng{authorfullhashraw}{0671ee3aa5ccd662b43e9e4f31bb96c0}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{TechPolicy.Press}
+      \field{title}{Online Safety and the ``Great Decentralization'' – The Perils and Promises of Federated Social Media}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.techpolicy.press/online-safety-and-the-great-decentralization-the-perils-and-promises-of-federated-social-media
+      \endverb
+      \verb{url}
+      \verb https://www.techpolicy.press/online-safety-and-the-great-decentralization-the-perils-and-promises-of-federated-social-media
+      \endverb
+    \endentry
+    \entry{vosoughi2018spread}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebb347d48a8f2885b4a3e7fe036e6754}{%
+           family={Vosoughi},
+           familyi={V\bibinitperiod},
+           given={Soroush},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32efe6714e7367da453770fd1608e785}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Deb},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f3caa8da6f7b466d61b4df9bcbc94de}{%
+           family={Aral},
+           familyi={A\bibinitperiod},
+           given={Sinan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{fullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{fullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{bibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorbibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authornamehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{authorfullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorfullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \field{extraname}{1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{science}
+      \field{number}{6380}
+      \field{title}{The spread of true and false news online}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1146\bibrangedash 1151}
+      \range{pages}{6}
+    \endentry
+    \entry{Vosoughi2018}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ebb347d48a8f2885b4a3e7fe036e6754}{%
+           family={Vosoughi},
+           familyi={V\bibinitperiod},
+           given={Soroush},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32efe6714e7367da453770fd1608e785}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Deb},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4f3caa8da6f7b466d61b4df9bcbc94de}{%
+           family={Aral},
+           familyi={A\bibinitperiod},
+           given={Sinan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{fullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{fullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{bibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorbibnamehash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authornamehash}{1311ea19547c56bf47f702affd1c6ee4}
+      \strng{authorfullhash}{bf7cccc18c1f744b6a26d4590d742208}
+      \strng{authorfullhashraw}{bf7cccc18c1f744b6a26d4590d742208}
+      \field{extraname}{2}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6380}
+      \field{title}{The spread of true and false news online}
+      \field{volume}{359}
+      \field{year}{2018}
+      \field{pages}{1146\bibrangedash 1151}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1126/science.aap9559
+      \endverb
+    \endentry
+    \entry{LIAR2016}{dataset}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b9b2f81da3e41fbc72b81f1b7f2e722}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={William\bibnamedelima Yang},
+           giveni={W\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACL}%
+      }
+      \strng{namehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{bibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorbibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authornamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LIAR: A Benchmark Dataset for Fake News Detection}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://www.cs.ucsb.edu/~william/data/liar_dataset.zip
+      \endverb
+      \verb{url}
+      \verb https://www.cs.ucsb.edu/~william/data/liar_dataset.zip
+      \endverb
+    \endentry
+    \entry{Wang2017}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3b9b2f81da3e41fbc72b81f1b7f2e722}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={William\bibnamedelima Yang},
+           giveni={W\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Vancouver, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{fullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{bibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorbibnamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authornamehash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhash}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \strng{authorfullhashraw}{3b9b2f81da3e41fbc72b81f1b7f2e722}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)}
+      \field{title}{``Liar, Liar Pants on Fire'': A New Benchmark Dataset for Fake News Detection}
+      \field{year}{2017}
+      \field{pages}{422\bibrangedash 426}
+      \range{pages}{5}
+      \verb{urlraw}
+      \verb https://aclanthology.org/P17-2067
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/P17-2067
+      \endverb
+    \endentry
+    \entry{wardle2017information}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2772755217609db4a47924a79c7a93bc}{%
+           family={Wardle},
+           familyi={W\bibinitperiod},
+           given={Claire},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5bbc4b8efdca816deed96cde297f27e6}{%
+           family={Derakhshan},
+           familyi={D\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Council of Europe Strasbourg}%
+      }
+      \strng{namehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{fullhash}{a59c87d08253f050125d77ee949102c8}
+      \strng{fullhashraw}{a59c87d08253f050125d77ee949102c8}
+      \strng{bibnamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorbibnamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authornamehash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorfullhash}{a59c87d08253f050125d77ee949102c8}
+      \strng{authorfullhashraw}{a59c87d08253f050125d77ee949102c8}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Information disorder: Toward an interdisciplinary framework for research and policymaking}
+      \field{volume}{27}
+      \field{year}{2017}
+    \endentry
+    \entry{zhou2020similarity}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ddd6ceff96e70d0c817fc28c95d6b2c4}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Xinyi},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2468bcbd176480ecc966ee69bdc45ab7}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jindi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f27318b8327f5c3832e82f2e020a1d1f}{%
+           family={Zafarani},
+           familyi={Z\bibinitperiod},
+           given={Reza},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{84ce5cce537ed22c490af3ee9291a70b}
+      \strng{fullhash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{fullhashraw}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{bibnamehash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authorbibnamehash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authornamehash}{84ce5cce537ed22c490af3ee9291a70b}
+      \strng{authorfullhash}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \strng{authorfullhashraw}{995db4e9e64dfaef44707a4a8f6b1f5f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pacific-Asia Conference on knowledge discovery and data mining}
+      \field{title}{: Similarity-aware multi-modal fake news detection}
+      \field{year}{2020}
+      \field{pages}{354\bibrangedash 367}
+      \range{pages}{14}
+    \endentry
+    \entry{Zia2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=006a2bf87385916132d0f169d3a5af02}{%
+           family={Zia},
+           familyi={Z\bibinitperiod},
+           given={Haris\bibnamedelima Bin},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23868224b5334fcbb628335b872eca4f}{%
+           family={Raman},
+           familyi={R\bibinitperiod},
+           given={Aravindh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e38151b7a3dc7193a143c6ad630f3c6e}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Ignacio},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a658b812e3374b348ad6585d05af4d6}{%
+           family={Tyson},
+           familyi={T\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bce5cf1f64758c2964e30aa5097c8fb8}
+      \strng{fullhash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{fullhashraw}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{bibnamehash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authorbibnamehash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authornamehash}{bce5cf1f64758c2964e30aa5097c8fb8}
+      \strng{authorfullhash}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \strng{authorfullhashraw}{ca5d5706c0e23a917f8c6a87874faf3f}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2501.05871}
+      \field{note}{Recent onderzoek naar de uitdagingen van moderatie op decentrale netwerken.}
+      \field{title}{Collaborative Content Moderation in the Fediverse}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2501.05871
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2501.05871
+      \endverb
+    \endentry
+    \entry{Zignani2019}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=c2f50d05d92880f383ef37d481f32175}{%
+           family={Zignani},
+           familyi={Z\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02df3b40f3c332bbc2831f3178e163f6}{%
+           family={Quadri},
+           familyi={Q\bibinitperiod},
+           given={Claudia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4472e5cb1659e4b958d81b8d838f96f}{%
+           family={Gaito},
+           familyi={G\bibinitperiod},
+           given={Sabrina},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f91268bcfdf3f3b1974e98248ed13734}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={Gian\bibnamedelima Paolo},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fc088b58706f6377b8c9dbeae5e0033f}
+      \strng{fullhash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{fullhashraw}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{bibnamehash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authorbibnamehash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authornamehash}{fc088b58706f6377b8c9dbeae5e0033f}
+      \strng{authorfullhash}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \strng{authorfullhashraw}{2e7858d0a59047a4650b4a4a77e3cdc1}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2019 IEEE International Conference on Communications Workshops (ICC Workshops)}
+      \field{title}{Mastodon Content and User Analysis}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICCW.2019.8757060
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

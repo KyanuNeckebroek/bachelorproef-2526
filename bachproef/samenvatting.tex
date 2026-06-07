@@ -45,4 +45,12 @@
 
 \chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
 
-\lipsum[1-4]
+Deze bachelorproef onderzoekt de detectie van misinformatie op Mastodon, een gedecentraliseerd sociaal netwerk zonder centrale moderatie. Het onderzoek stelt de vraag welke machine learning modellen het meest geschikt zijn om misleidende berichten te classificeren op Mastodon en welke inhoudelijke factoren de nauwkeurigheid van die modellen beïnvloeden.
+
+De methodologie combineert een aangepaste versie van de LIAR-dataset met 300 Mastodon-berichten die ik handmatig heb gelabeld. Voor de traditionele modellen (Logistic Regression en Support Vector Machines) werden tekstfuncties omgezet met TF-IDF, terwijl het Transformer-gebaseerde BERT-model werd gefinetuned op dezelfde dataset. Evaluatie is uitgevoerd op een onafhankelijke testset met standaard metrieken zoals accuracy, macro F1, precision, recall en AUC-ROC.
+
+De resultaten tonen gemengde bevindingen: BERT bereikt de hoogste accuracy (0,652), de hoogste macro F1-score (0,638), de hoogste binaire F1-score (0,709) en de hoogste AUC-ROC (0,682). Logistic Regression blijft een sterke baseline met vergelijkbare prestaties (accuracy 0,639, macro F1 0,633), terwijl SVM beduidend lager presteert (accuracy 0,622, macro F1 0,576) ondanks het hoogste recall voor de klasse "waar" (0,830). BERT wordt als meest geschikt aangemerkt omdat: (1) het allround de beste evaluatiecijfers heeft, (2) het beter generaliseert op nieuwe, onbekende berichten, (3) de macro F1-score het model robuust maakt over beide klassen, en (4) het consistent goed presteert in zowel precieze als recall-gevoelige toepassingen. Logistic Regression blijft waardevol als snelle, transparante baseline die met minimale computerbronnen kan draaien.
+
+Verder onderzoek naar inhoudelijke factoren laat zien dat langere berichten en berichten met lage bronbetrouwbaarheid vaker tot classificatiefouten leiden. Taalgebruikkenmerken zoals vraagtekens, hoofdletters en URLs blijken eveneens invloedrijk voor de modelprestaties, wat aangeeft dat zowel tekstinhoud als stijlkenmerken belangrijke signalen bevatten.
+
+De conclusie is dat BERT in deze experimentele opzet de meest geschikte basis biedt voor automatische detectie van misinformatie op Mastodon, maar dat een hybride aanpak met traditionele modellen en menselijke moderatie realistischer is vanwege de fragmentatie en variatie in Mastodon-data. Aanbevolen wordt de dataset uit te breiden en contextuele kenmerken verder te integreren om de betrouwbaarheid van de detectiesysteem verder te verhogen.

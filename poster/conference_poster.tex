@@ -1,86 +1,222 @@
 %==============================================================================
 % Sjabloon poster bachproef
 %==============================================================================
-% Gebaseerd op document class `a0poster' door Gerlinde Kettl en Matthias Weiser
-% Aangepast voor gebruik aan HOGENT door Jens Buysse en Bert Van Vreckem
-
 \documentclass[a0,portrait]{hogent-poster}
 
 % Info over de opleiding
 \course{Bachelorproef}
 \studyprogramme{toegepaste informatica}
-\academicyear{2022-2023}
+\academicyear{2025-2026}
 \institution{Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent}
 
 % Info over de bachelorproef
-\title{Titel van uw bachelorproef}
-\subtitle{Ondertitel (eventueel)}
-\author{Voornaam Naam}
-\email{voornaam.familienaam@student.hogent.be}
-\supervisor{Voornaam Naam}
-\cosupervisor{Voornaam Naam (Bedrijf)}
+\title{Automatische detectie van misinformatie op Mastodon}
+\subtitle{Vergelijking van machine learning modellen}
+\author{Kyanu Neckebroek}
+\email{kyanu.neckebroek@student.hogent.be}
+\supervisor{S. Van Impe}
+\cosupervisor{K. Cools}
 
-% Indien ingevuld, wordt deze informatie toegevoegd aan het einde van de
-% abstract. Zet in commentaar als je dit niet wilt.
-\specialisation{Systeem- en Netwerkbeheer}
-\keywords{Lambda-calculus, Scheme}
-\projectrepo{https://github.com/user/repo}
+\specialisation{Toegepaste Informatica}
+\keywords{misinformatie, machine learning, BERT, Mastodon, decentrale netwerken}
+\projectrepo{https://github.com/HoGentTIN/latex-hogent-bachproef}
+
+% Extra pakketten voor de layout
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds}
+
+% Kleuren
+\definecolor{hogent-blue}{HTML}{0075b3} % Officiële HOGENT blauw
+\definecolor{html-gray-bg}{HTML}{f1f5f9}
+\definecolor{html-gray-border}{HTML}{cbd5e1}
+\definecolor{html-gray-text}{HTML}{475569}
+
+% Commando voor HTML-stijl sectietitels
+\newcommand{\htmlsection}[1]{
+    \vspace{1.5cm}
+    \noindent{\Large\bfseries\sffamily\color{hogent-blue}\MakeUppercase{#1}}\\[-0.5ex]
+    {\color{hogent-blue}\rule{\linewidth}{3pt}}\vspace{1.5ex}
+}
+
+% Commando voor tags
+\newcommand{\htmltag}[1]{%
+    \tikz[baseline=(X.base)] \node[draw=html-gray-border, fill=html-gray-bg, text=html-gray-text, rounded corners=4pt, inner sep=6pt, font=\large] (X) {#1};%
+}
+
+% Stijl voor Result Cards
+\newtcolorbox{resultcard}[1][]{
+    enhanced,
+    colback=html-gray-bg,
+    colframe=html-gray-border,
+    boxrule=2pt,
+    arc=8pt,
+    halign=center,
+    valign=center,
+    #1
+}
+
+% Spacing en layout optimalisatie
+\setlength{\columnsep}{60pt}
+\renewcommand{\columnseprule}{0pt}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-It's only a model.
-You don't vote for kings. Who's that then? We found them. Ni! Ni! Ni! Ni!
-The nose? On second thoughts, let's not go there. It is a silly place. Bloody Peasant! And the hat. She's a witch! Where'd you get the coconuts?
-\end{abstract}
+\vspace{1.5cm}
 
-\begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+% --- START KOLOMMEN ---
+\begin{multicols}{2}
 
-\section{Introductie}
+% ================= KOLOM 1 =================
+\htmlsection{Introductie \& Probleemstelling}
 
-Be quiet! Found them? In Mercia?! The coconut's tropical! But you are dressed as one… Well, what do you want? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
+Mastodon groeit als \textbf{gedecentraliseerd} sociaal netwerk zonder centrale moderatie. Bestaande misinformatiedetectiemodellen zijn gebouwd voor platforms als Twitter en presteren suboptimaal op de heterogene Mastodon-data (max. 500 tekens, wisselende metadata).
 
-Well, what do you want? It's only a model. Camelot! We found them. We shall say `Ni' again to you, if you do not appease us.
+\vspace{12pt}
+\noindent\textbf{Hoofdonderzoeksvraag:}\\
+\textit{Welke machine learning modellen zijn het meest geschikt voor het detecteren van misinformatie op Mastodon en welke inhoudelijke factoren beïnvloeden de nauwkeurigheid van deze modellen?}
 
-The nose? Shut up! Burn her! I am your king. You don't vote for kings.
+\vspace{8pt}
+\noindent\textbf{Deelvragen:}
+\begin{itemize}
+\item Wat is de relatieve prestatie van BERT versus traditionele modellen (SVM, Logistic Regression)?
+\item Welke factoren (berichtlengte, bronbetrouwbaarheid, taalgebruik) hebben statistisch significante invloed?
+\item Hoe generaliseren modellen van de LIAR-dataset naar Mastodon-specifieke berichten?
+\end{itemize}
 
-You can't expect to wield supreme power just `cause some watery tart threw a sword at you! Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+\htmlsection{Methodologie}
 
-Why do you think that she is a witch? We want a shrubbery!! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+\begin{itemize}
+    \item \textbf{Data:} LIAR (12.836 claims) + 300 handmatig gelabelde Mastodon-berichten. Binaire classificatie: \textit{waar} vs. \textit{onwaar}.
+    \item \textbf{Modellen:} SVM (TF-IDF), Logistic Regression (TF-IDF), en BERT (fine-tuned). Alle getraind met vaste seed.
+    \item \textbf{Evaluatie:} F1-score (macro), Precision, Recall, AUC-ROC en factoranalyse (ANOVA, Chi-kwadraat, Mann-Whitney U).
+\end{itemize}
 
-\section{Experimenten}
+\vspace{16pt}
+\noindent
+\htmltag{Mastodon} \htmltag{LIAR-Dataset} \htmltag{BERT} \htmltag{Fediverse} \htmltag{Macro F1-score}
 
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
-
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
-
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
-
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
-
-\section{Sectie met figuur}
-
-De {\LaTeX} figure-omgeving bepaalt zelf waar een afbeelding komt en dat is meestal niet op de plek in de tekst waar de figure-omgeving gedefinieerd wordt. Als je wilt forceren dat afbeeldingen toch in de flow van de tekst blijven, dan kan je dat zoals hieronder:
-
+\vspace{1.5cm}
 \begin{center}
-  \captionsetup{type=figure}
-  \includegraphics[width=1.0\linewidth]{grail}
-  \captionof{figure}{He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say `Ni' again to you, if you do not appease us}
+\begin{tikzpicture}[
+    node distance=1.5cm and 1cm,
+    box/.style={draw=hogent-blue, thick, rounded corners, fill=html-gray-bg, align=center, minimum width=6cm, minimum height=1.5cm, font=\Large},
+    arrow/.style={-{Stealth[scale=1.5]}, line width=2pt, hogent-blue}
+]
+    \node[box] (data) {Dataverzameling\\(LIAR + Mastodon API)};
+    \node[box, below=of data] (prep) {Pre-processing\\\& TF-IDF / Tokenization};
+    \node[box, below=of prep] (train) {Modeltraining};
+    \node[box, below=of train] (eval) {Model Evaluatie};
+    
+    \draw[arrow] (data) -- (prep);
+    \draw[arrow] (prep) -- (train);
+    \draw[arrow] (train) -- (eval);
+\end{tikzpicture}
+\vspace{15pt}
+\\
+\footnotesize \textcolor{html-gray-text}{Figuur 1: Dataverzameling- en trainingspipeline}
 \end{center}
 
-Let er wel op dat dit tot problemen met bladschikking kan leiden.
+\vfill\null
+\columnbreak
+% ================= KOLOM 2 =================
 
-\section{Conclusies}
+\htmlsection{Resultaten}
 
-Don't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
+% 2x2 Grid voor resultaten
+\noindent
+\begin{minipage}{0.48\linewidth}
+    \begin{resultcard}[colframe=hogent-blue, boxrule=3pt] % Beste model benadrukt
+        \vspace{10pt}
+        \Large\textbf{\textcolor{hogent-blue}{BERT}}\\[5pt]
+        \Huge\textbf{\textcolor{hogent-blue}{0.638}}\\[5pt]
+        \normalsize \textcolor{html-gray-text}{MACRO F1}
+        \vspace{10pt}
+    \end{resultcard}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+    \begin{resultcard}
+        \vspace{10pt}
+        \Large\textbf{\textcolor{html-gray-text}{LOG. REGRESSION}}\\[5pt]
+        \Huge\textbf{0.633}\\[5pt]
+        \normalsize \textcolor{html-gray-text}{MACRO F1}
+        \vspace{10pt}
+    \end{resultcard}
+\end{minipage}
 
-\section{Toekomstig onderzoek}
+\vspace{16pt}
+\noindent
+\begin{minipage}{0.48\linewidth}
+    \begin{resultcard}
+        \vspace{10pt}
+        \Large\textbf{\textcolor{html-gray-text}{SVM}}\\[5pt]
+        \Huge\textbf{0.576}\\[5pt]
+        \normalsize \textcolor{html-gray-text}{MACRO F1}
+        \vspace{10pt}
+    \end{resultcard}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+    \begin{resultcard}
+        \vspace{10pt}
+        \Large\textbf{\textcolor{html-gray-text}{BERT AUC-ROC}}\\[5pt]
+        \Huge\textbf{0.682}\\[5pt]
+        \normalsize \textcolor{html-gray-text}{DISCRIMINATIE}
+        \vspace{10pt}
+    \end{resultcard}
+\end{minipage}
 
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
+\vspace{1.5cm}
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+\begin{axis}[
+  ybar,
+  ylabel={F1-Score (Macro)},
+  ymajorgrids=true,
+  grid style=dashed,
+  symbolic x coords={SVM, Log. Reg., BERT},
+  xtick=data,
+  ymin=0.50,
+  ymax=0.70,
+  bar width=1.8cm,
+  width=11cm,
+  height=7cm,
+  nodes near coords,
+  nodes near coords align={vertical},
+  every node near coord/.append style={font=\footnotesize},
+]
+\addplot[color=hogent-blue, fill=hogent-blue!80] coordinates {
+    (SVM, 0.576) 
+    (Log. Reg., 0.633) 
+    (BERT, 0.638)
+};
+\end{axis}
+\end{tikzpicture}
+\vspace{10pt}
+\\
+\footnotesize \textcolor{html-gray-text}{Figuur 2: Macro F1-score vergelijking per model op de testset}
+\end{center}
 
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
+\vspace{16pt}
+\textbf{Invloed inhoudelijke factoren:}\\
+Berichtlengte toont het sterkste effect: langere berichten leiden vaker tot classificatiefouten. Lage bronbetrouwbaarheid en specifieke taalkenmerken (woordaantal, vraagtekens) beïnvloeden de nauwkeurigheid tevens significant ($p<0.05$).
+
+
+\htmlsection{Conclusies \& Discussie}
+
+\begin{itemize}
+    \item \textbf{Antwoord op onderzoeksvraag:} BERT presteert allround het best (Macro F1: 0.638). Logistic Regression vormt echter een onverwacht sterke en rekenkundig \textbf{lichtgewicht baseline}. SVM kampt met een sterke bias naar "waar".
+    \item \textbf{Praktische implicaties:} Voor het Fediverse, met beperkte middelen per instance, is een \textbf{hybride aanpak} ideaal: lichte modellen (LR) lokaal voor snelle voorselectie, en zware modellen (BERT) voor complexe of twijfelachtige signalen.
+    \item \textbf{Wetenschappelijke bijdrage:} Machine learning is effectief in gefragmenteerde decentrale omgevingen. Zowel tekstinhoud als bronmetadata dragen cruciale signalen in zich.
+\end{itemize}
+
+
+\htmlsection{Toekomstig onderzoek}
+
+Multimodale detectie (tekst + beeld via CLIP), Explainable AI (LIME/SHAP) voor betere transparantie richting moderatoren, en de integratie van netwerkkenmerken zoals de defederatie-historiek.
 
 \end{multicols}
 \end{document}

@@ -30,8 +30,8 @@ Omdat er geen kant-en-klare dataset bestaat voor misinformatie op Mastodon, staa
     \item \textbf{Methode:}
     \begin{enumerate}
         \item \textbf{Trainingdata:} Gebruik van de LIAR-dataset, een benchmark voor fake news detectie. De labels worden vereenvoudigd naar een binaire classificatie (waar/onwaar) om compatibiliteit te garanderen.
-        \item \textbf{Testdata (Mastodon):} Ontwikkeling van een Python-script dat via de publieke Mastodon API berichten verzamelt. Er worden minimaal 500 berichten verzameld, waarbij specifiek wordt gezocht op hashtags gerelateerd aan actualiteit.
-        \item \textbf{Verificatie:} De Mastodon-berichten worden gelabeld aan de hand van betrouwbare factcheck-bronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact}.
+        \item \textbf{Testdata (Mastodon):} Ik heb een Python-script ontwikkeld dat via de publieke Mastodon API berichten verzamelde. Ik verzamelde 300 berichten met hashtags die betrekking hebben op actuele thema's.
+        \item \textbf{Verificatie:} Ik heb de Mastodon-berichten handmatig gelabeld aan de hand van betrouwbare factcheck-bronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact}.
     \end{enumerate}
     \item \textbf{Deliverable:} Een gecombineerde, opgeschoonde dataset klaar voor modeltraining.
 \end{itemize}

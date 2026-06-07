@@ -137,3 +137,5 @@ out/
 
 *.safetensors
 *.joblib
+
+venv/

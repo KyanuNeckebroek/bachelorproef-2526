@@ -34,7 +34,7 @@ De vraag die ik wil beantwoorden met mijn bachelorproef geldt als volgt:
 "Welke machine learning modellen kunnen misinformatie detecteren binnen de decentrale context van Mastodon?"
 Het doel van dit onderzoek is het evalueren en vergelijken van de detectienauwkeurigheid
 van deze modellen aan de hand van een aangepaste versie van de LIAR-dataset,
-toegepast op meer dan 500 Mastodon-berichten.
+toegepast op 300 Mastodon-berichten.
 Daarnaast wordt geanalyseerd welke inhoudelijke factoren, zoals berichtlengte,
 taalgebruik en bronbetrouwbaarheid, invloed uitoefenen op de prestaties van de modellen.
 Hoe zullen de F1-scores van een gefinetuned BERT-model zich verhouden tot die van SVM en Logistic Regression bij toepassing op de aangepaste LIAR-dataset?
@@ -154,7 +154,7 @@ gecombineerd met een \emph{proof-of-concept} implementatie en factoranalyse.
 De dataset bestaat uit:
 \begin{itemize}
     \item Een aangepaste versie van de LIAR-dataset met gelabelde publieke statements \autocite{LIAR2016}.
-    \item Minimaal 500 Mastodon-berichten, verzameld via de Mastodon API van publieke instances.
+    \item Minimaal 300 Mastodon-berichten, verzameld via de Mastodon API van publieke instances.
 \end{itemize}
 Berichten worden gelabeld op basis van betrouwbare factcheck-bronnen zoals \textit{VRT NWS Factcheck} en \textit{PolitiFact},
 waardoor een consistente \emph{ground truth} ontstaat.  
